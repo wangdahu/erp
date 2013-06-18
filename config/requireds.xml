@@ -1,0 +1,12 @@
+<?xml version='1.0' ?>
+<requireds>
+  <required>
+    <app>core</app>
+    <label>oa核心</label>
+    <modifier>>=</modifier>
+    <version>2.3</version>
+    <author>idkin</author>
+    <desc>oa2 核心</desc>
+
+  </required>
+</requireds>

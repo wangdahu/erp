@@ -1,0 +1,11 @@
+<?xml version='1.0' ?>
+<info>
+
+  <app>pss</app>
+  <label>进销存管理</label>
+  <version>1.0</version>
+  <author>idkin</author>
+  <desc>进销存管理系统</desc>
+  <type>1</type>
+
+</info>

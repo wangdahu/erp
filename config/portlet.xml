@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<portlets>
+  <portlet>
+    <component>PssPortlet</component>
+    <name>进销存 -- 待审批单据</name>
+    <config></config>
+  </portlet>
+</portlets>

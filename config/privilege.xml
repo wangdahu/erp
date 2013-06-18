@@ -1,0 +1,164 @@
+<?xml version='1.0'?>
+<groups>
+    <group>
+        <key>sales</key>
+        <label>进销存-销售单</label>
+        <items>
+            <item>
+                <key>sales_order_create</key>
+                <label>新添销售单</label>
+                <desc>新添销售单权限</desc>
+            </item>
+
+            <item>
+                <key>sales_order_view</key>
+                <label>查看销售单</label>
+                <desc>查看所有销售信息权限</desc>
+            </item>
+            
+            <item>
+                <key>sales_back</key>
+                <label>销售退货</label>
+                <desc>新添（销售）退货单权限</desc>
+            </item>
+            
+            <item>
+                <key>sales_admin</key>
+                <label>销售管理</label>
+                <desc>有销售单模块管理权限：可查看所有销售信息、结单操作</desc>
+            </item>
+        </items>
+    </group>
+    
+    <group>
+        <key>buy</key>
+        <label>进销存-采购单</label>
+        <items>
+            <item>
+                <key>buy_order_create</key>
+                <label>新添采购单</label>
+                <desc>新添采购单权限</desc>
+            </item>
+            
+            <item>
+                <key>buy_order_view</key>
+                <label>查看采购单</label>
+                <desc>查看所有采购信息权限</desc>
+            </item>
+            
+            <item>
+                <key>buy_back</key>
+                <label>采购退货</label>
+                <desc>新添（采购）退货单权限</desc>
+            </item>
+            
+            <item>
+                <key>buy_admin</key>
+                <label>采购管理</label>
+                <desc>有采购单模块管理权限：可查看所有采购信息、结单操作</desc>
+            </item>
+        </items>
+    </group>
+    
+    <group>
+        <key>stock</key>
+        <label>进销存-货品库存</label>
+        <items>
+            
+            <item>
+                <key>stock_add</key>
+                <label>新添库存</label>
+                <desc>新添出库、入库、调拨、新添/修改产品的权限（可查看货品库存及产品目录，但只可查看自己负责入库/出库/调拨的订单信息）</desc>
+            </item>
+            
+            <item>
+                <key>stock_view</key>
+                <label>查看库存</label>
+                <desc>查看库存管理模块所有信息权限</desc>
+            </item>
+            
+            <item>
+                <key>stock_admin</key>
+                <label>库存管理</label>
+                <desc>对库存管理所有内容的管理权限：包括对产品的删除、订单的删除</desc>
+            </item>
+        </items>
+    </group>
+    
+    <group>
+        <key>supplier</key>
+        <label>进销存-供应商</label>
+        <items>
+            
+            <item>
+                <key>supplier_create</key>
+                <label>新添供应商</label>
+                <desc>新添/修改供应商（不可删除）</desc>
+            </item>
+            
+            <item>
+                <key>supplier_view</key>
+                <label>查看供应商</label>
+                <desc>查看所有供应商</desc>
+            </item>
+            
+            <item>
+                <key>supplier_admin</key>
+                <label>供应商管理</label>
+                <desc>查看、编辑、删除所有供应商、更改跟进人</desc>
+            </item>
+            
+        </items>
+    </group>
+    
+    <group>
+        <key>customer</key>
+        <label>进销存-客户</label>
+        <items>
+            <item>
+                <key>customer_create</key>
+                <label>新添客户</label>
+                <desc>新添/修改客户（不可删除）</desc>
+            </item>
+            
+            <item>
+                <key>customer_view</key>
+                <label>查看客户</label>
+                <desc>查看所有客户</desc>
+            </item>
+            
+            <item>
+                <key>customer_admin</key>
+                <label>客户管理</label>
+                <desc>查看、编辑、删除所有客户、更改跟进人</desc>
+            </item>
+            
+        </items>
+    </group>
+    
+    <group>
+        <key>other</key>
+        <label>进销存-其他</label>
+        <items>
+
+            <item>
+                <key>finance_admin</key>
+                <label>财务管理</label>
+                <desc>可查看及进行结款、添加收支操作</desc>
+            </item>
+            
+            <item>
+                <key>report_view</key>
+                <label>报表汇总查看</label>
+                <desc>查看报表汇总</desc>
+            </item>
+            
+            <item>
+                <key>setting</key>
+                <label>设置</label>
+                <desc>设置仓库、产品信息字段、审批流程</desc>
+            </item>
+            
+        </items>
+    </group>
+</groups>

@@ -1,0 +1,25 @@
+a.delete, a.update, a.statement { padding: 1px 8px; text-decoration: none; }
+a.delete, a.update, a.copy-flow { padding: 1px 8px; text-decoration: none; }
+.delete { background:transparent url(/source/oa/images/remove.png) no-repeat left center; }
+.update { background:transparent url(/source/oa/images/update.png) no-repeat left center; }
+.statement{ background:url(images/statement.png) no-repeat top center; }
+.copy-flow{ background:url(images/copy.png) no-repeat top center; }
+
+.arrow-open{
+    background:url(images/arrow.png) no-repeat top center;
+    width:16px; height:16px; display: block;
+    cursor: pointer;
+}
+.arrow-close{
+    background:url(images/arrow.png) no-repeat bottom center;
+    width:16px; height:16px; display: block;
+    cursor: pointer;
+}
+
+input.error, textarea.error, select.error{background-color: #FBE6F2; border: 1px solid #D893A1;}
+
+.portlet-light { border: solid 1px #E5E5E5; margin: 10px; min-height: 300px; font-size: 14px; border-top: solid 2px #CDCDCD; }
+.portlet-light h2 { color: #145A83; padding-left: 10px; background-color: #F7F7F7; }
+.portlet-list { line-height: 1.9; }
+.portlet-list a { color: #505050; margin-left: 10px; }
+.portlet-list .active { background-color: #EBF9FF; }

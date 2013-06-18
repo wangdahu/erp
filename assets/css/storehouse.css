@@ -1,0 +1,94 @@
+
+/*左侧菜单列表*/
+#careMenu > div.content { margin:8px 10px; }
+#careMenu > div.content ul li { line-height: 2.3em; }
+
+/*发送即时短信*/
+.sendSms .content { padding-bottom:80px; }
+
+.sendSms #mobiles, #CrmcareSmsRecord_content { float: left; height: auto; }
+.sendSms #mobiles + div { float: left; margin-top: 74px; margin-left: -42px; }
+.sendSms .msg + div { float: left; margin-top: 133px; margin-left: -42px; }
+.sendSms .removeMobiles, .sendSms .removeMsg { float: left; width: 40px; text-decoration: underline; color: #5B6625; }
+
+ #contacts { padding:5px 8px; height:550px; }
+
+/*>>>弹出添加收件人*/
+.userPop { width: 550px; }
+.userPop .searchpanel table{ margin-bottom: 0; }
+.userPop .searchpanel table tbody tr,
+.userPop .searchpanel table tbody tr td{ border:0; }
+.userPop .searchpanel table thead tr th,
+.userPop .searchpanel table tbody tr td { padding: 5px 3px; }
+.userPop .searchpanel .tbTitle { width: 65px; text-align: right; }
+
+.dataGrid tbody tr:hover td{ background-color: #FFE499;}
+.userPop .searchResult .dataGrid { line-height: 22px; }
+.userPop .searchResult table thead tr th,
+.userPop .searchResult table tbody tr td { padding: 0px 3px; }
+.userPop .searchResult table tbody tr td { border: 1px solid #AFE0EA;}
+.userPop .searchResult .tips { color: #5d5e5e; margin-left:3px; }
+.userPop .searchResult .box { height: 220px; overflow-y: auto; padding: 3px; border: 1.5px solid #94DAE9; }
+.userPop .actions { text-align: right; line-height:40px; }
+
+
+/*>>>弹出短信库*/
+.smsdbPop { width: 550px; }
+.smsdbPop .tabTitle li { float:left; height: 25px; line-height:25px; padding: 5px 9px; }
+.smsdbPop .tabTitle li.active a { font-weight: bold; }
+.smsdbPop table.tbPop,
+.smsdbPop table tbody tr,
+.smsdbPop table tbody tr td{ border: 0px;}
+.smsdbPop .tabBody{ width: 100%; height:340px; overflow: hidden; margin-top: 7px; }
+.smsdbPop table.tbPop tbody tr td { padding: 5px 3px; }
+.smsdbPop .tbPop tr td:first-child,.tbPop td.lb{ width:75px; text-align:right;}
+
+.smsdbPop .smslist { height: 230px; line-height: 22px; cursor: default; overflow-y: auto; 
+                     border: 2px solid #94dae9; margin: 0px 3px 0px 3px; background-color: white;} 
+.smsdbPop .smslist li { padding: 5px 8px; border-top: dashed 1px #B7C6CF; text-align:left; }
+.smsdbPop .smslist li:first-child { border-top: none; }
+.smsdbPop .smslist li:hover { background-color: #FFE499; }
+.smsdbPop .smslist li.selected { background-color: #BEEFFF; }
+.smsdbPop .smslist li input { margin-right:3px; }
+
+
+/*短信查询与管理*/
+.smsRecord .smsType { height: 30px; }
+.smsRecord .smsType li{ float:left; padding: 0 20px; border-radius: 5px 5px 0 0;}
+.smsRecord .smsType li.selected { background-color: #f0f0f0; }
+
+/*短信库*/
+.smsdb .smsType li{ float:left; padding: 0 20px; border-radius: 5px 5px 0 0;}
+.smsdb .smsType li.selected { background-color: #f0f0f0; }
+.smsdb table thead tr th:first-child {border-radius: 0px; }
+
+.smsdb .smsCat .add2,
+.smsdb .smsCat .edit2,
+.smsdb .smsCat .delete { float:right; display:none; }
+
+.smsdb .smsCat header {padding-bottom:2px;}
+.smsdb .smsCat header .add2{margin-top: 8px; height: 16px;}
+
+.smsCat > div.content ul { height: 230px; overflow-y: auto; overflow-x: hidden; }
+.smsCat > div.content ul li{ line-height: 25px; padding:0 3px; width: 98%;}
+
+.smsdb .smsCat .add2,
+.smsdb .smsCat li:hover .edit2,
+.smsdb .smsCat li:hover .delete { display:block; }
+
+.smsdb .smsCat li .admin-title{ float: left; width: 70%; padding-left: 2px;}
+.smsdb .smsCat li .admin-action{ float: left; width:26%; padding-right: 5px;}
+
+.smsdb .smsCat li:hover,
+.smsdb .smsCat li:hover .admin-title,
+.smsdb .smsCat li:hover .admin-action{ background-color: #FFE499; }
+
+.smsdb .smsCat li.selected,
+.smsdb .smsCat li.selected .admin-title,
+.smsdb .smsCat li.selected .admin-action{ background-color: #BEEFFF; }
+
+.smsdb .grid-view .td-left { line-height: 29px; }
+
+
+
+

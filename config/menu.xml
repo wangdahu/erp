@@ -1,0 +1,9 @@
+<?xml version='1.0' ?>
+<menus>
+  <menu>
+    <key>pss</key>
+    <label>进销存管理</label>
+    <url>/pss/sales/index</url>
+    <icon>icon/pss.png</icon>
+  </menu>
+</menus>

@@ -1,0 +1,2884 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0104)http://phpmyadmin:90/db_datadict.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://phpmyadmin:90/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://phpmyadmin:90/favicon.ico" type="image/x-icon">
+    <title>phpmyadmin:90 / localhost / pss | phpMyAdmin 3.3.9</title>
+    <link rel="stylesheet" type="text/css" href="./pss-database_files/phpmyadmin.css.php">
+    <link rel="stylesheet" type="text/css" href="./pss-database_files/print.css" media="print">
+    <meta name="robots" content="noindex,nofollow">
+<script type="text/javascript">
+//<![CDATA[
+try {
+    // can't access this if on a different domain
+    var topdomain = top.document.domain;
+    // double-check just for sure
+    if (topdomain != self.document.domain) {
+        alert("Redirecting...");
+        top.location.replace(self.document.URL.substring(0, self.document.URL.lastIndexOf("/")+1));
+    }
+}
+catch(e) {
+    alert("Redirecting... (error: " + e);
+    top.location.replace(self.document.URL.substring(0, self.document.URL.lastIndexOf("/")+1));
+}
+//]]>
+</script>
+<script src="./pss-database_files/tooltip.js" type="text/javascript"></script>
+<script type="text/javascript">
+// <![CDATA[
+// Updates the title of the frameset if possible (ns4 does not allow this)
+if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
+    && typeof(parent.document.title) == 'string') {
+    parent.document.title = 'phpmyadmin:90 / localhost / pss | phpMyAdmin 3.3.9';
+}
+
+var PMA_messages = new Array();
+window.parent.addEvent(window, 'load', PMA_TT_init);
+// ]]>
+</script>
+    <meta name="OBGZip" content="true">
+        <!--[if IE 6]>
+    <style type="text/css">
+    /* <![CDATA[ */
+    html {
+        overflow-y: scroll;
+    }
+    /* ]]> */
+    </style>
+    <![endif]-->
+</head>
+
+<body>
+    <div id="serverinfo">
+<a href="http://phpmyadmin:90/main.php?token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./pss-database_files/s_host.png" width="16" height="16" alt=""> 
+localhost:3307</a>
+        <span class="separator"><img class="icon" src="./pss-database_files/item_ltr.png" width="5" height="9" alt="-"></span>
+<a href="http://phpmyadmin:90/db_structure.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./pss-database_files/s_db.png" width="16" height="16" alt=""> 
+pss</a>
+</div><div>
+<h2>pss_back_buy</h2>
+表注释: 采购退货单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        order_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>外键，关联pss_buy_order.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>填单人id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        buyer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>采购员用户id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        buyer    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>采购员</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        delivery_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        balance_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>结算期限</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>总额</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单状态</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_back_buy_detail</h2>
+表注释: 采购退货明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        back_buy_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_back_buy.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_cate    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>数量</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单价</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_back_sales</h2>
+表注释: 销售退货单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        order_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>外键，关联pss_sales_order.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单号</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>填单人id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        salesman_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>业务员用户id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        salesman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>业务员</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        delivery_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        balance_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>结算期限</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单状态</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_back_sales_detail</h2>
+表注释: 销售退货明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        back_sales_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_back_sales.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_cate    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>数量</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单价</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_buy_assignment</h2>
+表注释: 采购分配表<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>assign_id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>用户id或角色id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        <u>product_id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        <u>type</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>0=用户,1=角色</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_buy_order</h2>
+表注释: 采购单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单号</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>填单人id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        buyer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>采购员用户id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        buyer    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>采购员</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        delivery_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        balance_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>结算期限</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>总额</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_buy_order_detail</h2>
+表注释: 采购单明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        order_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_buy_order.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_cate    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>数量</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单价</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_customer</h2>
+表注释: 客户表<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        type    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户类型(0=企业, 1=个人)</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>客户编号</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        business    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>主营业务</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        country    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        province    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        city    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        fax    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        postal_code    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_customer_linkman</h2>
+表注释: 客户联系人<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_customer.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        gender    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        department    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>部门</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        post    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>职务</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        in_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>in号</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        email    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        fax    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        im_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>QQ/MSN</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        mobile    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>手机</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>电话</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>备注</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_product</h2>
+表注释: 产品<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        cate_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>分类</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单位</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>品牌</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>产品型号</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        code    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>产品编码</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        safe_quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>安全库存</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        min_quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>最少定量</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        producting_place    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>生产地</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        buy_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>采购价</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        sale_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>销售价</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        discount_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>折扣价</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        wholesale_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>批发价</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        low_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>销售低价</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        cost    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>参考成本</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        photo    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(255)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>图片</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>备注</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>创建时间</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>修改时间</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap">0</td>
+            <td>删除标志</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_product_brand</h2>
+表注释: 产品品牌<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(255)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_product_cate</h2>
+表注释: 产品分类<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(255)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_product_detail</h2>
+表注释: 产品明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        en_intro    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>英文介绍</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        en_remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>英文备注</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        size    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>尺寸</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        volume    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>体积</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        gross_weight    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>毛重</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        weight    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>净重</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        packaging    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>包装</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        material    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>材质</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_product_unit</h2>
+表注释: 产品单位<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(255)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_sales_order</h2>
+表注释: 销售单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单号</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>填单人id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        salesman_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>业务员用户id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        salesman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>业务员</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        delivery_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        balance_date    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">date</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>结算期限</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_sales_order_detail</h2>
+表注释: 销售单明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        order_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_sales_order.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_cate    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>数量</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单价</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_stock_allocate</h2>
+表注释: 调拨单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        allocate_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>调拨人id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        allocate_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>调拨人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        storehouse_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_stock_detail</h2>
+表注释: 入库/出库/调拨 明细<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        stock_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，pss_stock_in或pss_stock_out或pss_stock_allocate的主键</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        type    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>0=入库,1=出库,2=调拨</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        storehouse_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_storehouse.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_brand    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        product_unit    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(20)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_cate    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>数量</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>单价</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_stock_in</h2>
+表注释: 入库单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        buy_order_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>关联采购订单</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        in_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>入库人id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        in_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>入库人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>供应商联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        supplier_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_stock_out</h2>
+表注释: 出货单<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        out_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>出库人id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        out_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>出库人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        corp_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方公司名称</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>我方联系人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>电话</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户名称</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        customer_linkman    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>客户联系人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        customer_phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        total_price    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">decimal(10,2)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>订单状态</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        approval_status    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>审批状态</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_stock_pile</h2>
+表注释: 库存表<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        product_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_product.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        storehouse_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap">0</td>
+            <td>外键，关联pss_storehouse.id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        quantity    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap">0</td>
+            <td>商品数量</td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_storehouse</h2>
+表注释: 仓库表<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        storeman_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>仓管人id</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_supplier</h2>
+表注释: 供应商表<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>供应商编号</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        business    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>主营业务</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        country    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        province    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        city    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        address    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(100)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        user_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>录入人</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        created    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        updated    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">datetime</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        deleted    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        </tbody></table>
+</div>
+    <div style="page-break-before: always;">
+<h2>pss_supplier_linkman</h2>
+表注释: 供应商联系人<br><br>
+<table width="100%" class="print">
+<tbody><tr><th width="50">字段</th>
+    <th width="80">类型</th>
+    <th width="40">空</th>
+    <th width="70">默认</th>
+        <th>注释</th>
+</tr>
+    <tr class="odd">
+    <td nowrap="nowrap">
+        <u>id</u>    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        supplier_id    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td>外键，关联pss_supplier.id</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        name    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>否</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        gender    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">tinyint(4)</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        department    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>部门</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        post    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>职务</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        in_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>in号</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        email    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        fax    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td></td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        im_no    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">varchar(50)</td>
+    <td>是</td>
+    <td nowrap="nowrap"></td>
+            <td>QQ/MSN</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        mobile    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>手机</td>
+</tr>
+        <tr class="even">
+    <td nowrap="nowrap">
+        phone    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>电话</td>
+</tr>
+        <tr class="odd">
+    <td nowrap="nowrap">
+        remark    </td>
+    <td nowrap="nowrap" xml:lang="en" dir="ltr">text</td>
+    <td>是</td>
+    <td nowrap="nowrap"><i>NULL</i></td>
+            <td>备注</td>
+</tr>
+        </tbody></table>
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+function printPage()
+{
+    document.getElementById('print').style.visibility = 'hidden';
+    // Do print the page
+    if (typeof(window.print) != 'undefined') {
+        window.print();
+    }
+    document.getElementById('print').style.visibility = '';
+}
+//]]>
+</script>
+<br><br><input type="button" id="print" value="打印" onclick="printPage()"><div><div class="warning">使用配置文件中定义的控制用户连接失败。</div></div><script type="text/javascript">
+//<![CDATA[
+// updates current settings
+if (window.parent.setAll) {
+    window.parent.setAll('zh-utf-8', 'utf8_general_ci', '1', 'pss', 'pss_supplier_linkman', '4e2ac3430db7f775b5a6f2cad9782c8d');
+}
+    // set current db, table and sql query in the querywindow
+if (window.parent.reload_querywindow) {
+    window.parent.reload_querywindow(
+        'pss',
+        'pss_supplier_linkman',
+        '');
+}
+    
+if (window.parent.frame_content) {
+    // reset content frame name, as querywindow needs to set a unique name
+    // before submitting form data, and navigation frame needs the original name
+    if (typeof(window.parent.frame_content.name) != 'undefined'
+     && window.parent.frame_content.name != 'frame_content') {
+        window.parent.frame_content.name = 'frame_content';
+    }
+    if (typeof(window.parent.frame_content.id) != 'undefined'
+     && window.parent.frame_content.id != 'frame_content') {
+        window.parent.frame_content.id = 'frame_content';
+    }
+    //window.parent.frame_content.setAttribute('name', 'frame_content');
+    //window.parent.frame_content.setAttribute('id', 'frame_content');
+}
+//]]>
+</script>
+<div id="selflink" class="print_ignore">
+<a href="http://phpmyadmin:90/index.php?goto=db_structure.php&db=pss&server=1&target=db_datadict.php&token=4e2ac3430db7f775b5a6f2cad9782c8d" title="打开新 phpMyAdmin 窗口" target="_blank"><img class="icon" src="./pss-database_files/window-new.png" alt="打开新 phpMyAdmin 窗口"></a>
+</div>
+
+
+<div id="window-resizer-tooltip" style="display: block; "><a href="http://phpmyadmin:90/db_datadict.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png); "></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1456</span> x <span class="tooltipHeight" id="winHeight">876</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">753</span></div></body></html>
