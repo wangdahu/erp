@@ -8,7 +8,7 @@ $title = FormFlow::getLeftMenuList();
 <div style="overflow:auto;">
 <div class="main-title-big  radius-top" style='font-weight: bold; margin-bottom: 5px; font-size: 20px;'><label><?php echo $title[$form_name];?>&nbsp;审批流程</label></div>
 <?
-echo Html5::link('新建审批流程', array('/pss/approve/createflow', 'form_name' => $form_name), array('class' => 'button', 'style' => 'margin: 0 0 5px 10px;'));
+echo Html5::link('新建审批流程', array('/erp/approve/createflow', 'form_name' => $form_name), array('class' => 'button', 'style' => 'margin: 0 0 5px 10px;'));
 $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'flow-grid',
     'dataProvider' => new CArrayDataProvider($model->flows),

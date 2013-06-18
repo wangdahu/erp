@@ -1,9 +1,9 @@
 <div class="main-panel">
     <?php if($model->isNewRecord || $this->action->id == 'update'){?>
-        <?php echo CHtml::link('添加已有产品', array('/pss/product/popup', 'buy' => '1'), array('class' => 'button js-dialog-link', 'data-id' => 'select-product')); ?>
+        <?php echo CHtml::link('添加已有产品', array('/erp/product/popup', 'buy' => '1'), array('class' => 'button js-dialog-link', 'data-id' => 'select-product')); ?>
         <?php 
-        if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-            echo CHtml::link('新添产品', array('/pss/product/create', 'popup' => 1), array('class' => 'button js-dialog-link')); 
+        if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+            echo CHtml::link('新添产品', array('/erp/product/create', 'popup' => 1), array('class' => 'button js-dialog-link')); 
         }
         ?>
     <?php }?>

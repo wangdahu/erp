@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_storehouse".
+ * This is the model class for table "erp_storehouse".
  *
- * The followings are the available columns in table 'pss_storehouse':
+ * The followings are the available columns in table 'erp_storehouse':
  * @property integer $id
  * @property string $name
  * @property string $description
@@ -45,7 +45,7 @@ class Storehouse extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_storehouse';
+		return 'erp_storehouse';
 	}
 
 	/**
@@ -80,7 +80,7 @@ class Storehouse extends ActiveRecord
         return array(
             'stocks' => array(self::HAS_MANY, 'Stock', 'storehouse_id'),
             //'products' => array(self::HAS_MANY, 'Product', array('product_id' => 'id'), 'through' => 'stocks'),
-            'products'=>array(self::MANY_MANY, 'Product', 'pss_stock(storehouse_id, product_id)'),
+            'products'=>array(self::MANY_MANY, 'Product', 'erp_stock(storehouse_id, product_id)'),
         );
 	}
 

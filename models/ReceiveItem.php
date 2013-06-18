@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_receive_item".
+ * This is the model class for table "erp_receive_item".
  *
- * The followings are the available columns in table 'pss_receive_item':
+ * The followings are the available columns in table 'erp_receive_item':
  * @property integer $id
  * @property integer $customer_id
  * @property integer $order_id
@@ -43,7 +43,7 @@ class ReceiveItem extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_receive_item';
+		return 'erp_receive_item';
 	}
 
 	/**

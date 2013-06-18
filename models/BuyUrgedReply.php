@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_buy_urged_reply".
+ * This is the model class for table "erp_buy_urged_reply".
  *
- * The followings are the available columns in table 'pss_buy_urged_reply':
+ * The followings are the available columns in table 'erp_buy_urged_reply':
  * @property integer $id
  * @property integer $urged_id
  * @property integer $user_id
@@ -41,7 +41,7 @@ class BuyUrgedReply extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_buy_urged_reply';
+		return 'erp_buy_urged_reply';
 	}
 
 	/**

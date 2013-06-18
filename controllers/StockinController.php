@@ -1,15 +1,15 @@
 <?php
 
-class StockinController extends PssController{
+class StockinController extends ErpController{
     
     public function init(){
         parent::init();
-        $this->breadcrumbs['货品库存'] = array('/pss/stock/index');
+        $this->breadcrumbs['货品库存'] = array('/erp/stock/index');
     }
     
     //货品入库
     public function actionIndex(){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = '入库单';
         $model = new StockIn('search');
         $model->unsetAttributes();
@@ -21,8 +21,8 @@ class StockinController extends PssController{
     
     //货品库存  新增入库单
     public function actionCreate($order_id=''){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
-        $this->breadcrumbs['入库单'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
+        $this->breadcrumbs['入库单'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = '新增入库单';
         $model=new StockIn();
         $model->in_name = Yii::app()->user->name;
@@ -47,10 +47,10 @@ class StockinController extends PssController{
             
             if($model->save()){
                 $approval = $model->createApproval($model->approval_id);
-                $res = PssFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
+                $res = ErpFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
                 if (isset($res['prime']) && $res['prime'] === true) {
                     //自动审批
-                    PssFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
+                    ErpFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
                 }
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'添加成功')));
@@ -61,8 +61,8 @@ class StockinController extends PssController{
     }
     
     public function actionUpdate($id){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
-        $this->breadcrumbs['入库单'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
+        $this->breadcrumbs['入库单'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = "入库单详情编辑";
         $model = StockIn::model()->findByPk($id);
         if(isset($_POST['StockIn'])){
@@ -76,7 +76,7 @@ class StockinController extends PssController{
             if($model->save()){
                 //提醒第一审批人“XXX修改了XX单”
                 $node_id = FlowProcess::getCurrentNode($model->approval_id);
-                PssFlow::noticeUser($node_id, $model->approval_id, 6);
+                ErpFlow::noticeUser($node_id, $model->approval_id, 6);
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'添加成功')));
                 $this->redirect(array('view', 'id' => $model->id));
@@ -88,8 +88,8 @@ class StockinController extends PssController{
     
     //入库单详情
     public function actionView($id){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
-        $this->breadcrumbs['入库单'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
+        $this->breadcrumbs['入库单'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = '入库单详情';
         $model = $this->loadModel($id, 'StockIn');
         $this->render('view', array('model' => $model, 'items' => $model->items));
@@ -134,7 +134,7 @@ class StockinController extends PssController{
     
     //入库产品
     public function actionItem(){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = '入库产品';
         $model = new StockInItem('search');
         $model->unsetAttributes();
@@ -146,7 +146,7 @@ class StockinController extends PssController{
     
     //销售退货产品
     public function actionBack(){
-        $this->breadcrumbs['货品入库'] = array('/pss/stockin/index');
+        $this->breadcrumbs['货品入库'] = array('/erp/stockin/index');
         $this->breadcrumbs[] = '采购退货';
         $model = new BackBuy('search');
         $model->unsetAttributes();

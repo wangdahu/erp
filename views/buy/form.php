@@ -48,11 +48,11 @@ $is_update = Yii::app()->controller->action->id == "update";
                     <?php echo $form->textField($model,'supplier_name', array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'supplier_id'); ?>
                 </div>&nbsp;
-                <?php echo CHtml::htmlButton('选择已有供应商', array('data-href'=> $this->createUrl('/pss/supplier/popup'), 'class' => 'js-dialog-link', 'data-id'=>'select-supplier'));?>
+                <?php echo CHtml::htmlButton('选择已有供应商', array('data-href'=> $this->createUrl('/erp/supplier/popup'), 'class' => 'js-dialog-link', 'data-id'=>'select-supplier'));?>
                 &nbsp;
                 <?php 
-                if (PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_CREATE)){
-                    echo CHtml::link('添加供应商', array('/pss/supplier/create'), array('class' => 'js-dialog-link button'));
+                if (ErpPrivilege::supplierCheck(ErpPrivilege::SUPPLIER_CREATE)){
+                    echo CHtml::link('添加供应商', array('/erp/supplier/create'), array('class' => 'js-dialog-link button'));
                 }
                 ?>
                 <?php echo $form->error($model,'supplier_name'); ?>&nbsp;&nbsp;
@@ -189,7 +189,7 @@ $is_update = Yii::app()->controller->action->id == "update";
             <?php echo $form->labelEx($model, 'buyer');?>
             <div class="item">
                 <div class="main">
-                    <?php echo $form->textField($model,'buyer', PssPrivilege::buyCheck(PssPrivilege::BUY_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
+                    <?php echo $form->textField($model,'buyer', ErpPrivilege::buyCheck(ErpPrivilege::BUY_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'buyer_id'); ?>
                 </div>
                 <?php echo $form->error($model,'buyer'); ?>

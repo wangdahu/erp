@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_supplier".
+ * This is the model class for table "erp_supplier".
  *
- * The followings are the available columns in table 'pss_supplier':
+ * The followings are the available columns in table 'erp_supplier':
  * @property integer $id
  * @property string $name
  * @property string $no
@@ -25,7 +25,7 @@ class Supplier extends ActiveRecord
     public function beforeFind(){
         parent::beforeFind();
     
-        $viewRights = PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_VIEW);
+        $viewRights = ErpPrivilege::supplierCheck(ErpPrivilege::SUPPLIER_VIEW);
         if (!$viewRights){
             $criteria = new CDbCriteria();
             $criteria->compare('followman_id', Yii::app()->user->id);
@@ -34,7 +34,7 @@ class Supplier extends ActiveRecord
     }
     
     public function defaultScope(){
-        $viewRights = PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_VIEW);
+        $viewRights = ErpPrivilege::supplierCheck(ErpPrivilege::SUPPLIER_VIEW);
         if (!$viewRights){
             return array('condition' => 't.deleted=0 and followman_id=:followman_id',
                          'params' => array(':followman_id' => Yii::app()->user->id));
@@ -102,7 +102,7 @@ class Supplier extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_supplier';
+		return 'erp_supplier';
 	}
 
 	/**
@@ -137,7 +137,7 @@ class Supplier extends ActiveRecord
                 'updateAttribute' => 'updated',
             ),
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
 	    );
 	}

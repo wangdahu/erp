@@ -39,7 +39,7 @@
                     }else{
                         echo '无';
                     }
-                    //echo CHtml::link("选择已有采购单", array('/pss/buy/popup'), array('class'=>'js-dialog-link'));
+                    //echo CHtml::link("选择已有采购单", array('/erp/buy/popup'), array('class'=>'js-dialog-link'));
                     ?>
                 </div>
                 <?php echo $form->error($model,'order_id'); ?>

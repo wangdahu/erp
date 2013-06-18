@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_stock_allocate".
+ * This is the model class for table "erp_stock_allocate".
  *
- * The followings are the available columns in table 'pss_stock_allocate':
+ * The followings are the available columns in table 'erp_stock_allocate':
  * @property integer $id
  * @property string $no
  * @property integer $user_id
@@ -21,13 +21,13 @@ class StockAllocate extends BillForm
 {
 //    public function beforeFind(){
 //        parent::beforeFind();
-//        if (!PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW) && PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
+//        if (!ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW) && ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
 //            $this->getDbCriteria()->compare('allocate_man_id', Yii::app()->user->id);
 //        }
 //    }
     
     public function defaultScope(){
-        if (!PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW) && PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
+        if (!ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW) && ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
             return array(
                 'condition' => 'allocate_man_id=:allocate_man_id',
                 'params' => array(':allocate_man_id' => Yii::app()->user->id),
@@ -55,7 +55,7 @@ class StockAllocate extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_stock_allocate';
+		return 'erp_stock_allocate';
 	}
 
 	/**

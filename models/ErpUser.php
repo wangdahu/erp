@@ -1,5 +1,5 @@
 <?php
-class PssUser extends AppModel{
+class ErpUser extends AppModel{
     
     private $_assigments;
     
@@ -10,7 +10,7 @@ class PssUser extends AppModel{
     
     /**
      * @param string $className
-     * @return PssUser
+     * @return ErpUser
      */
     public static function model($className=__CLASS__){
         return parent::model($className);
@@ -27,7 +27,7 @@ class PssUser extends AppModel{
     public function hasSalesOrder(){
         $command = $this->salesCommand()->select('salesman_id');
         $command->setDistinct(true);
-        $command->where('t.approval_status='.PssFlow::APPROVAL_PASS);
+        $command->where('t.approval_status='.ErpFlow::APPROVAL_PASS);
         $ids = $command->queryColumn();
         $data = array();
         foreach ($this->getData() as $user){
@@ -42,22 +42,22 @@ class PssUser extends AppModel{
     public function getSalesOrderCount(){
         return $this->salesCommand()
             ->select('COUNT(*)')
-            ->where('salesman_id=:salesman_id and approval_status='.PssFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
+            ->where('salesman_id=:salesman_id and approval_status='.ErpFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
             ->queryScalar();
     }
     
     public function getSalesTotalPrice(){
         return $this->salesCommand()
             ->select('SUM(total_price)')
-            ->where('salesman_id=:salesman_id and approval_status='.PssFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
+            ->where('salesman_id=:salesman_id and approval_status='.ErpFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
             ->queryScalar();
     }
     
     public function getReceivedPrice(){
         return $this->salesCommand()
             ->select('SUM(pri.price)')
-            ->join('pss_receive_item pri', 't.id=pri.order_id')
-            ->where('t.salesman_id=:salesman_id and approval_status='.PssFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
+            ->join('erp_receive_item pri', 't.id=pri.order_id')
+            ->where('t.salesman_id=:salesman_id and approval_status='.ErpFlow::APPROVAL_PASS, array(':salesman_id'=>$this->getId()))
             ->queryScalar();
     }
     
@@ -68,7 +68,7 @@ class PssUser extends AppModel{
     /**
      * 所在的部门范围
      * @param int $id
-     * @return PssUser
+     * @return ErpUser
      */
     public function department($id){
         $data = array();

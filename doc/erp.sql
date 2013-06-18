@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : localhost
 Source Server Version : 50515
 Source Host           : localhost:3307
-Source Database       : pss
+Source Database       : erp
 
 Target Server Type    : MYSQL
 Target Server Version : 50515
@@ -15,13 +15,13 @@ Date: 2012-06-28 09:42:51
 
 SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
--- Table structure for `pss_back_buy`
+-- Table structure for `erp_back_buy`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_back_buy`;
-CREATE TABLE `pss_back_buy` (
+DROP TABLE IF EXISTS `erp_back_buy`;
+CREATE TABLE `erp_back_buy` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL,
-  `order_id` int(11) DEFAULT NULL COMMENT '外键，关联pss_buy_order.id',
+  `order_id` int(11) DEFAULT NULL COMMENT '外键，关联erp_buy_order.id',
   `user_id` int(11) NOT NULL COMMENT '填单人id',
   `back_id` int(11) NOT NULL COMMENT '退货人',
   `back_name` varchar(50) NOT NULL DEFAULT '' COMMENT '退货人',
@@ -46,18 +46,18 @@ CREATE TABLE `pss_back_buy` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='采购退货单';
 
 -- ----------------------------
--- Records of pss_back_buy
+-- Records of erp_back_buy
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_back_buy_item`
+-- Table structure for `erp_back_buy_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_back_buy_item`;
-CREATE TABLE `pss_back_buy_item` (
+DROP TABLE IF EXISTS `erp_back_buy_item`;
+CREATE TABLE `erp_back_buy_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `back_buy_id` int(11) NOT NULL COMMENT '外键，关联pss_back_buy.id',
+  `back_buy_id` int(11) NOT NULL COMMENT '外键，关联erp_back_buy.id',
   `stock_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
   `storehouse_id` int(11) NOT NULL,
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
@@ -71,16 +71,16 @@ CREATE TABLE `pss_back_buy_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='采购退货明细';
 
 -- ----------------------------
--- Records of pss_back_buy_item
+-- Records of erp_back_buy_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_back_sales`
+-- Table structure for `erp_back_sales`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_back_sales`;
-CREATE TABLE `pss_back_sales` (
+DROP TABLE IF EXISTS `erp_back_sales`;
+CREATE TABLE `erp_back_sales` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) DEFAULT NULL COMMENT '外键，关联pss_sales_order.id',
+  `order_id` int(11) DEFAULT NULL COMMENT '外键，关联erp_sales_order.id',
   `no` varchar(50) NOT NULL COMMENT '订单号',
   `user_id` int(11) NOT NULL COMMENT '填单人id',
   `back_id` int(11) NOT NULL COMMENT '退货人',
@@ -108,18 +108,18 @@ CREATE TABLE `pss_back_sales` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售退货单';
 
 -- ----------------------------
--- Records of pss_back_sales
+-- Records of erp_back_sales
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_back_sales_item`
+-- Table structure for `erp_back_sales_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_back_sales_item`;
-CREATE TABLE `pss_back_sales_item` (
+DROP TABLE IF EXISTS `erp_back_sales_item`;
+CREATE TABLE `erp_back_sales_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `back_sales_id` int(11) NOT NULL COMMENT '外键，关联pss_back_sales.id',
+  `back_sales_id` int(11) NOT NULL COMMENT '外键，关联erp_back_sales.id',
   `stock_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
   `product_brand` varchar(50) DEFAULT '',
@@ -131,14 +131,14 @@ CREATE TABLE `pss_back_sales_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售退货明细';
 
 -- ----------------------------
--- Records of pss_back_sales_item
+-- Records of erp_back_sales_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_billing`
+-- Table structure for `erp_billing`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_billing`;
-CREATE TABLE `pss_billing` (
+DROP TABLE IF EXISTS `erp_billing`;
+CREATE TABLE `erp_billing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL COMMENT '单据编号',
   `operator` varchar(50) NOT NULL COMMENT '记账员',
@@ -154,14 +154,14 @@ CREATE TABLE `pss_billing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收支表';
 
 -- ----------------------------
--- Records of pss_billing
+-- Records of erp_billing
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_billing_item`
+-- Table structure for `erp_billing_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_billing_item`;
-CREATE TABLE `pss_billing_item` (
+DROP TABLE IF EXISTS `erp_billing_item`;
+CREATE TABLE `erp_billing_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `billing_id` int(11) NOT NULL,
   `type` int(11) NOT NULL COMMENT '收支科目 0,1,2,3,4,5',
@@ -171,14 +171,14 @@ CREATE TABLE `pss_billing_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='收支明细';
 
 -- ----------------------------
--- Records of pss_billing_item
+-- Records of erp_billing_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_buy_assignment`
+-- Table structure for `erp_buy_assignment`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_buy_assignment`;
-CREATE TABLE `pss_buy_assignment` (
+DROP TABLE IF EXISTS `erp_buy_assignment`;
+CREATE TABLE `erp_buy_assignment` (
   `assign_id` int(11) NOT NULL COMMENT '用户id或角色id',
   `product_id` int(11) NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '0=用户,1=角色',
@@ -186,14 +186,14 @@ CREATE TABLE `pss_buy_assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='采购分配表';
 
 -- ----------------------------
--- Records of pss_buy_assignment
+-- Records of erp_buy_assignment
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_buy_order`
+-- Table structure for `erp_buy_order`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_buy_order`;
-CREATE TABLE `pss_buy_order` (
+DROP TABLE IF EXISTS `erp_buy_order`;
+CREATE TABLE `erp_buy_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(20) NOT NULL COMMENT '订单号',
   `user_id` int(11) NOT NULL COMMENT '填单人id',
@@ -222,17 +222,17 @@ CREATE TABLE `pss_buy_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='采购单';
 
 -- ----------------------------
--- Records of pss_buy_order
+-- Records of erp_buy_order
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_buy_order_item`
+-- Table structure for `erp_buy_order_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_buy_order_item`;
-CREATE TABLE `pss_buy_order_item` (
+DROP TABLE IF EXISTS `erp_buy_order_item`;
+CREATE TABLE `erp_buy_order_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL COMMENT '外键，关联pss_buy_order.id',
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
+  `order_id` int(11) NOT NULL COMMENT '外键，关联erp_buy_order.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
   `product_brand` varchar(50) DEFAULT '',
@@ -244,14 +244,14 @@ CREATE TABLE `pss_buy_order_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='采购单明细';
 
 -- ----------------------------
--- Records of pss_buy_order_item
+-- Records of erp_buy_order_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_buy_urged`
+-- Table structure for `erp_buy_urged`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_buy_urged`;
-CREATE TABLE `pss_buy_urged` (
+DROP TABLE IF EXISTS `erp_buy_urged`;
+CREATE TABLE `erp_buy_urged` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `from_uid` int(11) NOT NULL COMMENT '催办人',
   `to_uid` int(11) NOT NULL COMMENT '催办对象',
@@ -262,14 +262,14 @@ CREATE TABLE `pss_buy_urged` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
--- Records of pss_buy_urged
+-- Records of erp_buy_urged
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_buy_urged_reply`
+-- Table structure for `erp_buy_urged_reply`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_buy_urged_reply`;
-CREATE TABLE `pss_buy_urged_reply` (
+DROP TABLE IF EXISTS `erp_buy_urged_reply`;
+CREATE TABLE `erp_buy_urged_reply` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `urged_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '回复人',
@@ -279,14 +279,14 @@ CREATE TABLE `pss_buy_urged_reply` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pss_buy_urged_reply
+-- Records of erp_buy_urged_reply
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_customer`
+-- Table structure for `erp_customer`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_customer`;
-CREATE TABLE `pss_customer` (
+DROP TABLE IF EXISTS `erp_customer`;
+CREATE TABLE `erp_customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `type` tinyint(4) NOT NULL COMMENT '客户类型(0=企业, 1=个人)',
@@ -309,16 +309,16 @@ CREATE TABLE `pss_customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户表';
 
 -- ----------------------------
--- Records of pss_customer
+-- Records of erp_customer
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_customer_linkman`
+-- Table structure for `erp_customer_linkman`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_customer_linkman`;
-CREATE TABLE `pss_customer_linkman` (
+DROP TABLE IF EXISTS `erp_customer_linkman`;
+CREATE TABLE `erp_customer_linkman` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_id` int(11) NOT NULL COMMENT '外键，关联pss_customer.id',
+  `customer_id` int(11) NOT NULL COMMENT '外键，关联erp_customer.id',
   `name` varchar(50) NOT NULL,
   `gender` tinyint(4) DEFAULT NULL,
   `department` varchar(50) DEFAULT '' COMMENT '部门',
@@ -335,14 +335,14 @@ CREATE TABLE `pss_customer_linkman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='客户联系人';
 
 -- ----------------------------
--- Records of pss_customer_linkman
+-- Records of erp_customer_linkman
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_number`
+-- Table structure for `erp_number`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_number`;
-CREATE TABLE `pss_number` (
+DROP TABLE IF EXISTS `erp_number`;
+CREATE TABLE `erp_number` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
@@ -350,14 +350,14 @@ CREATE TABLE `pss_number` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pss_number
+-- Records of erp_number
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_pay_item`
+-- Table structure for `erp_pay_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_pay_item`;
-CREATE TABLE `pss_pay_item` (
+DROP TABLE IF EXISTS `erp_pay_item`;
+CREATE TABLE `erp_pay_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `supplier_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL COMMENT '销售单id',
@@ -370,14 +370,14 @@ CREATE TABLE `pss_pay_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pss_pay_item
+-- Records of erp_pay_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_product`
+-- Table structure for `erp_product`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_product`;
-CREATE TABLE `pss_product` (
+DROP TABLE IF EXISTS `erp_product`;
+CREATE TABLE `erp_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL COMMENT '名称',
   `cate_id` int(11) NOT NULL COMMENT '分类',
@@ -405,14 +405,14 @@ CREATE TABLE `pss_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品';
 
 -- ----------------------------
--- Records of pss_product
+-- Records of erp_product
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_product_brand`
+-- Table structure for `erp_product_brand`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_product_brand`;
-CREATE TABLE `pss_product_brand` (
+DROP TABLE IF EXISTS `erp_product_brand`;
+CREATE TABLE `erp_product_brand` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `remark` varchar(255) DEFAULT NULL,
@@ -422,14 +422,14 @@ CREATE TABLE `pss_product_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品品牌';
 
 -- ----------------------------
--- Records of pss_product_brand
+-- Records of erp_product_brand
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_product_cate`
+-- Table structure for `erp_product_cate`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_product_cate`;
-CREATE TABLE `pss_product_cate` (
+DROP TABLE IF EXISTS `erp_product_cate`;
+CREATE TABLE `erp_product_cate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `remark` varchar(255) DEFAULT NULL,
@@ -439,14 +439,14 @@ CREATE TABLE `pss_product_cate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品分类';
 
 -- ----------------------------
--- Records of pss_product_cate
+-- Records of erp_product_cate
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_product_detail`
+-- Table structure for `erp_product_detail`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_product_detail`;
-CREATE TABLE `pss_product_detail` (
+DROP TABLE IF EXISTS `erp_product_detail`;
+CREATE TABLE `erp_product_detail` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `en_intro` text COMMENT '英文介绍',
@@ -461,14 +461,14 @@ CREATE TABLE `pss_product_detail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品明细';
 
 -- ----------------------------
--- Records of pss_product_detail
+-- Records of erp_product_detail
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_product_unit`
+-- Table structure for `erp_product_unit`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_product_unit`;
-CREATE TABLE `pss_product_unit` (
+DROP TABLE IF EXISTS `erp_product_unit`;
+CREATE TABLE `erp_product_unit` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `remark` varchar(255) DEFAULT '',
@@ -478,16 +478,16 @@ CREATE TABLE `pss_product_unit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='产品单位';
 
 -- ----------------------------
--- Records of pss_product_unit
+-- Records of erp_product_unit
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_receive_item`
+-- Table structure for `erp_receive_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_receive_item`;
-CREATE TABLE `pss_receive_item` (
+DROP TABLE IF EXISTS `erp_receive_item`;
+CREATE TABLE `erp_receive_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_id` int(11) NOT NULL COMMENT 'pss_receive.id的外键',
+  `customer_id` int(11) NOT NULL COMMENT 'erp_receive.id的外键',
   `order_id` int(11) NOT NULL COMMENT '销售单id',
   `operator` varchar(50) NOT NULL COMMENT '记账员',
   `operator_id` int(11) NOT NULL COMMENT '记账员id',
@@ -498,14 +498,14 @@ CREATE TABLE `pss_receive_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of pss_receive_item
+-- Records of erp_receive_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_sales_order`
+-- Table structure for `erp_sales_order`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_sales_order`;
-CREATE TABLE `pss_sales_order` (
+DROP TABLE IF EXISTS `erp_sales_order`;
+CREATE TABLE `erp_sales_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL COMMENT '订单号',
   `user_id` int(11) NOT NULL COMMENT '填单人id',
@@ -536,17 +536,17 @@ CREATE TABLE `pss_sales_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售单';
 
 -- ----------------------------
--- Records of pss_sales_order
+-- Records of erp_sales_order
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_sales_order_item`
+-- Table structure for `erp_sales_order_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_sales_order_item`;
-CREATE TABLE `pss_sales_order_item` (
+DROP TABLE IF EXISTS `erp_sales_order_item`;
+CREATE TABLE `erp_sales_order_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `order_id` int(11) NOT NULL COMMENT '外键，关联pss_sales_order.id',
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
+  `order_id` int(11) NOT NULL COMMENT '外键，关联erp_sales_order.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
   `product_brand` varchar(50) DEFAULT '',
@@ -558,31 +558,31 @@ CREATE TABLE `pss_sales_order_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='销售单明细';
 
 -- ----------------------------
--- Records of pss_sales_order_item
+-- Records of erp_sales_order_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock`
+-- Table structure for `erp_stock`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock`;
-CREATE TABLE `pss_stock` (
+DROP TABLE IF EXISTS `erp_stock`;
+CREATE TABLE `erp_stock` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
-  `storehouse_id` int(11) NOT NULL DEFAULT '0' COMMENT '外键，关联pss_storehouse.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
+  `storehouse_id` int(11) NOT NULL DEFAULT '0' COMMENT '外键，关联erp_storehouse.id',
   `quantity` int(11) DEFAULT '0' COMMENT '商品数量',
   PRIMARY KEY (`id`),
   UNIQUE KEY `storehouse_product` (`storehouse_id`,`product_id`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='库存表';
 
 -- ----------------------------
--- Records of pss_stock
+-- Records of erp_stock
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock_allocate`
+-- Table structure for `erp_stock_allocate`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock_allocate`;
-CREATE TABLE `pss_stock_allocate` (
+DROP TABLE IF EXISTS `erp_stock_allocate`;
+CREATE TABLE `erp_stock_allocate` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '录入人',
@@ -598,19 +598,19 @@ CREATE TABLE `pss_stock_allocate` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='调拨单';
 
 -- ----------------------------
--- Records of pss_stock_allocate
+-- Records of erp_stock_allocate
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock_allocate_item`
+-- Table structure for `erp_stock_allocate_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock_allocate_item`;
-CREATE TABLE `pss_stock_allocate_item` (
+DROP TABLE IF EXISTS `erp_stock_allocate_item`;
+CREATE TABLE `erp_stock_allocate_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `allocate_id` int(11) NOT NULL COMMENT '外键，pss_stock_in或pss_stock_out或pss_stock_allocate的主键',
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
-  `from_storehouse_id` int(11) NOT NULL COMMENT '调拨源仓库 关联pss_storehouse.id',
-  `to_storehouse_id` int(11) NOT NULL COMMENT '调拨目标仓库 关联pss_storehouse.id',
+  `allocate_id` int(11) NOT NULL COMMENT '外键，erp_stock_in或erp_stock_out或erp_stock_allocate的主键',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
+  `from_storehouse_id` int(11) NOT NULL COMMENT '调拨源仓库 关联erp_storehouse.id',
+  `to_storehouse_id` int(11) NOT NULL COMMENT '调拨目标仓库 关联erp_storehouse.id',
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
   `product_brand` varchar(50) DEFAULT '',
@@ -622,14 +622,14 @@ CREATE TABLE `pss_stock_allocate_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='调拨明细';
 
 -- ----------------------------
--- Records of pss_stock_allocate_item
+-- Records of erp_stock_allocate_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock_in`
+-- Table structure for `erp_stock_in`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock_in`;
-CREATE TABLE `pss_stock_in` (
+DROP TABLE IF EXISTS `erp_stock_in`;
+CREATE TABLE `erp_stock_in` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '录入人id',
@@ -656,20 +656,20 @@ CREATE TABLE `pss_stock_in` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='入库单';
 
 -- ----------------------------
--- Records of pss_stock_in
+-- Records of erp_stock_in
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock_item`
+-- Table structure for `erp_stock_item`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock_item`;
-CREATE TABLE `pss_stock_item` (
+DROP TABLE IF EXISTS `erp_stock_item`;
+CREATE TABLE `erp_stock_item` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `form_id` int(11) NOT NULL COMMENT '外键，pss_stock_in.id或pss_stock_out.id',
+  `form_id` int(11) NOT NULL COMMENT '外键，erp_stock_in.id或erp_stock_out.id',
   `type` tinyint(4) NOT NULL COMMENT '0=入库,1=出库',
   `stock_id` int(11) NOT NULL COMMENT '库存id',
-  `product_id` int(11) NOT NULL COMMENT '外键，关联pss_product.id',
-  `storehouse_id` int(11) NOT NULL COMMENT '外键，关联pss_storehouse.id',
+  `product_id` int(11) NOT NULL COMMENT '外键，关联erp_product.id',
+  `storehouse_id` int(11) NOT NULL COMMENT '外键，关联erp_storehouse.id',
   `product_name` varchar(50) NOT NULL,
   `product_no` varchar(50) DEFAULT '',
   `product_brand` varchar(50) DEFAULT '',
@@ -681,14 +681,14 @@ CREATE TABLE `pss_stock_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='入库/出库 明细';
 
 -- ----------------------------
--- Records of pss_stock_item
+-- Records of erp_stock_item
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_stock_out`
+-- Table structure for `erp_stock_out`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_stock_out`;
-CREATE TABLE `pss_stock_out` (
+DROP TABLE IF EXISTS `erp_stock_out`;
+CREATE TABLE `erp_stock_out` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `no` varchar(50) NOT NULL,
   `user_id` int(11) NOT NULL COMMENT '录入人',
@@ -715,14 +715,14 @@ CREATE TABLE `pss_stock_out` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='出货单';
 
 -- ----------------------------
--- Records of pss_stock_out
+-- Records of erp_stock_out
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_storehouse`
+-- Table structure for `erp_storehouse`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_storehouse`;
-CREATE TABLE `pss_storehouse` (
+DROP TABLE IF EXISTS `erp_storehouse`;
+CREATE TABLE `erp_storehouse` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `description` varchar(255) DEFAULT '',
@@ -735,14 +735,14 @@ CREATE TABLE `pss_storehouse` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='仓库表';
 
 -- ----------------------------
--- Records of pss_storehouse
+-- Records of erp_storehouse
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_supplier`
+-- Table structure for `erp_supplier`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_supplier`;
-CREATE TABLE `pss_supplier` (
+DROP TABLE IF EXISTS `erp_supplier`;
+CREATE TABLE `erp_supplier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
   `no` varchar(50) DEFAULT NULL COMMENT '供应商编号',
@@ -762,16 +762,16 @@ CREATE TABLE `pss_supplier` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='供应商表';
 
 -- ----------------------------
--- Records of pss_supplier
+-- Records of erp_supplier
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `pss_supplier_linkman`
+-- Table structure for `erp_supplier_linkman`
 -- ----------------------------
-DROP TABLE IF EXISTS `pss_supplier_linkman`;
-CREATE TABLE `pss_supplier_linkman` (
+DROP TABLE IF EXISTS `erp_supplier_linkman`;
+CREATE TABLE `erp_supplier_linkman` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `supplier_id` int(11) NOT NULL COMMENT '外键，关联pss_supplier.id',
+  `supplier_id` int(11) NOT NULL COMMENT '外键，关联erp_supplier.id',
   `name` varchar(50) NOT NULL,
   `gender` tinyint(4) DEFAULT NULL,
   `department` varchar(50) DEFAULT '' COMMENT '部门',
@@ -788,5 +788,5 @@ CREATE TABLE `pss_supplier_linkman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='供应商联系人';
 
 -- ----------------------------
--- Records of pss_supplier_linkman
+-- Records of erp_supplier_linkman
 -- ----------------------------

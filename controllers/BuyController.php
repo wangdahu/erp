@@ -1,13 +1,13 @@
 <?php
 
-class BuyController extends PssController
+class BuyController extends ErpController
 {
     
     public $defaultAction='plan';
     
     public function init(){
         parent::init();
-        $this->breadcrumbs['采购单'] = array('/pss/buy');
+        $this->breadcrumbs['采购单'] = array('/erp/buy');
     }
     
 	public function actionPlan(){
@@ -19,7 +19,7 @@ class BuyController extends PssController
             $product->attributes = $_GET['Product'];
         }
         $product->stockout()->with(array('salesQuantity', 'buyAssignments'));
-        if (!PssPrivilege::buyCheck(PssPrivilege::BUY_ADMIN)){
+        if (!ErpPrivilege::buyCheck(ErpPrivilege::BUY_ADMIN)){
             $product->assignTo(Yii::app()->user->id);
         }
         $this->render('plan', array('model' => $product));
@@ -42,13 +42,13 @@ class BuyController extends PssController
             
             if($model->save()){
                 $model->refresh();
-                In::notice(array(array('app'=>'pss','to_uid'=>$model->buyUrged->user_id,
-                        'msg'=>"您好，".Yii::app()->user->name."回复了您的采购催办",'url'=>Yii::app()->createUrl('/pss/sales'))));
+                In::notice(array(array('app'=>'erp','to_uid'=>$model->buyUrged->user_id,
+                        'msg'=>"您好，".Yii::app()->user->name."回复了您的采购催办",'url'=>Yii::app()->createUrl('/erp/sales'))));
                 Yii::app()->user->setFlash('page_flash', CJSON::encode(array('msg' => '回复成功')));
-                $this->redirect("index.php?r=pss/buy/plan");
+                $this->redirect("index.php?r=erp/buy/plan");
             }else{
                 Yii::app()->user->setFlash('page_flash', CJSON::encode(array('msg' => '回复失败', 'type' => 'error')));
-                $this->redirect("index.php?r=pss/buy/plan");
+                $this->redirect("index.php?r=erp/buy/plan");
             }
         }
         $buyUrged = new BuyUrged('search');
@@ -96,7 +96,7 @@ class BuyController extends PssController
     }
     
     public function actionCreate(){
-        $this->breadcrumbs['进行中采购单'] = array('/pss/buy/index');
+        $this->breadcrumbs['进行中采购单'] = array('/erp/buy/index');
         $this->breadcrumbs[] = '新增采购单';
         $buyOrder=new BuyOrder();
         $buyOrder->buyer = Yii::app()->user->name;
@@ -110,10 +110,10 @@ class BuyController extends PssController
             $buyOrder->attributes=$_POST['BuyOrder'];
             if($buyOrder->save()){
                 $approval = $buyOrder->createApproval($buyOrder->approval_id);
-                $res = PssFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
+                $res = ErpFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
                 if (isset($res['prime']) && $res['prime'] === true) {
                     //自动审批
-                    PssFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
+                    ErpFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
                 }
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'添加成功')));
@@ -125,14 +125,14 @@ class BuyController extends PssController
     
 	public function actionView($id){
 	    $order = $this->loadOrder($id);
-	    $this->breadcrumbs['进行中采购单'] = array('/pss/buy/index');
+	    $this->breadcrumbs['进行中采购单'] = array('/erp/buy/index');
 	    $this->breadcrumbs[] = "采购单详情";
 	    $this->render('view', array('model' => $order));
 	}
 	
 	public function actionUpdate($id){
 	    $model = BuyOrder::model()->findByPk($id);
-	    $this->breadcrumbs['进行中采购单'] = array('/pss/buy/index');
+	    $this->breadcrumbs['进行中采购单'] = array('/erp/buy/index');
 	    $this->breadcrumbs[] = "采购单详情编辑";
 	    if(isset($_POST['BuyOrder'])){
             $model->attributes=$_POST['BuyOrder'];
@@ -143,7 +143,7 @@ class BuyController extends PssController
             if($model->save()){
                 //提醒第一审批人“XXX修改了XX单”
                 $node_id = FlowProcess::getCurrentNode($model->approval_id);
-                PssFlow::noticeUser($node_id, $model->approval_id, 6);
+                ErpFlow::noticeUser($node_id, $model->approval_id, 6);
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'修改成功')));
                 $this->redirect(array('view', 'id' => $model->id));

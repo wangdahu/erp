@@ -15,7 +15,7 @@
                     'maxfilesize' => 1024*1024,
                     'maxfiles' => 1,
                     'download' => 1, //是否提供下载功能(1表示提共下载功能,0表示不提供)
-                    'app' => 'pss',
+                    'app' => 'erp',
                     'pointName' => '上传图片',
                     'extensions' => CJSON::encode(Attach::$image_extension),
                     'finish' => 'js:function(i, file, response){callback.apply(this, arguments);}',

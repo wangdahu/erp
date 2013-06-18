@@ -45,7 +45,7 @@ $('[name="type[]"]').change(function() {
 });
 var selProduct = $('#product_id')[0];
 $('#productcate_id').change(function() {
-    $.get('/index.php?r=pss/product/cateList&cate_id='  + this.value, function(arr) {
+    $.get('/index.php?r=erp/product/cateList&cate_id='  + this.value, function(arr) {
         var html = new idk.Format();
         arr.forEach(function(opt) {
             html.push('<option value="${0}">${1}</option>', opt);

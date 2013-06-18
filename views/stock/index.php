@@ -46,10 +46,10 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-    echo CHtml::link('新添入库单', array('/pss/stockin/create'), array('class' => 'button'));
-    echo CHtml::link('新添出库单', array('/pss/stockout/create'), array('class' => 'button'));
-    echo CHtml::link('新添调拨单', array('/pss/stockallocate/create'), array('class' => 'button'));
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+    echo CHtml::link('新添入库单', array('/erp/stockin/create'), array('class' => 'button'));
+    echo CHtml::link('新添出库单', array('/erp/stockout/create'), array('class' => 'button'));
+    echo CHtml::link('新添调拨单', array('/erp/stockallocate/create'), array('class' => 'button'));
 }
 ?>
 </div>

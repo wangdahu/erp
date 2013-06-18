@@ -2,9 +2,9 @@
 $this->renderPartial('../_stockTop');
 
 $this->widget('zii.widgets.CMenu', array('htmlOptions' => array('class' => 'simpleTab'), 'items' => array(
-        array('label' => '出库单', 'url' => array('/pss/stockout/index')),
-        array('label' => '出库产品', 'url' => array('/pss/stockout/item')),
-        array('label' => '销售退货', 'url' => array('/pss/stockout/back')),
+        array('label' => '出库单', 'url' => array('/erp/stockout/index')),
+        array('label' => '出库产品', 'url' => array('/erp/stockout/item')),
+        array('label' => '销售退货', 'url' => array('/erp/stockout/back')),
 )));
 
 $form = $this->beginWidget('ActiveForm', array(
@@ -56,8 +56,8 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-    echo CHtml::link('新添出库单', array('/pss/stockout/create'), array('class' => 'button'));
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+    echo CHtml::link('新添出库单', array('/erp/stockout/create'), array('class' => 'button'));
 }
 ?>
 </div>

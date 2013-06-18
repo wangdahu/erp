@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_buy_urged".
+ * This is the model class for table "erp_buy_urged".
  *
- * The followings are the available columns in table 'pss_buy_urged':
+ * The followings are the available columns in table 'erp_buy_urged':
  * @property integer $id
  * @property integer $user_id
  * @property integer $item_id
@@ -40,7 +40,7 @@ class BuyUrged extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_buy_urged';
+		return 'erp_buy_urged';
 	}
 
 	/**
@@ -90,7 +90,7 @@ class BuyUrged extends ActiveRecord
     protected function afterSave(){
         parent::afterSave();
 /*         In::notice(array(
-            array('app'=>'pss', 'to_uid'=>$this->to_uid, 'msg'=>'您好，'.$this->from_uid.'向您发布了一个采购催办提醒', 'url'=>Yii::app()->createUrl('/pss/buy/plan')),
+            array('app'=>'erp', 'to_uid'=>$this->to_uid, 'msg'=>'您好，'.$this->from_uid.'向您发布了一个采购催办提醒', 'url'=>Yii::app()->createUrl('/erp/buy/plan')),
         )); */
     }
 

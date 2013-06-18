@@ -4,9 +4,9 @@
 <?php
      $this->widget('zii.widgets.CMenu', array(
             'items'=>array(
-                array('label'=>'产品类别', 'url'=>array('/pss/setting/product', 'type' => 1)),
-                array('label'=>'产品品牌', 'url'=>array('/pss/setting/product', 'type' => 2)),
-                array('label'=>'产品单位', 'url'=>array('/pss/setting/product', 'type' => 3)),
+                array('label'=>'产品类别', 'url'=>array('/erp/setting/product', 'type' => 1)),
+                array('label'=>'产品品牌', 'url'=>array('/erp/setting/product', 'type' => 2)),
+                array('label'=>'产品单位', 'url'=>array('/erp/setting/product', 'type' => 3)),
             ),
             'htmlOptions' => array( 'class' => 'portlet-list'),
     ));
@@ -16,19 +16,19 @@
 <?php
     if($type == '1'){//产品类别
         $title = '产品类别';
-        $add_button = CHtml::link('添加类别', array('/pss/product/cate'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
-        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/product/cate&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品类别")).
-                          CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前类别?"))';
+        $add_button = CHtml::link('添加类别', array('/erp/product/cate'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
+        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/product/cate&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品类别")).
+                          CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前类别?"))';
     }else if($type == '2'){//产品品牌
         $title = '产品品牌';
-        $add_button = CHtml::link('添加品牌', array('/pss/product/brand'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
-        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/product/brand&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品品牌")).
-                          CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前品牌?"))';
+        $add_button = CHtml::link('添加品牌', array('/erp/product/brand'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
+        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/product/brand&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品品牌")).
+                          CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前品牌?"))';
     }else{//产品单位
         $title = '产品单位';
-        $add_button = CHtml::link('添加单位', array('/pss/product/unit'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
-        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/product/unit&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品单位")).
-                          CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前单位?"))';
+        $add_button = CHtml::link('添加单位', array('/erp/product/unit'), array('class' => 'button js-dialog-link', 'style' => 'margin: 0 0 5px 10px;'));
+        $oprate_button = 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/product/unit&id=$data->id"), array("class"=>"js-dialog-link update", "data-title"=>"修改产品单位")).
+                          CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/setting/delete&id=$data->id&type='.$type.'"), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前单位?"))';
     }
 ?>
 
@@ -36,7 +36,7 @@
 <div class="main-title-big  radius-top" style='font-weight: bold; margin-bottom: 5px; font-size: 20px;'><label><?php echo $title;?></label></div>
 
 <?php
-if (PssPrivilege::otherCheck(PssPrivilege::SETTING)){
+if (ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){
     echo $add_button;
 }
 
@@ -46,7 +46,7 @@ $column_array = array(
     array('name' => 'remark', 'value' => '$data->remark', 'type' => 'ntext'),
     array(
         'header'=>'操作',
-        'visible' => PssPrivilege::otherCheck(PssPrivilege::SETTING),
+        'visible' => ErpPrivilege::otherCheck(ErpPrivilege::SETTING),
         'headerHtmlOptions' => array('class' => 'span2'),
         'type' => 'raw',
         'value' => $oprate_button,

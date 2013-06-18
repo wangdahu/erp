@@ -32,12 +32,12 @@ Yii::app()->clientScript->registerScriptFile($this->module->assetsUrl . '/js/_ch
                                 message: '<div style="line-height:200%;"><span class="red">"<?=$leftMenuName[get_class($model)] ?>"</span> 没有建立审批流程，不能发布事务。</div>',
                                 title: '提示',
                                 okbtn: '马上 新建审批流程 >>',
-                                createPssFlow:function(){
-                                    var link = "<?php echo Yii::app()->createUrl('/pss/approve/index', array('form_name' => get_class($model))); ?>";
+                                createErpFlow:function(){
+                                    var link = "<?php echo Yii::app()->createUrl('/erp/approve/index', array('form_name' => get_class($model))); ?>";
                                     window.location= link;
                                 }
                             }
-                            $.alert(opt.message, opt.createPssFlow, opt.title, opt.okbtn);
+                            $.alert(opt.message, opt.createErpFlow, opt.title, opt.okbtn);
                         });
                         </script>
                     <?endif;?>
@@ -49,6 +49,6 @@ Yii::app()->clientScript->registerScriptFile($this->module->assetsUrl . '/js/_ch
 <script>
 jQuery(function($) {
     // 页面载入完成后就提示
-    _init_body._ready_notice("<?php echo Yii::app()->createUrl('/pss/approve/hasRoleWhichFlowEveryNode'); ?>");
+    _init_body._ready_notice("<?php echo Yii::app()->createUrl('/erp/approve/hasRoleWhichFlowEveryNode'); ?>");
 });
 </script>

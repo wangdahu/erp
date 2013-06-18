@@ -5,8 +5,8 @@ Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/css/store
 ?>
 <div class="main-panel">
 <?php 
-if (PssPrivilege::otherCheck(PssPrivilege::SETTING)){
-    echo CHtml::link('添加仓库', array('/pss/storehouse/create'), array('class' => 'button js-dialog-link'));
+if (ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){
+    echo CHtml::link('添加仓库', array('/erp/storehouse/create'), array('class' => 'button js-dialog-link'));
 }
 ?>
 </div>
@@ -25,9 +25,9 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'header'=>'操作',
             'type' => 'raw',
-            'visible' => PssPrivilege::otherCheck(PssPrivilege::SETTING),
-            'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/storehouse/update", array("id" => $data->id)), array("class"=>"js-dialog-link update", "data-title"=>"修改仓库设置")).
-                CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/storehouse/delete",array("id" => $data->id)), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前仓库?"))',
+            'visible' => ErpPrivilege::otherCheck(ErpPrivilege::SETTING),
+            'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/storehouse/update", array("id" => $data->id)), array("class"=>"js-dialog-link update", "data-title"=>"修改仓库设置")).
+                CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/storehouse/delete",array("id" => $data->id)), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除当前仓库?"))',
             'headerHtmlOptions' => array('class' => 'span2')
              )
         ),

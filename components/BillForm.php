@@ -12,7 +12,7 @@ abstract class BillForm extends ActiveRecord {
     public function behaviors(){
         return array(
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
             'timestampBehavior' => array(
                 'class' => 'zii.behaviors.CTimestampBehavior',
@@ -74,28 +74,28 @@ abstract class BillForm extends ActiveRecord {
      * 是否通过审批
      */
     public function getIsPassApprove(){
-        return $this->approval_status == PssFlow::APPROVAL_PASS;
+        return $this->approval_status == ErpFlow::APPROVAL_PASS;
     }
     
     /**
      * 审批状态字符创读取
      */
     public function getApproveStatusText(){
-        return PssFlow::approveStatusConvert($this->getApproveStatus());
+        return ErpFlow::approveStatusConvert($this->getApproveStatus());
     }
     
     /**
      * 获取进销存审批流程
      * @return array
      */
-    public static function getPssFlows(){
+    public static function getErpFlows(){
         return FormFlow::getFlows(__CLASS__);
     }
 	
     public function validBillNumber($attribute, $params){
         $result = $this->getDbConnection()
             ->createCommand()->select()
-            ->from('pss_number')
+            ->from('erp_number')
             ->where('no=:no', array(':no'=>$this->$attribute))->queryRow();
         if ($result){
             $this->addError($attribute, isset($params['message']) ? $params['message'] : '单号已存在');
@@ -199,12 +199,12 @@ abstract class BillForm extends ActiveRecord {
     }
     
     public function createApproval($flow_id){
-        $res = PssFlow::initFlowTaskByFlowId($flow_id, 0);
+        $res = ErpFlow::initFlowTaskByFlowId($flow_id, 0);
         $this->approval_id = $res['task_id'];
         $this->save(false);
-        $param = PssFlow::verifyNodeAuthority($res['node_id'], $res['task_id']);
+        $param = ErpFlow::verifyNodeAuthority($res['node_id'], $res['task_id']);
         if (!isset($param['prime']) || $param['prime'] === false) {//自审
-            PssFlow::noticeUser($res['node_id'], $res['task_id'], 0);
+            ErpFlow::noticeUser($res['node_id'], $res['task_id'], 0);
         }
         return $res;
     }

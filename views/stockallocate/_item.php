@@ -4,7 +4,7 @@
     &nbsp;
     <?php if($is_view){?>
         <?=CHtml::htmlButton('添加已有产品', 
-                array('disabled' => false, 'data-href' => $this->createUrl('/pss/stockallocate/popup'),
+                array('disabled' => false, 'data-href' => $this->createUrl('/erp/stockallocate/popup'),
                      'class' => 'js-dialog-link', 'data-id' => 'select-product', 'data-title' => '选择已有产品')); ?>
     <?php }?>
     </div>
@@ -88,7 +88,7 @@ tab.delegate('.delete', 'click', function(){
 });
 
 tab.find(".storehouse select").live('change', function(){
-    $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/pss/stock/quantity')?>&storehouse_id="+this.value+"&product_id="+$(this).parents("tr").find(".product input").val());
+    $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/erp/stock/quantity')?>&storehouse_id="+this.value+"&product_id="+$(this).parents("tr").find(".product input").val());
 });
 </script>
 

@@ -1,6 +1,6 @@
 <?php
 
-class CustomerController extends PssController
+class CustomerController extends ErpController
 {
     //客户管理列表查询
     public function actionIndex() {
@@ -60,7 +60,7 @@ class CustomerController extends PssController
     
     //客户管理新增
     public function actionCreate(){
-        $this->breadcrumbs['客户管理'] = array('/pss/customer');
+        $this->breadcrumbs['客户管理'] = array('/erp/customer');
         $this->breadcrumbs[] = '新添客户';
         $customer = new Customer();
         
@@ -80,7 +80,7 @@ class CustomerController extends PssController
                      echo $customer->id ? CJSON::encode(array('status' => 1, 'cus_data' => $customer->attributes+array('fullAddress'=>$customer->fullAddress), 'link_data' => $customer->linkman->attributes)) : CJSON::encode(array('status' => 0));
                  }else{//新增客户信息操作
                      Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'保存成功')));
-                     $_POST['submit_value']== 1 ? $this->redirect(array("/pss/customer")) : $this->refresh();
+                     $_POST['submit_value']== 1 ? $this->redirect(array("/erp/customer")) : $this->refresh();
                  }
              }else{
                 if($request->isAjaxRequest){
@@ -102,7 +102,7 @@ class CustomerController extends PssController
     
     //客户信息修改
     public function actionUpdate($id){
-        $this->breadcrumbs['客户管理'] = array('/pss/customer');
+        $this->breadcrumbs['客户管理'] = array('/erp/customer');
         $this->breadcrumbs[] = '客户详情';
         
         $customer = $this->loadModel($id, 'Customer');

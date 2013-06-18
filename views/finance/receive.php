@@ -42,7 +42,7 @@ $form = $this->beginWidget('ActiveForm', array(
         array('name'=>'receivedPrice', 'value'=>'$data->receivedPrice', 'headerHtmlOptions'=>array('class'=>'span3')),
         array('header'=>'未收金额', 'value'=>'$data->notReceivedPrice', 'headerHtmlOptions'=>array('class'=>'span3')),
         array('header'=>'最近收款时间', 'value'=>'$data->receiveItems ? date("Y-m-d H:i", $data->receiveItems[0]->created) : "--"', 'headerHtmlOptions'=>array('class'=>'span4')),
-        array('header'=>'操作', 'type'=>'raw', 'value'=>'CHtml::link("结算", array("/pss/finance/chargein", "id"=>"$data->id"), array("class" => "js-dialog-link"))', 
+        array('header'=>'操作', 'type'=>'raw', 'value'=>'CHtml::link("结算", array("/erp/finance/chargein", "id"=>"$data->id"), array("class" => "js-dialog-link"))', 
               'headerHtmlOptions'=>array('class'=>'span1')),
     ),
 ));

@@ -1,10 +1,10 @@
 <?php
 
-class ProductController extends PssController
+class ProductController extends ErpController
 {
     public function init(){
         parent::init();
-        $this->breadcrumbs['货品库存'] = array('/pss/stock/index');
+        $this->breadcrumbs['货品库存'] = array('/erp/stock/index');
     }
     
     protected function processAdminCommand(){
@@ -33,7 +33,7 @@ class ProductController extends PssController
     public function actionPopup($buy=0){
         $model = $this->createSearchModel();
         if ($buy){
-            if (!PssPrivilege::buyCheck(PssPrivilege::BUY_ADMIN)){
+            if (!ErpPrivilege::buyCheck(ErpPrivilege::BUY_ADMIN)){
                 $model->assignTo(Yii::app()->user->id);
             }
         }

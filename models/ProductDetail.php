@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_product_detail".
+ * This is the model class for table "erp_product_detail".
  *
- * The followings are the available columns in table 'pss_product_detail':
+ * The followings are the available columns in table 'erp_product_detail':
  * @property integer $id
  * @property integer $product_id
  * @property string $en_intro
@@ -32,7 +32,7 @@ class ProductDetail extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_product_detail';
+		return 'erp_product_detail';
 	}
 
 	/**

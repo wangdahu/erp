@@ -4,12 +4,12 @@
  * @author hjb
  *
  */
-class StockallocateController extends PssController{
+class StockallocateController extends ErpController{
     
     public function init(){
         parent::init();
-        $this->breadcrumbs['货品库存'] = array('/pss/stock/index');
-        $this->breadcrumbs['产皮调拨'] = array('/pss/stockallocate/index');
+        $this->breadcrumbs['货品库存'] = array('/erp/stock/index');
+        $this->breadcrumbs['产皮调拨'] = array('/erp/stockallocate/index');
     }
     
     //产品调拨首页
@@ -63,7 +63,7 @@ class StockallocateController extends PssController{
     
     //新添调拨单
     public function actionCreate(){
-        $this->breadcrumbs['调拨单'] = array('/pss/stockallocate/index');
+        $this->breadcrumbs['调拨单'] = array('/erp/stockallocate/index');
         $this->breadcrumbs[] = '新添调拨单';
         $model = new StockAllocate();
         $model->user_id = Yii::app()->user->id;
@@ -78,10 +78,10 @@ class StockallocateController extends PssController{
             
             if($model->save()){
                 $approval = $model->createApproval($model->approval_id);
-                $res = PssFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
+                $res = ErpFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
                 if (isset($res['prime']) && $res['prime'] === true) {
                     //自动审批
-                    PssFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
+                    ErpFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
                 }
                 
                 Yii::app()->user->setFlash('page-flash', CJSON::encode(array('msg'=>'保存成功！')));
@@ -93,8 +93,8 @@ class StockallocateController extends PssController{
     
     //调拨单修改
     public function actionUpdate($id){
-        $this->breadcrumbs['产皮调拨'] = array('/pss/stockallocate/index');
-        $this->breadcrumbs['调拨单'] = array('/pss/stockallocate/index');
+        $this->breadcrumbs['产皮调拨'] = array('/erp/stockallocate/index');
+        $this->breadcrumbs['调拨单'] = array('/erp/stockallocate/index');
         $this->breadcrumbs[] = '调拨单详情编辑';
         $model = StockAllocate::model()->findByPk($id);
         
@@ -109,7 +109,7 @@ class StockallocateController extends PssController{
             if($model->save()){
                 //提醒第一审批人“XXX修改了XX单”
                 $node_id = FlowProcess::getCurrentNode($model->approval_id);
-                PssFlow::noticeUser($node_id, $model->approval_id, 6);
+                ErpFlow::noticeUser($node_id, $model->approval_id, 6);
                 
                 Yii::app()->user->setFlash('page-flash', CJSON::encode(array('msg'=>'保存成功！')));
                 $this->redirect(array('index'));
@@ -121,8 +121,8 @@ class StockallocateController extends PssController{
     
     //调拨单详情
     public function actionView($id){
-        $this->breadcrumbs['产皮调拨'] = array('/pss/stockallocate/index');
-        $this->breadcrumbs['调拨单'] = array('/pss/stockallocate/index');
+        $this->breadcrumbs['产皮调拨'] = array('/erp/stockallocate/index');
+        $this->breadcrumbs['调拨单'] = array('/erp/stockallocate/index');
         $this->breadcrumbs[] = '调拨单详情';
         $model = $this->loadModel($id, "StockAllocate");
         $this->render('view', array('model' => $model));

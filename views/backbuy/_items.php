@@ -1,8 +1,8 @@
 <?php $is_view = Yii::app()->controller->action->id == "view";?>
 <div class="main-panel">
     <?php if(!$is_view){?>
-        <?php echo CHtml::htmlButton('添加已有产品', array('data-href'=>$this->createUrl('/pss/product/popup'), 'class' => 'js-dialog-link', 'data-id' => 'select-product', 'disabled' => $model->isBindOrder || $is_view));?>
-        <?php echo CHtml::htmlButton('新添产品', array('data-href'=>$this->createUrl('/pss/product/create'), 'class' => 'js-dialog-link', 'disabled' => $model->isBindOrder || $is_view));?>
+        <?php echo CHtml::htmlButton('添加已有产品', array('data-href'=>$this->createUrl('/erp/product/popup'), 'class' => 'js-dialog-link', 'data-id' => 'select-product', 'disabled' => $model->isBindOrder || $is_view));?>
+        <?php echo CHtml::htmlButton('新添产品', array('data-href'=>$this->createUrl('/erp/product/create'), 'class' => 'js-dialog-link', 'disabled' => $model->isBindOrder || $is_view));?>
     <?php }
     ?>
 </div>
@@ -77,7 +77,7 @@ $(function(){
     });
     
     tab.find(".storehouse select").live('change', function(){
-        $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/pss/stock/quantity')?>&storehouse_id="+(this.value == "" ? 0 : this.value)+"&product_id="+$(this).parents("tr").find(".product input").val());
+        $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/erp/stock/quantity')?>&storehouse_id="+(this.value == "" ? 0 : this.value)+"&product_id="+$(this).parents("tr").find(".product input").val());
     }).change();
 });
 

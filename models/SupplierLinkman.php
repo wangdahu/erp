@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_supplier_linkman".
+ * This is the model class for table "erp_supplier_linkman".
  *
- * The followings are the available columns in table 'pss_supplier_linkman':
+ * The followings are the available columns in table 'erp_supplier_linkman':
  * @property integer $id
  * @property integer $supplier_id
  * @property string $name
@@ -35,7 +35,7 @@ class SupplierLinkman extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_supplier_linkman';
+		return 'erp_supplier_linkman';
 	}
 
 	/**

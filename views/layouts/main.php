@@ -8,8 +8,8 @@
     <?php echo $content; ?>
     </div>
 </div>
-<?php Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css');?>
-<?php Yii::app()->clientScript->registerScriptFile($this->module->assetsUrl . '/pss.js');?>
+<?php Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/erp.css');?>
+<?php Yii::app()->clientScript->registerScriptFile($this->module->assetsUrl . '/erp.js');?>
 <?php $this->endContent(); ?>
 <script>
 (function() {

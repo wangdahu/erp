@@ -32,9 +32,9 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_CREATE)){
+if (ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_CREATE)){
     echo CHtml::htmlButton('生成采购单', array('id' => 'btn_buy', 'class' => 'button', 'disabled' => 'disabled', 
-            'onclick'=>'location.href="'.$this->createUrl('/pss/buy/create').'&"+$("#buy-plan :checked").serialize()'));
+            'onclick'=>'location.href="'.$this->createUrl('/erp/buy/create').'&"+$("#buy-plan :checked").serialize()'));
 }
 ?>
 
@@ -65,7 +65,7 @@ if (PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_CREATE)){
         //采购计划列表中新增“采购中数量”，显示进行采购单中尚未入库的采购产品数量 暂不做
         //array('header' => '采购中数量', 'value' => '$data->buyQuantity'),
         array('header' => '采购催办记录', 'type' => 'raw', 'headerHtmlOptions' => array('class' => 'span3'),
-        	'value' => '$data->urgedCount == 0 ? "已催办".$data->urgedCount."次" : CHtml::link("已催办".$data->urgedCount."次", array("/pss/buy/buyUrged", "product_id" => $data->id), array("class" => "js-dialog-link", "data-title" => "催办查看"))'),
+        	'value' => '$data->urgedCount == 0 ? "已催办".$data->urgedCount."次" : CHtml::link("已催办".$data->urgedCount."次", array("/erp/buy/buyUrged", "product_id" => $data->id), array("class" => "js-dialog-link", "data-title" => "催办查看"))'),
     ), 
 ));
 ?>

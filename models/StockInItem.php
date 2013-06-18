@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_stock_item".
+ * This is the model class for table "erp_stock_item".
  *
- * The followings are the available columns in table 'pss_stock_item':
+ * The followings are the available columns in table 'erp_stock_item':
  * @property integer $id
  * @property integer $form_id
  * @property integer $type
@@ -50,7 +50,7 @@ class StockInItem extends BillFormItem
 	 */
 	public function tableName()
 	{
-		return 'pss_stock_item';
+		return 'erp_stock_item';
 	}
 
 	/**
@@ -176,7 +176,7 @@ class StockInItem extends BillFormItem
     public function behaviors(){
         return array(
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
         );
     }

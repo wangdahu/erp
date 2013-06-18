@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_pay_item".
+ * This is the model class for table "erp_pay_item".
  *
- * The followings are the available columns in table 'pss_pay_item':
+ * The followings are the available columns in table 'erp_pay_item':
  * @property integer $id
  * @property integer $supplier_id
  * @property integer $order_id
@@ -43,7 +43,7 @@ class PayItem extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_pay_item';
+		return 'erp_pay_item';
 	}
 
 	/**

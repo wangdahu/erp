@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_buy_assignment".
+ * This is the model class for table "erp_buy_assignment".
  *
- * The followings are the available columns in table 'pss_buy_assignment':
+ * The followings are the available columns in table 'erp_buy_assignment':
  * @property integer $assign_id
  * @property integer $product_id
  * @property integer $type
@@ -28,7 +28,7 @@ class BuyAssignment extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_buy_assignment';
+		return 'erp_buy_assignment';
 	}
 
 	/**

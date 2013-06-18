@@ -2,7 +2,7 @@
 $this->renderPartial('../_salesTop');
 
 $isHistory = $this->action->id == 'history';
-$isAdmin = PssPrivilege::salesCheck(PssPrivilege::SALES_ADMIN);
+$isAdmin = ErpPrivilege::salesCheck(ErpPrivilege::SALES_ADMIN);
 
 $form = $this->beginWidget('ActiveForm', array(
     'id'=>'sales-search',
@@ -61,15 +61,15 @@ if (!$isHistory){
 ?>
 <div class="main-panel">
 <?php
-if (PssPrivilege::salesCheck(PssPrivilege::SALES_ORDER_CREATE)){
-    echo CHtml::link('新添销售单', array('/pss/sales/create'), array('class' => 'button highlight'));
+if (ErpPrivilege::salesCheck(ErpPrivilege::SALES_ORDER_CREATE)){
+    echo CHtml::link('新添销售单', array('/erp/sales/create'), array('class' => 'button highlight'));
 }
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-    //'onclick'=>'location.href="'.$this->createUrl('/pss/stockout/create').'&order_id="+$("#sales-order :checked").val();'
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+    //'onclick'=>'location.href="'.$this->createUrl('/erp/stockout/create').'&order_id="+$("#sales-order :checked").val();'
     echo CHtml::htmlButton('销售出库', array('id' => 'btn_stockout', 'disabled' => 'disabled', 'style' => 'margin-right: 10px'));
 }
-if (PssPrivilege::salesCheck(PssPrivilege::SALES_BACK)){
-    //'onclick'=>'location.href="'.$this->createUrl('/pss/backsales/create').'&order_id="+$("#sales-order :checked").val();
+if (ErpPrivilege::salesCheck(ErpPrivilege::SALES_BACK)){
+    //'onclick'=>'location.href="'.$this->createUrl('/erp/backsales/create').'&order_id="+$("#sales-order :checked").val();
     echo CHtml::htmlButton('销售退货', array('id' => 'btn_backsale', 'disabled' => 'disabled'));
 }
 ?>
@@ -101,19 +101,19 @@ $gridView = $this->widget('zii.widgets.grid.CGridView', array(
         array('name' => 'status', 'value'=>'array_key_exists($data->status, $data->statusOptions) ? $data->statusOptions[$data->status] : ""', 
                 'headerHtmlOptions' => array('class' => 'span2')),
         array('visible' => !$isHistory, 'name' => '操作', 'type'=>'raw', 'value' => 
-                'PssPrivilege::salesCheck(PssPrivilege::SALES_ADMIN) || $data->salesman_id == Yii::app()->user->id ?
+                'ErpPrivilege::salesCheck(ErpPrivilege::SALES_ADMIN) || $data->salesman_id == Yii::app()->user->id ?
                 ($data->isPassApprove ? 
-                    CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/sales/statement", array("id"=>$data->id)),
+                    CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/sales/statement", array("id"=>$data->id)),
                     array("class"=>"js-confirm-link statement", "title"=>"结单", "data-title" => "确定要结单“ $data->no ”？"))
                     :
-                    CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/sales/warn"),
+                    CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/sales/warn"),
                     array("class"=>"js-confirm-link statement", "title"=>"结单", "data-title" => "单据未审批通过，不能结单！"))
                 )
                 : 
                 "无"', 'headerHtmlOptions' => array('class' => 'span1')),
         array('name' => '操作', 'type' => 'raw', 
               'visible' => $isHistory && $isAdmin,
-              'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/sales/deletehistory", array("id"=>$data->id)),
+              'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/sales/deletehistory", array("id"=>$data->id)),
                           array("class"=>"js-confirm-link delete", "title"=>"删除", "data-title" => "删除后将无法恢复，您确定要删除吗？"))', 
               'headerHtmlOptions' => array('class' => 'span1')),
     ),
@@ -136,7 +136,7 @@ $(function(){
 		var approval_status = $("#sales-order :checked").parents("tr").find(":hidden[name='approval_status']").val();
 		if(approval_status == '2'){//审批通过
 			$(this).prop('onclick', function(){
-				location.href="<?=$this->createUrl('/pss/stockout/create')?>&order_id="+$("#sales-order :checked").val();
+				location.href="<?=$this->createUrl('/erp/stockout/create')?>&order_id="+$("#sales-order :checked").val();
 			});
 	    }else{//审批不通过
 			$.alert("该销售单未通过审批，不能做出库操作！");
@@ -148,7 +148,7 @@ $(function(){
 		var approval_status = $("#sales-order :checked").parents("tr").find(":hidden[name='approval_status']").val();
 		if(approval_status == '2'){//审批通过
 			$(this).prop('onclick', function(){
-				location.href="<?=$this->createUrl('/pss/backsales/create')?>&order_id="+$("#sales-order :checked").val();
+				location.href="<?=$this->createUrl('/erp/backsales/create')?>&order_id="+$("#sales-order :checked").val();
 			});
 	    }else{//审批不通过
 			$.alert("该销售单未通过审批，不能做退货操作！");

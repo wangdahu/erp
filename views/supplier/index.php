@@ -1,5 +1,5 @@
 <?php 
-Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css');
+Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/erp.css');
 ?>
 <div class="main-title-big  radius-top">
 	<h3>供应商管理</h3>
@@ -14,11 +14,11 @@ Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css')
 <!-- 列表信息start -->
 <div class="main-panel">
 <?php
-if (PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_CREATE)){
-    echo Html5::link('新添供应商', array('/pss/supplier/create'), array('class' => 'button highlight'));
+if (ErpPrivilege::supplierCheck(ErpPrivilege::SUPPLIER_CREATE)){
+    echo Html5::link('新添供应商', array('/erp/supplier/create'), array('class' => 'button highlight'));
 }
-if (PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_ADMIN)){
-    echo Html5::link('删除', array('/pss/supplier/delete'), array('id' => 'supplier_delete', 'class' => 'button'));
+if (ErpPrivilege::supplierCheck(ErpPrivilege::SUPPLIER_ADMIN)){
+    echo Html5::link('删除', array('/erp/supplier/delete'), array('id' => 'supplier_delete', 'class' => 'button'));
 }
 ?>
 </div>
@@ -68,7 +68,7 @@ if (PssPrivilege::supplierCheck(PssPrivilege::SUPPLIER_ADMIN)){
                 return false;
             }
             $.confirm("您确认要删除所选供应商? ", function(){
-                $.post("<?=$this->createUrl("/pss/supplier/delete")?>", ids, function(json){
+                $.post("<?=$this->createUrl("/erp/supplier/delete")?>", ids, function(json){
                     if(json.status == 1){
                         location.reload();
                     }else{

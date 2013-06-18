@@ -7,7 +7,7 @@
                 <div class="main">
                     <?php 
                     $flow_info = FlowTask::getTaskInfoById($task_id);
-                    echo PssFlow::getApproveStr(empty($flow_info['flow_id']) ? '0' : $flow_info['flow_id']);?>
+                    echo ErpFlow::getApproveStr(empty($flow_info['flow_id']) ? '0' : $flow_info['flow_id']);?>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <div style='margin: 1px 0 0 10px; border-style: none; border-top: solid 2px #CCC;; width: 98%;'></div>
     
     <div>
-        <?php $approve_record = PssFlow::getApprovedRecord($task_id);
+        <?php $approve_record = ErpFlow::getApprovedRecord($task_id);
         if (count($approve_record)) { ?>
             <?php foreach ($approve_record as $k => $val) { ?>
             <?php $_user = Account::user($val['approved_user_id']); ?>
@@ -30,9 +30,9 @@
                     <label><?php echo $_user->name; ?></label>
                     <label><?php echo substr($val['created'], 0, 16); ?></label>
                     <?php if (2 == $val['status']) { ?>
-                    <label><strong class="green"><?php echo PssFlow::approveStatusConvert($val['status']); ?></strong></label>
+                    <label><strong class="green"><?php echo ErpFlow::approveStatusConvert($val['status']); ?></strong></label>
                     <?php } else { ?>
-                    <label><strong class="red"><?php echo PssFlow::approveStatusConvert($val['status']); ?></strong></label>
+                    <label><strong class="red"><?php echo ErpFlow::approveStatusConvert($val['status']); ?></strong></label>
                     <?php } ?>
                     <label>审批</label>
                 </div>
@@ -56,7 +56,7 @@
             </div>
         <?php } ?>
         <?php //权限验证
-        $authority = PssFlow::verifyApprovedAuthority($task_id);
+        $authority = ErpFlow::verifyApprovedAuthority($task_id);
         if (isset($authority['prime']) && $authority['prime'] === true) { ?>
         <div style='color: #145A83; margin: 10px 0 0 30px;' id="approval">
             <ul>
@@ -84,7 +84,7 @@
             var node_id = $("#node_id").val();
             var comment = $("#comment").val();
             var params = {status:status, task_id:task_id, node_relate_id:node_relate_id, node_id:node_id, comment:comment};
-            $.getJSON("/index.php?r=pss/approve/approved&" + $.param(params), function(data){
+            $.getJSON("/index.php?r=erp/approve/approved&" + $.param(params), function(data){
                 var opt = {
                     message: data.msg,
                     _reload: function(){

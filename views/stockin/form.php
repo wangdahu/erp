@@ -42,7 +42,7 @@
                         if(Yii::app()->controller->action->id == "create") echo CHtml::link("删除", array('create'))."&nbsp;&nbsp;";
                     }
                     if(Yii::app()->controller->action->id == "create"){
-                        echo CHtml::link("选择已有采购单", array('/pss/buy/popup'), array('class'=>'js-dialog-link'));
+                        echo CHtml::link("选择已有采购单", array('/erp/buy/popup'), array('class'=>'js-dialog-link'));
                     }
                     ?>
                 </div>
@@ -69,10 +69,10 @@
                     <?php echo $form->hiddenField($model,'supplier_id'); ?>
                 </div>&nbsp;
                 <?php echo CHtml::htmlButton('选择已有供应商', array('class' => 'js-dialog-link button', 'data-id'=>'select-supplier',
-                        'disabled' => $model->isBindOrder || Yii::app()->controller->action->id == "view", 'data-href' => $this->createUrl('/pss/supplier/popup')));?>
+                        'disabled' => $model->isBindOrder || Yii::app()->controller->action->id == "view", 'data-href' => $this->createUrl('/erp/supplier/popup')));?>
                 &nbsp;
                 <?php echo CHtml::htmlButton('添加供应商', array('class' => 'js-dialog-link button', 
-                        'disabled' => $model->isBindOrder || Yii::app()->controller->action->id == "view", 'data-href' => $this->createUrl('/pss/supplier/create')));?>
+                        'disabled' => $model->isBindOrder || Yii::app()->controller->action->id == "view", 'data-href' => $this->createUrl('/erp/supplier/create')));?>
                 <?php echo $form->error($model,'supplier_name'); ?>&nbsp;&nbsp;
                 
             </div>
@@ -197,7 +197,7 @@
             <div class="item">
                 <div class="main">
                     <?php echo $form->textField($model,'in_name', 
-                            PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN) ? array('placeholder' => "请输入人员姓名或拼音", 'class' => 'js-complete') : array('readonly' => true)); ?>
+                            ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN) ? array('placeholder' => "请输入人员姓名或拼音", 'class' => 'js-complete') : array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'in_id'); ?>
                 </div>
                 <?php echo $form->error($model,'in_name'); ?>

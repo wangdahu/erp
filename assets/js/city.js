@@ -1,7 +1,7 @@
 jQuery(function($) {
     // 选择省份加载城市
     var city = $(".city_value"),
-    url = "index.php?r=/pss/common/district";
+    url = "index.php?r=/erp/common/district";
     $(".province_blur").change(function(e, cityId) {
         var province = $(this), recall,
         pid = this.value,

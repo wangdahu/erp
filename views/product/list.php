@@ -4,9 +4,9 @@
     <h2>产品类别</h2>
     <div style='width: 180px; height: 550px; overflow: auto;'>
         <?php
-        $items = array(array('label'=>'全部', 'url'=>array('/pss/product/list'), 'active'=> !isset($_GET['cate_id'])));
+        $items = array(array('label'=>'全部', 'url'=>array('/erp/product/list'), 'active'=> !isset($_GET['cate_id'])));
         foreach ($cate as $cat){
-            $items[] = array('label'=>$cat->name, 'url'=>array('/pss/product/list', 'cate_id' => $cat->id));
+            $items[] = array('label'=>$cat->name, 'url'=>array('/erp/product/list', 'cate_id' => $cat->id));
         }
          $this->widget('zii.widgets.CMenu', array(
                 'items'=>$items,
@@ -23,8 +23,8 @@
 <!-- 搜索条件end -->
 <div class="main-panel">
 <?php
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-    echo CHtml::link('添加产品', array('/pss/product/create'.(!empty($cate_id) ? "&cate_id=".$cate_id : '')), array('class' => 'button js-dialog-link', 'style' => 'margin: 5px 0 5px 3px'));
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+    echo CHtml::link('添加产品', array('/erp/product/create'.(!empty($cate_id) ? "&cate_id=".$cate_id : '')), array('class' => 'button js-dialog-link', 'style' => 'margin: 5px 0 5px 3px'));
 }
 ?>
 </div>
@@ -50,11 +50,11 @@ $this->widget('zii.widgets.grid.CGridView', array(
             array(
                 'header'=>'操作',
                 'type' => 'raw',
-                'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/product/update", array("id"=>$data->id)), array("class"=>"js-dialog-link update", "data-title"=>"修改产品"))."&nbsp;&nbsp;&nbsp;".
-                 (!PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN) ? "" : 
-                    CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/product/delete", array("id"=>$data->id)), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除此产品?")))',
+                'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/product/update", array("id"=>$data->id)), array("class"=>"js-dialog-link update", "data-title"=>"修改产品"))."&nbsp;&nbsp;&nbsp;".
+                 (!ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN) ? "" : 
+                    CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/product/delete", array("id"=>$data->id)), array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除此产品?")))',
                 'headerHtmlOptions' => array('class' => 'span2'),
-                'visible' => PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN),
+                'visible' => ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN),
             ),
         ),
 ));?>

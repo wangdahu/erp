@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_stock_allocate_item".
+ * This is the model class for table "erp_stock_allocate_item".
  *
- * The followings are the available columns in table 'pss_stock_allocate_item':
+ * The followings are the available columns in table 'erp_stock_allocate_item':
  * @property integer $id
  * @property integer $allocate_id
  * @property integer $from_stock_id
@@ -43,7 +43,7 @@ class StockAllocateItem extends BillFormItem
 	 */
 	public function tableName()
 	{
-		return 'pss_stock_allocate_item';
+		return 'erp_stock_allocate_item';
 	}
 
 	/**
@@ -98,7 +98,7 @@ class StockAllocateItem extends BillFormItem
     public function behaviors(){
         return array(
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
         );
     }

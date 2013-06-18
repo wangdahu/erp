@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_stock".
+ * This is the model class for table "erp_stock".
  *
- * The followings are the available columns in table 'pss_stock':
+ * The followings are the available columns in table 'erp_stock':
  * @property integer $id
  * @property integer $product_id
  * @property integer $storehouse_id
@@ -18,7 +18,7 @@ class Stock extends ActiveRecord
     public function beforeFind(){
         parent::beforeFind();
     
-/*        $viewRights = PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW) || PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD);
+/*        $viewRights = ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW) || ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD);
         if (!$viewRights){
             $this->getDbCriteria()->condition = "1=0";
         }*/
@@ -31,7 +31,7 @@ class Stock extends ActiveRecord
     public function behaviors(){
         return array(
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
         );
     }
@@ -51,7 +51,7 @@ class Stock extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_stock';
+		return 'erp_stock';
 	}
 
 	/**
@@ -82,7 +82,7 @@ class Stock extends ActiveRecord
             'storehouse' => array(self::BELONGS_TO, 'Storehouse', 'storehouse_id'),
             'product' => array(self::BELONGS_TO, 'Product', 'product_id'),
             /*'bideInQuantity' => array(self::BELONGS_TO, 'StockInItem', 'stock_id', 
-                'with' => array('form' => array('condition' => 'form.approval_status=:status', 'params' => array(':status' => PssFlow::APPROVAL_FOLLOW)))),*/
+                'with' => array('form' => array('condition' => 'form.approval_status=:status', 'params' => array(':status' => ErpFlow::APPROVAL_FOLLOW)))),*/
         );
     }
 
@@ -110,7 +110,7 @@ class Stock extends ActiveRecord
         $criteria->with = array(
             'form' => array(
                 'condition' => 'form.approval_status=:status', 
-                'params' => array(':status' => PssFlow::APPROVAL_FOLLOW),
+                'params' => array(':status' => ErpFlow::APPROVAL_FOLLOW),
                 'select' => 'form.id',
             )
         );
@@ -132,7 +132,7 @@ class Stock extends ActiveRecord
         $criteria->with = array(
             'form' => array(
                 'condition' => 'form.approval_status=:status',
-                'params' => array(':status' => PssFlow::APPROVAL_FOLLOW),
+                'params' => array(':status' => ErpFlow::APPROVAL_FOLLOW),
                 'select' => 'form.id',
             ),
         );

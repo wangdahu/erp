@@ -1,7 +1,7 @@
 <?php 
 $this->renderPartial('../_buyTop');
 $isHistory = $this->action->id == 'history';
-$isAdmin = PssPrivilege::buyCheck(PssPrivilege::BUY_ADMIN);
+$isAdmin = ErpPrivilege::buyCheck(ErpPrivilege::BUY_ADMIN);
 
 $form = $this->beginWidget('ActiveForm', array(
     'id'=>'backSalesSearch',
@@ -61,13 +61,13 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_CREATE)){
+if (ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_CREATE)){
     echo CHtml::link('新添采购单', array('create'), array('class' => 'button'));
 }
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
     echo CHtml::htmlButton('采购入库', array('id' => 'btn_stockin', 'disabled' => 'disabled', 'style' => 'margin-right: 10px'));
 }
-if (PssPrivilege::buyCheck(PssPrivilege::BUY_BACK)){
+if (ErpPrivilege::buyCheck(ErpPrivilege::BUY_BACK)){
     echo CHtml::htmlButton('采购退货',  array('id' => 'btn_backbuy', 'disabled' => 'disabled'));
 }
 ?>
@@ -98,7 +98,7 @@ $gridView = $this->widget('zii.widgets.grid.CGridView', array(
         array('name' => 'status', 'value'=>'array_key_exists($data->status, $data->statusOptions) ? $data->statusOptions[$data->status] : ""', 
                 'headerHtmlOptions' => array('class' => 'span2')),
         array('visible' => !$isHistory, 'name' => '操作', 'type'=>'raw', 'value' => '
-              PssPrivilege::buyCheck(PssPrivilege::BUY_ADMIN) || $data->buyer_id == Yii::app()->user->id ?
+              ErpPrivilege::buyCheck(ErpPrivilege::BUY_ADMIN) || $data->buyer_id == Yii::app()->user->id ?
                   CHtml::linkButton("", 
                       array(
                           "class"=>"statement",
@@ -111,7 +111,7 @@ $gridView = $this->widget('zii.widgets.grid.CGridView', array(
               'headerHtmlOptions' => array('class' => 'span1')),
         array('name' => '操作', 'type' => 'raw', 
               'visible' => $isHistory && $isAdmin,
-              'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/buy/deletehistory", array("id"=>$data->id)),
+              'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/buy/deletehistory", array("id"=>$data->id)),
                           array("class"=>"js-confirm-link delete", "title"=>"删除", "data-title" => "删除后将无法恢复，您确定要删除吗？"))', 
               'headerHtmlOptions' => array('class' => 'span1')),
     ), 
@@ -133,7 +133,7 @@ $(function(){
     	var approval_status = $("#buy-order :checked").parents("tr").find(":hidden[name='approval_status']").val();
     	if(approval_status == '2'){//审批通过
     		$(this).prop('onclick', function(){
-    			location.href="<?=$this->createUrl('/pss/stockin/create')?>&order_id="+$("#buy-order :checked").val();
+    			location.href="<?=$this->createUrl('/erp/stockin/create')?>&order_id="+$("#buy-order :checked").val();
     		});
       }else{//审批不通过
     		$.alert("该采购单未通过审批，不能做入库操作！");
@@ -145,7 +145,7 @@ $(function(){
     	var approval_status = $("#buy-order :checked").parents("tr").find(":hidden[name='approval_status']").val();
     	if(approval_status == '2'){//审批通过
     		$(this).prop('onclick', function(){
-    			location.href="<?=$this->createUrl('/pss/backbuy/create')?>&order_id="+$("#buy-order :checked").val();
+    			location.href="<?=$this->createUrl('/erp/backbuy/create')?>&order_id="+$("#buy-order :checked").val();
     		});
       }else{//审批不通过
     		$.alert("该采购单未通过审批，不能做退货操作！");

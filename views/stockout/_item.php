@@ -2,12 +2,12 @@
 <div class="main-panel">
     <?php if(!$is_view){?>
         <?=CHtml::htmlButton('添加已有产品', 
-                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/product/popup'),
+                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/product/popup'),
                      'class' => 'js-dialog-link', 'data-id' => 'select-product')); ?>
         <?php
-        if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
+        if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
             echo CHtml::htmlButton('新添产品', 
-                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/product/create&popup=1'), 
+                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/product/create&popup=1'), 
                      'class' => 'js-dialog-link')); 
         }
         ?>
@@ -86,7 +86,7 @@ $(function(){
     });
     
     tab.find(".storehouse select").live('change', function(){
-        $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/pss/stock/quantity')?>&storehouse_id="+this.value+"&product_id="+$(this).parents("tr").find(".product input").val());
+        $(this).parents("tr").find(".stock").load("<?=$this->createUrl('/erp/stock/quantity')?>&storehouse_id="+this.value+"&product_id="+$(this).parents("tr").find(".product input").val());
     });
 });
 

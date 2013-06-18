@@ -3,10 +3,10 @@
 <div class="main-panel">
     <?php if(!$is_view){?>
         <?=CHtml::htmlButton('添加已有产品', 
-                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/product/popup'),
+                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/product/popup'),
                      'class' => 'js-dialog-link', 'data-id' => 'select-product')); ?>
         <?=CHtml::htmlButton('新添产品', 
-                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/product/create&popup=1'), 
+                array('disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/product/create&popup=1'), 
                      'class' => 'js-dialog-link')); ?>
     <?php }?>
 </div>

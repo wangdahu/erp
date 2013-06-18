@@ -1,6 +1,6 @@
 <?php
 
-class CommonController extends PssController
+class CommonController extends ErpController
 {
 	
     /**

@@ -2,8 +2,8 @@
 $this->renderPartial('../_financeTop');
 
 $this->widget('zii.widgets.CMenu', array('htmlOptions' => array('class' => 'simpleTab'), 'items' => array(
-        array('label' => '收入报表', 'url' => array('/pss/finance/billing'), 'active'=> $model->type == 0),
-        array('label' => '支出报表', 'url' => array('/pss/finance/billing', 'type'=>1), 'active'=> $model->type == 1),
+        array('label' => '收入报表', 'url' => array('/erp/finance/billing'), 'active'=> $model->type == 0),
+        array('label' => '支出报表', 'url' => array('/erp/finance/billing', 'type'=>1), 'active'=> $model->type == 1),
 )));
 
 $form = $this->beginWidget('ActiveForm', array(
@@ -49,8 +49,8 @@ $form = $this->beginWidget('ActiveForm', array(
 <?php $this->endWidget(); ?>
 
 <div class="main-panel">
-<?=CHtml::link('添加收支', array('/pss/finance/addbilling', 'type'=>$model->type), array('class' => 'button js-dialog-link'));?>
-<?php //echo CHtml::htmlButton('添加收支', array('data-href' => $this->createUrl('/pss/finance/addbilling'),
+<?=CHtml::link('添加收支', array('/erp/finance/addbilling', 'type'=>$model->type), array('class' => 'button js-dialog-link'));?>
+<?php //echo CHtml::htmlButton('添加收支', array('data-href' => $this->createUrl('/erp/finance/addbilling'),
       //           'class' => 'js-dialog-link', 'type' => $model->type));?>
 </div>
 

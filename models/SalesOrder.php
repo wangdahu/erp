@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_sales_order".
+ * This is the model class for table "erp_sales_order".
  *
- * The followings are the available columns in table 'pss_sales_order':
+ * The followings are the available columns in table 'erp_sales_order':
  * @property integer $id
  * @property string $no
  * @property integer $user_id
@@ -74,7 +74,7 @@ class SalesOrder extends BillForm
 	
     public function beforeFind(){
         parent::beforeFind();
-        $viewRights = PssPrivilege::salesCheck(PssPrivilege::SALES_ORDER_VIEW);
+        $viewRights = ErpPrivilege::salesCheck(ErpPrivilege::SALES_ORDER_VIEW);
         if (!$viewRights){
             $criteria = new CDbCriteria();
             $criteria->compare('salesman_id', Yii::app()->user->id);
@@ -83,7 +83,7 @@ class SalesOrder extends BillForm
     }
     
     public function defaultScope(){
-        $viewRights = PssPrivilege::salesCheck(PssPrivilege::SALES_ORDER_VIEW);
+        $viewRights = ErpPrivilege::salesCheck(ErpPrivilege::SALES_ORDER_VIEW);
         if (!$viewRights){
             return array(
                 'condition' => 'salesman_id=:salesman_id',
@@ -104,7 +104,7 @@ class SalesOrder extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_sales_order';
+		return 'erp_sales_order';
 	}
 
 	/**
@@ -166,7 +166,7 @@ class SalesOrder extends BillForm
             //通过审批销售单
             'hasPass' => array(
                 'condition' => 'approval_status=:approval_status',
-                'params' => array(':approval_status' => PssFlow::APPROVAL_PASS),
+                'params' => array(':approval_status' => ErpFlow::APPROVAL_PASS),
             ),
         );
     }

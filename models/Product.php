@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_product".
+ * This is the model class for table "erp_product".
  *
- * The followings are the available columns in table 'pss_product':
+ * The followings are the available columns in table 'erp_product':
  * @property integer $id
  * @property string $name
  * @property integer $cate_id
@@ -39,7 +39,7 @@ class Product extends ActiveRecord
     public function beforeFind(){
         parent::beforeFind();
     
-/*        $viewRights = PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW) || PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD);
+/*        $viewRights = ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW) || ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD);
         if (!$viewRights){
             $this->getDbCriteria()->condition = "1=0";
         }*/
@@ -75,7 +75,7 @@ class Product extends ActiveRecord
     public function behaviors(){
         return array(
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
             'timestampBehavior' => array(
                 'class' => 'zii.behaviors.CTimestampBehavior',
@@ -90,7 +90,7 @@ class Product extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_product';
+		return 'erp_product';
 	}
 
 	/**
@@ -135,9 +135,9 @@ class Product extends ActiveRecord
             'totalStock' => array(self::STAT, 'Stock', 'product_id', 'select'=>'SUM(quantity)'),
             'salesItems' => array(self::HAS_MANY, 'SalesOrderItem', 'product_id'),
             'salesQuantity' => array(self::STAT, 'SalesOrderItem', 'product_id', 'select'=>'SUM(quantity)', 
-                'join' => 'INNER JOIN pss_sales_order form ON form.id=order_id', 'condition' => 'form.approval_status='.PssFlow::APPROVAL_PASS),
+                'join' => 'INNER JOIN erp_sales_order form ON form.id=order_id', 'condition' => 'form.approval_status='.ErpFlow::APPROVAL_PASS),
             'preSalesQuantity' => array(self::STAT, 'SalesOrderItem', 'product_id', 'select'=>'SUM(quantity)', 
-                'join' => 'INNER JOIN pss_sales_order form ON form.id=order_id', 'condition' => 'form.is_history=0 and form.approval_status='.PssFlow::APPROVAL_PASS),
+                'join' => 'INNER JOIN erp_sales_order form ON form.id=order_id', 'condition' => 'form.is_history=0 and form.approval_status='.ErpFlow::APPROVAL_PASS),
             'salesOrderCount' => array(self::STAT, 'SalesOrderItem', 'product_id'),
             'salesTotalPrice' => array(self::STAT, 'SalesOrderItem', 'product_id', 'select'=>'SUM(price)'),
             'buyItems' => array(self::HAS_MANY, 'BuyOrderItem', 'product_id'),
@@ -153,9 +153,9 @@ class Product extends ActiveRecord
         $buyers = array();
         foreach ($this->buyAssignments as $assigment){
             if ($assigment->type == BuyAssignment::TYPE_ROLE){
-                $buyer = PssRole::model()->find($assigment->assign_id);
+                $buyer = ErpRole::model()->find($assigment->assign_id);
             }else{
-                $buyer = PssUser::model()->find($assigment->assign_id);
+                $buyer = ErpUser::model()->find($assigment->assign_id);
             }
             if ($buyer != null){
                 $buyers[] = $buyer->name;
@@ -278,8 +278,8 @@ class Product extends ActiveRecord
             $cr3 = new CDbCriteria();
             $cr3->with = 'buyAssignments';
             $cr3->together = true;
-            //PssUser::model()->getBuyAssignments();
-            //PssRole::model()->getBuyAssignments();
+            //ErpUser::model()->getBuyAssignments();
+            //ErpRole::model()->getBuyAssignments();
             $cr3->compare('buyAssignments.assign_id', $this->buyer_id);
             $cr3->compare('buyAssignments.type', BuyAssignment::TYPE_USER);
             $criteria->mergeWith($cr3);
@@ -316,11 +316,11 @@ class Product extends ActiveRecord
 	    $this->safe_quantity; */
 	    $rows = $this->getDbConnection()->createCommand()
 	        ->select("pp.id, SUM(ps.quantity) AS totalStock, SUM(psi.quantity) AS salesQuantity, pp.safe_quantity")
-	        ->from("pss_product pp")
-	        ->leftJoin("pss_sales_order_item psi", "pp.id=psi.product_id")
-	        ->leftJoin("pss_stock ps", "pp.id=ps.product_id")
-	        ->join("pss_sales_order pso", "psi.order_id=pso.id")
-	        ->where("pso.approval_status=".PssFlow::APPROVAL_PASS." and pso.is_history=0")
+	        ->from("erp_product pp")
+	        ->leftJoin("erp_sales_order_item psi", "pp.id=psi.product_id")
+	        ->leftJoin("erp_stock ps", "pp.id=ps.product_id")
+	        ->join("erp_sales_order pso", "psi.order_id=pso.id")
+	        ->where("pso.approval_status=".ErpFlow::APPROVAL_PASS." and pso.is_history=0")
 	        ->having("pp.safe_quantity>totalStock or pp.safe_quantity is null")
 	        ->group("pp.id")->queryAll();
 	    $ids = array(0);
@@ -350,12 +350,12 @@ class Product extends ActiveRecord
 	
     public function assignTo($uid){
             $productIds = array();
-            foreach (PssUser::model()->find($uid)->getBuyAssignments() as $assginment){
+            foreach (ErpUser::model()->find($uid)->getBuyAssignments() as $assginment){
                 $productIds[] = $assginment->product_id;
             }
             $roleIds = Account::userRoles($uid);
-            $roles = PssRole::model()->findAll();
-            foreach (PssRole::model()->findAll() as $role){
+            $roles = ErpRole::model()->findAll();
+            foreach (ErpRole::model()->findAll() as $role){
                 if (!in_array($role->id, $roleIds)) continue;
                 foreach($role->getBuyAssignments() as $assginment){
                     $productIds[] = $assginment->product_id;
@@ -375,7 +375,7 @@ class Product extends ActiveRecord
         return array(
             'hasSalesOrder' => array(
                 'with' => array('salesOrderCount', 'salesTotalPrice', 'salesQuantity', 'buyOrderCount', 'buyTotalPrice', 'buyQuantity'),
-                'condition' => 'exists(select * from pss_sales_order_item where product_id=t.id)',
+                'condition' => 'exists(select * from erp_sales_order_item where product_id=t.id)',
             )
         );
     }

@@ -1,15 +1,15 @@
 <?php
 
-class StockController extends PssController{
+class StockController extends ErpController{
     
     public $defaultAction = 'index';
     
     public function init(){
-        if (!PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD) && !PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW)){
+        if (!ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD) && !ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW)){
             throw new CHttpException(403, '无权限查看 <a href="javascript:" onclick="history.go(-1); ">返回上一步</a>');
         }
         parent::init();
-        $this->breadcrumbs['货品库存'] = array('/pss/stock');
+        $this->breadcrumbs['货品库存'] = array('/erp/stock');
     }
     
     public function actionIndex(){

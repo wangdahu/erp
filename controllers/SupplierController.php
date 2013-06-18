@@ -1,6 +1,6 @@
 <?php
 
-class SupplierController extends PssController
+class SupplierController extends ErpController
 {
     public function beforeAction($action){
         $request = Yii::app()->request;
@@ -63,7 +63,7 @@ class SupplierController extends PssController
     
     //供应商新增
     public function actionCreate(){
-        $this->breadcrumbs['供应商管理'] = array('/pss/supplier');
+        $this->breadcrumbs['供应商管理'] = array('/erp/supplier');
         $this->breadcrumbs[] = '添加供应商';
         
         $supplier = new Supplier();
@@ -80,7 +80,7 @@ class SupplierController extends PssController
                     Yii::app()->end($supplier->id ? CJSON::encode(array('status' => 1, 'sup_data' => $supplier->attributes + array('fullAddress' => $supplier->fullAddress), 'link_data' => $supplier->linkman->attributes)) : CJSON::encode(array('status' => 0)));
                 }else{
                     Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'保存成功')));
-                    $_POST['submit_value']== 1 ? $this->redirect(array("/pss/supplier")) : $this->refresh();
+                    $_POST['submit_value']== 1 ? $this->redirect(array("/erp/supplier")) : $this->refresh();
                 }
             }else{
                 if($request->isAjaxRequest){
@@ -104,7 +104,7 @@ class SupplierController extends PssController
     
     //供应商修改
     public function actionUpdate($id){
-        $this->breadcrumbs['供应商管理'] = array('/pss/supplier');
+        $this->breadcrumbs['供应商管理'] = array('/erp/supplier');
         $this->breadcrumbs[] = '供应商详情';
         
         $supplier = $this->loadModel($id, "Supplier");

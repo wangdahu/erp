@@ -75,7 +75,7 @@ if (count($flows)) {
                                     <div id="flow_html">
                                         <?php
                                         if ($is_edit) {
-                                            $nodes = PssFlow::getNodeByFlowId($flow_id);
+                                            $nodes = ErpFlow::getNodeByFlowId($flow_id);
                                             $this->renderPartial('_flow_data', array('is_edit' => $is_edit, 'nodes' => $nodes));
                                         } else {
                                             $this->renderPartial('_flow_data', array('is_edit' => $is_edit));
@@ -112,7 +112,7 @@ if (count($flows)) {
                 flow_id = current_flow_id;
             }
             //根据已有的流程ID 获取html
-            $.post("index.php?r=pss/approve/getflowhtml&flow_id=" + flow_id, function(data){
+            $.post("index.php?r=erp/approve/getflowhtml&flow_id=" + flow_id, function(data){
                 if(data != ''){
                     $("#flow_html").html(data);
                     //流程编辑 删除默认灰色处理
@@ -135,7 +135,7 @@ if (count($flows)) {
                 var tmp_id = (parseInt(div_arr[1]) + 1);
                 var div_id = div_arr[0] + '_' + tmp_id;
                 $.dialog({
-                    url: 'index.php?r=pss/approve/createnode&user=&role=&department=&department_manage=&div_id=' + div_id + '&modify=0&is_all=0',
+                    url: 'index.php?r=erp/approve/createnode&user=&role=&department=&department_manage=&div_id=' + div_id + '&modify=0&is_all=0',
                     id: "js-create-node",
                     title: '添加第' + tmp_id + '审批人'
                 });
@@ -163,7 +163,7 @@ if (count($flows)) {
                 case "start":    //开始节点
                     var title = '设置流程适用人';
                     var id = "js-create-start-node";
-                    var url = 'index.php?r=pss/approve/createstartnode&user=' + user + '&role=' + role + '&department=' + department;
+                    var url = 'index.php?r=erp/approve/createstartnode&user=' + user + '&role=' + role + '&department=' + department;
                     break;
                 case "node":     //中间节点
                     var is_all = parent.find('.is_all').val();
@@ -172,12 +172,12 @@ if (count($flows)) {
                     var tmp = div_id.split('_');
                     var title = '添加第' + tmp[1] + '审批人';
                     var id = "js-create-node";
-                    var url = 'index.php?r=pss/approve/createnode&user=' + user + '&role=' + role + '&department=' + department + '&div_id=' + div_id + '&modify=1&is_all=' + is_all + '&department_manage=' + department_manage;
+                    var url = 'index.php?r=erp/approve/createnode&user=' + user + '&role=' + role + '&department=' + department + '&div_id=' + div_id + '&modify=1&is_all=' + is_all + '&department_manage=' + department_manage;
                     break;
                 case "end":      //结束节点
                     var sms_notice = parent.find('.sms_notice').val();
                     var title = '设置审批完成后需通知的人员';
-                    var url = 'index.php?r=pss/approve/createendnode&user=' + user + '&role=' + role + '&department=' + department + '&sms_notice=' + sms_notice;
+                    var url = 'index.php?r=erp/approve/createendnode&user=' + user + '&role=' + role + '&department=' + department + '&sms_notice=' + sms_notice;
                     var id = "js-create-end-node";
                     break;
             };
@@ -228,10 +228,10 @@ if (count($flows)) {
             var flow_id = $("#current_flow_id").val();
             var post_data = {'start_node' : start_node_data, 'end_node' : end_node_data, 'approve_node' : approve_node_data, 
                 'group_id' : group_id, 'flow_name' : flow_name, 'form_name' : form_name, 'flow_id' : flow_id};
-            $.post("index.php?r=pss/approve/insertflow", post_data, function(data){
+            $.post("index.php?r=erp/approve/insertflow", post_data, function(data){
                 if(data == 1){
                     unloadcfm.sleep(true);
-                    location.href = '/index.php?r=pss/approve/index&form_name='+form_name;
+                    location.href = '/index.php?r=erp/approve/index&form_name='+form_name;
                 }else{
                     $.flash('添加失败', 'error');
                 }

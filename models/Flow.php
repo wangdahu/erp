@@ -19,7 +19,7 @@ class Flow{
      */
     public static function updateFlowById($param, $flow_id) {
         if (empty($param) && !is_array($param) && !is_numeric($flow_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->update('core_flow', $param, 'id = :id', array(':id' => $flow_id));
     }
@@ -31,7 +31,7 @@ class Flow{
      */
     public static function getGroupIdByFlowId($flow_id) {
         if (!is_numeric($flow_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         } else {
             return Yii::app()->db->createCommand()->select('group_id')->from('core_flow')
                             ->where('id = :flow_id AND deleted = 0', array(':flow_id' => $flow_id))->queryScalar();
@@ -45,7 +45,7 @@ class Flow{
      */
     public static function historyFlow($flow_id) {
         if (!is_numeric($flow_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         } else {
             return Yii::app()->db->createCommand()->update('core_flow', array('is_history' => 1), 'id = :flow_id', array(':flow_id' => $flow_id));
         }
@@ -58,7 +58,7 @@ class Flow{
      */
     public static function getFlowById($flow_id) {
         if (empty($flow_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->from('core_flow')->where('deleted = 0 AND id = :flow_id', array(':flow_id' => $flow_id))->queryRow();
     }

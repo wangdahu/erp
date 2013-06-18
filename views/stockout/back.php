@@ -1,9 +1,9 @@
 <?php $this->renderPartial('../_stockTop');
 
 $this->widget('zii.widgets.CMenu', array('htmlOptions' => array('class' => 'simpleTab'), 'items' => array(
-        array('label' => '出库单', 'url' => array('/pss/stockout/index')),
-        array('label' => '出库产品', 'url' => array('/pss/stockout/item')),
-        array('label' => '销售退货', 'url' => array('/pss/stockout/back')),
+        array('label' => '出库单', 'url' => array('/erp/stockout/index')),
+        array('label' => '出库产品', 'url' => array('/erp/stockout/item')),
+        array('label' => '销售退货', 'url' => array('/erp/stockout/back')),
 )));
 
 $form = $this->beginWidget('ActiveForm', array(
@@ -58,8 +58,8 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::salesCheck(PssPrivilege::SALES_BACK)){
-    echo CHtml::link('新添退货', array('/pss/backsales/create'), array('class' => 'button'));
+if (ErpPrivilege::salesCheck(ErpPrivilege::SALES_BACK)){
+    echo CHtml::link('新添退货', array('/erp/backsales/create'), array('class' => 'button'));
 }
 ?>
 </div>
@@ -70,7 +70,7 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'emptyText' => '暂无销售退货数据！',
     'columns'=>array(
         //array('name'=>'id', 'value' => '$data->id', 'headerHtmlOptions' => array('style' => 'width: 45px;')),
-        array('name'=>'no', 'type'=>'raw', 'value'=>'CHtml::link($data->no, array("/pss/backsales/view", "id" => $data->id))'),
+        array('name'=>'no', 'type'=>'raw', 'value'=>'CHtml::link($data->no, array("/erp/backsales/view", "id" => $data->id))'),
         array('name'=>'order_id', 'value'=>'$data->isBindOrder ? $data->salesOrder->no : ""'),
         array('name'=>'customer_name', 'value'=>'$data->customer_name'),
         array('name'=>'total_price', 'value'=>'$data->total_price'),

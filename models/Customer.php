@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_customer".
+ * This is the model class for table "erp_customer".
  *
- * The followings are the available columns in table 'pss_customer':
+ * The followings are the available columns in table 'erp_customer':
  * @property integer $id
  * @property string $name
  * @property integer $type
@@ -31,7 +31,7 @@ class Customer extends ActiveRecord
     public function beforeFind(){
         parent::beforeFind();
     
-        $viewRights = PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_VIEW);
+        $viewRights = ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_VIEW);
         if (!$viewRights){
             $criteria = new CDbCriteria();
             $criteria->compare('followman_id', Yii::app()->user->id);
@@ -50,7 +50,7 @@ class Customer extends ActiveRecord
 	}
 
 	public function defaultScope(){
-	    $viewRights = PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_VIEW);
+	    $viewRights = ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_VIEW);
         if (!$viewRights){
             return array('condition' => 'deleted=0 and followman_id=:followman_id',
                          'params' => array(':followman_id' => Yii::app()->user->id));
@@ -95,7 +95,7 @@ class Customer extends ActiveRecord
                 'updateAttribute' => 'updated',
             ),
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
 	    );
 	}
@@ -105,7 +105,7 @@ class Customer extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_customer';
+		return 'erp_customer';
 	}
 
 	/**
@@ -154,7 +154,7 @@ class Customer extends ActiveRecord
         return array(
             'hasSalesOrder' => array(
                 'with' => array('salesOrderCount', 'salesTotalPrice'),
-                'condition' => 'exists(select * from pss_sales_order where customer_id=t.id)',
+                'condition' => 'exists(select * from erp_sales_order where customer_id=t.id)',
             ),
         );
     }

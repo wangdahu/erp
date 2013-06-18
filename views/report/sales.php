@@ -2,7 +2,7 @@
 $params = isset($_GET['type']) ? array('type' => $_GET['type']) : array();
 
 $selectMenu = array(
-    array('label' => '销售总表', 'url' => array('/pss/report/sales') + $params, 'active' => true),
+    array('label' => '销售总表', 'url' => array('/erp/report/sales') + $params, 'active' => true),
 );
 ?>
 <div id="page_body">

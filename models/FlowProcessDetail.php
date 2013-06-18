@@ -15,7 +15,7 @@ class FlowProcessDetail{
             return Yii::app()->db->createCommand()->select('node_relate_id')->from('core_flow_process_detail')
                             ->where('task_id = :task_id', array(':task_id' => $task_id))->queryColumn();
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -50,7 +50,7 @@ class FlowProcessDetail{
             $sql = "SELECT approved_user_id FROM core_flow_process_detail WHERE task_id = :task_id";
             return Yii::app()->db->createCommand($sql)->queryColumn(array(':task_id' => $task_id));
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     

@@ -39,7 +39,7 @@
                     echo $form->hiddenField($model,'order_id');
                     if(!$is_update) echo CHtml::link("删除", array('create'))."&nbsp;&nbsp;";
                 }
-                if(!$is_update) echo CHtml::link("选择已有销售单", array('/pss/backsales/popup'), array('class'=>'js-dialog-link', 'data-title' => '导入销售单',));
+                if(!$is_update) echo CHtml::link("选择已有销售单", array('/erp/backsales/popup'), array('class'=>'js-dialog-link', 'data-title' => '导入销售单',));
                 ?>
             </div>
             <?php echo $form->error($model,'sales_order_id'); ?>
@@ -64,12 +64,12 @@
                     <?php echo $form->textField($model,'customer_name', array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'customer_id'); ?>
                 </div>&nbsp;
-                <?php echo CHtml::htmlButton('选择已有客户', array('disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/pss/customer/popup'),
+                <?php echo CHtml::htmlButton('选择已有客户', array('disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/erp/customer/popup'),
                  'class' => 'js-dialog-link', 'data-id' => 'select-customer'));?>
                 &nbsp;
                 <?php 
-                if (PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_CREATE)){
-                    echo CHtml::htmlButton('添加客户', array('disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/pss/customer/create'),
+                if (ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_CREATE)){
+                    echo CHtml::htmlButton('添加客户', array('disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/erp/customer/create'),
                  'class' => 'js-dialog-link', 'data-id' => 'select-product'));
                 }
                 ?>
@@ -195,7 +195,7 @@
             <?php echo $form->labelEx($model, 'back_name');?>
             <div class="item">
                 <div class="main">
-                    <?php echo $form->textField($model,'back_name', PssPrivilege::salesCheck(PssPrivilege::SALES_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
+                    <?php echo $form->textField($model,'back_name', ErpPrivilege::salesCheck(ErpPrivilege::SALES_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'back_id'); ?>
                 </div>
                 <?php echo $form->error($model,'back_name'); ?>

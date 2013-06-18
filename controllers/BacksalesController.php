@@ -1,10 +1,10 @@
 <?php
 
-class BacksalesController extends PssController{
+class BacksalesController extends ErpController{
     
     public function init(){
         parent::init();
-        $this->breadcrumbs['销售单'] = array('/pss/sales/index');
+        $this->breadcrumbs['销售单'] = array('/erp/sales/index');
     }
     
     //销售退货产品
@@ -20,7 +20,7 @@ class BacksalesController extends PssController{
     
     //新增退货
     public function actionCreate($order_id=''){
-        $this->breadcrumbs['进行中销售单'] = array('/pss/sales/index');
+        $this->breadcrumbs['进行中销售单'] = array('/erp/sales/index');
         $this->breadcrumbs[] = '新增退货';
         
         $model=new BackSales();
@@ -49,10 +49,10 @@ class BacksalesController extends PssController{
             
             if($model->save()){
                 $approval = $model->createApproval($model->approval_id);
-                $res = PssFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
+                $res = ErpFlow::verifyNodeAuthority($approval['node_id'], $approval['task_id']);
                 if (isset($res['prime']) && $res['prime'] === true) {
                     //自动审批
-                    PssFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
+                    ErpFlow::approved($approval['task_id'], $approval['node_id'], $res['node_relate_id'], '通过', 2);
                 }
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'添加成功')));
@@ -65,7 +65,7 @@ class BacksalesController extends PssController{
     }
     
     public function actionUpdate($id){
-        $this->breadcrumbs['销售退货'] = array('/pss/backsales/index');
+        $this->breadcrumbs['销售退货'] = array('/erp/backsales/index');
         $this->breadcrumbs[] = "销售退货详情编辑";
         $model = BackSales::model()->findByPk($id);
         $salesOrder = SalesOrder::model()->findByPk($model->order_id);
@@ -83,7 +83,7 @@ class BacksalesController extends PssController{
             if($model->save()){
                 //提醒第一审批人“XXX修改了XX单”
                 $node_id = FlowProcess::getCurrentNode($model->approval_id);
-                PssFlow::noticeUser($node_id, $model->approval_id, 6);
+                ErpFlow::noticeUser($node_id, $model->approval_id, 6);
                 
                 Yii::app()->user->setFlash('page_flash', json_encode(array('msg'=>'添加成功')));
                 $this->redirect(array('view', 'id' => $model->id));
@@ -121,7 +121,7 @@ class BacksalesController extends PssController{
     
     public function actionView($id){
         $model = $this->loadModel($id, "backSales");
-        $this->breadcrumbs['销售退货'] = array('/pss/backsales/index');
+        $this->breadcrumbs['销售退货'] = array('/erp/backsales/index');
         $this->breadcrumbs[] = "销售退货详情";
         $this->render('view', array('model' => $model, 'items' => $model->items));
     }

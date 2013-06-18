@@ -18,7 +18,7 @@ $task = $model->task;
          echo "&nbsp;";
          if ($_user_id == $_form['user_id'] && !$task->getIsComplete()) {
              $task_model = CoreFlowTask::model()->findByPk($model->approval_id);
-             echo CHtml::link("撤消单据", Yii::app()->createUrl("/pss/approve/repealFlowForm", array("id" => $model->id, "flow_id" => $task_model->flow_id, "task_id" => $model->approval_id, "status" => 4, 'absolute_path' => $absolute_path, 'class_name' => get_class($model))), array("class" => "button js-dialog-link"));
+             echo CHtml::link("撤消单据", Yii::app()->createUrl("/erp/approve/repealFlowForm", array("id" => $model->id, "flow_id" => $task_model->flow_id, "task_id" => $model->approval_id, "status" => 4, 'absolute_path' => $absolute_path, 'class_name' => get_class($model))), array("class" => "button js-dialog-link"));
          }
 //         echo "&nbsp;";
 //         if (1){//$task->getIsPass() && $task->lastNode->isAssigned(Yii::app()->user->id, $task)) {

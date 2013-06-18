@@ -65,6 +65,6 @@ $(function(){
     });
     
     $('#order-grid tbody tr').attr('style', 'cursor:pointer;').live('click', function(){
-        location.href = '".$this->createUrl('/pss/backsales/create')."&order_id='+$.fn.yiiGridView.getKey('order-grid', this.rowIndex-1);
+        location.href = '".$this->createUrl('/erp/backsales/create')."&order_id='+$.fn.yiiGridView.getKey('order-grid', this.rowIndex-1);
     });
 })");

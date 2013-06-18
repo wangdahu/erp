@@ -1,5 +1,5 @@
 <?php
-class PssPrivilege{
+class ErpPrivilege{
     
     /**
      * 新添销售单
@@ -49,7 +49,7 @@ class PssPrivilege{
     protected static function check($key, $group, $user_id = null){
         $privileges = explode(',', $key);
         foreach ($privileges as $privilege){
-            if (Privilege::check('pss', $group, $privilege, $user_id)){
+            if (Privilege::check('erp', $group, $privilege, $user_id)){
                 return true;
             }
         }

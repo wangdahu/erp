@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_billing".
+ * This is the model class for table "erp_billing".
  *
- * The followings are the available columns in table 'pss_billing':
+ * The followings are the available columns in table 'erp_billing':
  * @property integer $id
  * @property string $no
  * @property string $operator
@@ -39,7 +39,7 @@ class Billing extends ActiveRecord
                 'updateAttribute' => null,
             ),
             'searchAttribute' => array(
-                'class' => 'pss.models.behaviors.SearchAttribute',
+                'class' => 'erp.models.behaviors.SearchAttribute',
             ),
         );
     }
@@ -60,7 +60,7 @@ class Billing extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_billing';
+		return 'erp_billing';
 	}
 
 	/**

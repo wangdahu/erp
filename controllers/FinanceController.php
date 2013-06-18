@@ -1,15 +1,15 @@
 <?php
 
-class FinanceController extends PssController
+class FinanceController extends ErpController
 {
     public $defaultAction = 'receive';
     
     public function init(){
-        if (!PssPrivilege::otherCheck(PssPrivilege::FINANCE_ADMIN)){
+        if (!ErpPrivilege::otherCheck(ErpPrivilege::FINANCE_ADMIN)){
             throw new CHttpException(403, '无权限查看 <a href="javascript:" onclick="history.go(-1); ">返回上一步</a>');
         }
         parent::init();
-        $this->breadcrumbs['财务管理'] = array('/pss/finance/receive');
+        $this->breadcrumbs['财务管理'] = array('/erp/finance/receive');
     }
     
     public function actionReceive(){
@@ -37,7 +37,7 @@ class FinanceController extends PssController
     }
     
     public function actionBilling($type=0){
-        $this->breadcrumbs['收支报表'] = array('/pss/finance/billing');
+        $this->breadcrumbs['收支报表'] = array('/erp/finance/billing');
         $this->breadcrumbs[] = $type == '0' ? '收入报表' : '支出报表';
         $model = $this->loadSearchBilling();
         $model->type = $type;
@@ -108,7 +108,7 @@ class FinanceController extends PssController
                     $model->save(false);
                 }
             }
-            $this->redirect(array('/pss/finance/receive'));
+            $this->redirect(array('/erp/finance/receive'));
         }
         $this->renderPartial('chargein', 
             array('customer' => $customer, 'models' => $models), false, true);
@@ -126,7 +126,7 @@ class FinanceController extends PssController
                     $model->save(false);
                 }
             }
-            $this->redirect(array('/pss/finance/pay'));
+            $this->redirect(array('/erp/finance/pay'));
         }
 //        echo "<pre>";
 //        print_r($models->attributes);

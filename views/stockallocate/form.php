@@ -66,7 +66,7 @@
         <?php echo $form->labelEx($model, 'allocate_name');?>
         <div class="item">
             <div class="main">
-                <?php echo $form->textField($model,'allocate_name', !PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN) ? array('readonly'=>true) : array('class' => 'js-complete')); ?>
+                <?php echo $form->textField($model,'allocate_name', !ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN) ? array('readonly'=>true) : array('class' => 'js-complete')); ?>
             </div>
         </div>
     </div>

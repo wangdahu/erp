@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_billing_item".
+ * This is the model class for table "erp_billing_item".
  *
- * The followings are the available columns in table 'pss_billing_item':
+ * The followings are the available columns in table 'erp_billing_item':
  * @property integer $id
  * @property integer $billing_id
  * @property integer $type
@@ -27,7 +27,7 @@ class BillingItem extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_billing_item';
+		return 'erp_billing_item';
 	}
 
 	/**

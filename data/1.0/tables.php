@@ -1,13 +1,13 @@
 <?php 
  return array (
-  'pss_back_buy' => 
+  'erp_back_buy' => 
   array (
     'comments' => '采购退货单',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
       'no' => 'varchar(50) NOT NULL',
-      'order_id' => 'int(11) DEFAULT NULL COMMENT \'外键，关联pss_buy_order.id\'',
+      'order_id' => 'int(11) DEFAULT NULL COMMENT \'外键，关联erp_buy_order.id\'',
       'user_id' => 'int(11) NOT NULL COMMENT \'填单人id\'',
       'back_id' => 'int(11) NOT NULL COMMENT \'退货人\'',
       'back_name' => 'varchar(50) NOT NULL DEFAULT \'\' COMMENT \'退货人\'',
@@ -41,15 +41,15 @@
       6 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_back_buy_item' => 
+  'erp_back_buy_item' => 
   array (
     'comments' => '采购退货明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'back_buy_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_back_buy.id\'',
+      'back_buy_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_back_buy.id\'',
       'stock_id' => 'int(11) NOT NULL',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
       'storehouse_id' => 'int(11) NOT NULL',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
@@ -64,13 +64,13 @@
       3 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_back_sales' => 
+  'erp_back_sales' => 
   array (
     'comments' => '销售退货单',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'order_id' => 'int(11) DEFAULT NULL COMMENT \'外键，关联pss_sales_order.id\'',
+      'order_id' => 'int(11) DEFAULT NULL COMMENT \'外键，关联erp_sales_order.id\'',
       'no' => 'varchar(50) NOT NULL COMMENT \'订单号\'',
       'user_id' => 'int(11) NOT NULL COMMENT \'填单人id\'',
       'back_id' => 'int(11) NOT NULL COMMENT \'退货人\'',
@@ -107,16 +107,16 @@
       6 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_back_sales_item' => 
+  'erp_back_sales_item' => 
   array (
     'comments' => '销售退货明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'back_sales_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_back_sales.id\'',
+      'back_sales_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_back_sales.id\'',
       'stock_id' => 'int(11) NOT NULL',
       'storehouse_id' => 'int(11) NOT NULL',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
       'product_brand' => 'varchar(50) DEFAULT \'\'',
@@ -130,7 +130,7 @@
       3 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_billing' => 
+  'erp_billing' => 
   array (
     'comments' => '收支表',
     'fields' => 
@@ -151,7 +151,7 @@
       2 => 'KEY `operator_id` (`operator_id`)',
     ),
   ),
-  'pss_billing_item' => 
+  'erp_billing_item' => 
   array (
     'comments' => '收支明细',
     'fields' => 
@@ -165,7 +165,7 @@
       1 => 'KEY `billing_id` (`billing_id`)',
     ),
   ),
-  'pss_buy_assignment' => 
+  'erp_buy_assignment' => 
   array (
     'comments' => '采购分配表',
     'fields' => 
@@ -177,7 +177,7 @@
       1 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_buy_order' => 
+  'erp_buy_order' => 
   array (
     'comments' => '采购单',
     'fields' => 
@@ -215,14 +215,14 @@
       4 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_buy_order_item' => 
+  'erp_buy_order_item' => 
   array (
     'comments' => '采购单明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'order_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_buy_order.id\'',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
+      'order_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_buy_order.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
       'product_brand' => 'varchar(50) DEFAULT \'\'',
@@ -235,7 +235,7 @@
       2 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_buy_urged' => 
+  'erp_buy_urged' => 
   array (
     'comments' => 
     array (
@@ -255,7 +255,7 @@
       3 => 'KEY `item_id` (`item_id`)',
     ),
   ),
-  'pss_buy_urged_relate' => 
+  'erp_buy_urged_relate' => 
   array (
     'comments' => 
     array (
@@ -263,7 +263,7 @@
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'urged_id' => 'int(11) NOT NULL COMMENT \'pss_buy_urged.id外键\'',
+      'urged_id' => 'int(11) NOT NULL COMMENT \'erp_buy_urged.id外键\'',
       'from_uid' => 'int(11) NOT NULL COMMENT \'催办人id\'',
       'from_name' => 'varchar(50) NOT NULL COMMENT \'催办人\'',
       'to_uid' => 'int(11) NOT NULL COMMENT \'被催办人id\'',
@@ -272,7 +272,7 @@
       1 => 'KEY `urged_id` (`urged_id`)',
     ),
   ),
-  'pss_buy_urged_reply' => 
+  'erp_buy_urged_reply' => 
   array (
     'comments' => 
     array (
@@ -288,7 +288,7 @@
       1 => 'KEY `urged_id` (`urged_id`)',
     ),
   ),
-  'pss_customer' => 
+  'erp_customer' => 
   array (
     'comments' => '客户表',
     'fields' => 
@@ -315,13 +315,13 @@
       2 => 'KEY `followman_id` (`followman_id`)',
     ),
   ),
-  'pss_customer_linkman' => 
+  'erp_customer_linkman' => 
   array (
     'comments' => '客户联系人',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'customer_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_customer.id\'',
+      'customer_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_customer.id\'',
       'name' => 'varchar(50) NOT NULL',
       'gender' => 'tinyint(4) DEFAULT NULL',
       'department' => 'varchar(50) DEFAULT \'\' COMMENT \'部门\'',
@@ -338,7 +338,7 @@
       1 => 'KEY `customer_id` (`customer_id`)',
     ),
   ),
-  'pss_form_flow' => 
+  'erp_form_flow' => 
   array (
     'comments' => '审批流程绑定表单',
     'fields' => 
@@ -352,7 +352,7 @@
       2 => 'KEY `flow_id` (`flow_id`) USING BTREE',
     ),
   ),
-  'pss_number' => 
+  'erp_number' => 
   array (
     'comments' => 
     array (
@@ -365,7 +365,7 @@
       1 => 'UNIQUE KEY `no` (`no`)',
     ),
   ),
-  'pss_pay_item' => 
+  'erp_pay_item' => 
   array (
     'comments' => 
     array (
@@ -385,7 +385,7 @@
       2 => 'KEY `order_id` (`order_id`)',
     ),
   ),
-  'pss_product' => 
+  'erp_product' => 
   array (
     'comments' => '产品',
     'fields' => 
@@ -420,7 +420,7 @@
       4 => 'KEY `safe_quantity` (`safe_quantity`)',
     ),
   ),
-  'pss_product_brand' => 
+  'erp_product_brand' => 
   array (
     'comments' => '产品品牌',
     'fields' => 
@@ -433,7 +433,7 @@
       0 => 'PRIMARY KEY (`id`)',
     ),
   ),
-  'pss_product_cate' => 
+  'erp_product_cate' => 
   array (
     'comments' => '产品分类',
     'fields' => 
@@ -446,7 +446,7 @@
       0 => 'PRIMARY KEY (`id`)',
     ),
   ),
-  'pss_product_detail' => 
+  'erp_product_detail' => 
   array (
     'comments' => '产品明细',
     'fields' => 
@@ -465,7 +465,7 @@
       1 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_product_unit' => 
+  'erp_product_unit' => 
   array (
     'comments' => '产品单位',
     'fields' => 
@@ -478,7 +478,7 @@
       0 => 'PRIMARY KEY (`id`)',
     ),
   ),
-  'pss_receive_item' => 
+  'erp_receive_item' => 
   array (
     'comments' => 
     array (
@@ -486,7 +486,7 @@
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'customer_id' => 'int(11) NOT NULL COMMENT \'pss_receive.id的外键\'',
+      'customer_id' => 'int(11) NOT NULL COMMENT \'erp_receive.id的外键\'',
       'order_id' => 'int(11) NOT NULL COMMENT \'销售单id\'',
       'operator' => 'varchar(50) NOT NULL COMMENT \'记账员\'',
       'operator_id' => 'int(11) NOT NULL COMMENT \'记账员id\'',
@@ -498,7 +498,7 @@
       2 => 'KEY `order_id` (`order_id`)',
     ),
   ),
-  'pss_sales_order' => 
+  'erp_sales_order' => 
   array (
     'comments' => '销售单',
     'fields' => 
@@ -536,14 +536,14 @@
       4 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_sales_order_item' => 
+  'erp_sales_order_item' => 
   array (
     'comments' => '销售单明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'order_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_sales_order.id\'',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
+      'order_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_sales_order.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
       'product_brand' => 'varchar(50) DEFAULT \'\'',
@@ -556,20 +556,20 @@
       2 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_stock' => 
+  'erp_stock' => 
   array (
     'comments' => '库存表',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
-      'storehouse_id' => 'int(11) NOT NULL DEFAULT \'0\' COMMENT \'外键，关联pss_storehouse.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
+      'storehouse_id' => 'int(11) NOT NULL DEFAULT \'0\' COMMENT \'外键，关联erp_storehouse.id\'',
       'quantity' => 'int(11) DEFAULT \'0\' COMMENT \'商品数量\'',
       0 => 'PRIMARY KEY (`id`)',
       1 => 'UNIQUE KEY `storehouse_product` (`storehouse_id`,`product_id`) USING BTREE',
     ),
   ),
-  'pss_stock_allocate' => 
+  'erp_stock_allocate' => 
   array (
     'comments' => '调拨单',
     'fields' => 
@@ -593,17 +593,17 @@
       3 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_stock_allocate_item' => 
+  'erp_stock_allocate_item' => 
   array (
     'comments' => '调拨明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'allocate_id' => 'int(11) NOT NULL COMMENT \'外键，pss_stock_allocate的主键\'',
+      'allocate_id' => 'int(11) NOT NULL COMMENT \'外键，erp_stock_allocate的主键\'',
       'from_stock_id' => 'int(11) NOT NULL COMMENT \'库存id\'',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
-      'from_storehouse_id' => 'int(11) NOT NULL COMMENT \'调拨源仓库 关联pss_storehouse.id\'',
-      'to_storehouse_id' => 'int(11) NOT NULL COMMENT \'调拨目标仓库 关联pss_storehouse.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
+      'from_storehouse_id' => 'int(11) NOT NULL COMMENT \'调拨源仓库 关联erp_storehouse.id\'',
+      'to_storehouse_id' => 'int(11) NOT NULL COMMENT \'调拨目标仓库 关联erp_storehouse.id\'',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
       'product_brand' => 'varchar(50) DEFAULT \'\'',
@@ -616,7 +616,7 @@
       3 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_stock_in' => 
+  'erp_stock_in' => 
   array (
     'comments' => '入库单',
     'fields' => 
@@ -656,17 +656,17 @@
       6 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_stock_item' => 
+  'erp_stock_item' => 
   array (
     'comments' => '入库/出库 明细',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'form_id' => 'int(11) NOT NULL COMMENT \'外键，pss_stock_in.id或pss_stock_out.id\'',
+      'form_id' => 'int(11) NOT NULL COMMENT \'外键，erp_stock_in.id或erp_stock_out.id\'',
       'type' => 'tinyint(4) NOT NULL COMMENT \'0=入库,1=出库\'',
       'stock_id' => 'int(11) NOT NULL COMMENT \'库存id\'',
-      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_product.id\'',
-      'storehouse_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_storehouse.id\'',
+      'product_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_product.id\'',
+      'storehouse_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_storehouse.id\'',
       'product_name' => 'varchar(50) NOT NULL',
       'product_no' => 'varchar(50) DEFAULT \'\'',
       'product_brand' => 'varchar(50) DEFAULT \'\'',
@@ -680,7 +680,7 @@
       3 => 'KEY `product_id` (`product_id`)',
     ),
   ),
-  'pss_stock_out' => 
+  'erp_stock_out' => 
   array (
     'comments' => '出货单',
     'fields' => 
@@ -717,7 +717,7 @@
       5 => 'KEY `approval_id` (`approval_id`)',
     ),
   ),
-  'pss_storehouse' => 
+  'erp_storehouse' => 
   array (
     'comments' => '仓库表',
     'fields' => 
@@ -733,7 +733,7 @@
       0 => 'PRIMARY KEY (`id`)',
     ),
   ),
-  'pss_supplier' => 
+  'erp_supplier' => 
   array (
     'comments' => '供应商表',
     'fields' => 
@@ -757,13 +757,13 @@
       2 => 'KEY `followman_id` (`followman_id`)',
     ),
   ),
-  'pss_supplier_linkman' => 
+  'erp_supplier_linkman' => 
   array (
     'comments' => '供应商联系人',
     'fields' => 
     array (
       'id' => 'int(11) NOT NULL AUTO_INCREMENT',
-      'supplier_id' => 'int(11) NOT NULL COMMENT \'外键，关联pss_supplier.id\'',
+      'supplier_id' => 'int(11) NOT NULL COMMENT \'外键，关联erp_supplier.id\'',
       'name' => 'varchar(50) NOT NULL',
       'gender' => 'tinyint(4) DEFAULT NULL',
       'department' => 'varchar(50) DEFAULT \'\' COMMENT \'部门\'',

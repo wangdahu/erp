@@ -1,6 +1,6 @@
 <?php
 
-class PssRole extends AppModel
+class ErpRole extends AppModel
 {
     
     
@@ -8,7 +8,7 @@ class PssRole extends AppModel
     
     /**
      * @param string $className
-     * @return PssUser
+     * @return ErpUser
      */
     public static function model($className=__CLASS__){
         return parent::model($className);
@@ -28,7 +28,7 @@ class PssRole extends AppModel
     public function getUsers(){
         $ids = Account::roleUsers($this->getId());
         $users = array();
-        foreach (PssUser::model()->findAll() as $user){
+        foreach (ErpUser::model()->findAll() as $user){
             if (in_array($user->getId(), $ids)){
                 $users[$user->getId()] = $user;
             }

@@ -3,7 +3,7 @@
 /**
  * 工作流接口类
  */
-class PssFlow {
+class ErpFlow {
     /**
      * 错误信息常量定义
      */
@@ -162,7 +162,7 @@ class PssFlow {
      */
     public static function listAllFlowExceptHistory($group_id=0) {
         return Yii::app()->db->createCommand()->select('cf.id as flow_id,cf.*, pff.*')->from('core_flow AS cf')
-                        ->join('pss_form_flow pff', 'pff.flow_id = cf.id')
+                        ->join('erp_form_flow pff', 'pff.flow_id = cf.id')
                         ->where('cf.deleted = 0 AND cf.is_history = 0 AND cf.group_id='.$group_id)
                         ->queryAll();
     }
@@ -211,7 +211,7 @@ class PssFlow {
      * @param int $form_id 表单ID
      */
     public static function insertFlowFormRel($flow_id, $form_name) {
-        Yii::app()->db->createCommand()->insert('pss_form_flow', array('flow_id' => $flow_id, 'form_name' => $form_name, 'deleted' => 0));
+        Yii::app()->db->createCommand()->insert('erp_form_flow', array('flow_id' => $flow_id, 'form_name' => $form_name, 'deleted' => 0));
         return Yii::app()->db->lastInsertID;
     }
     
@@ -226,7 +226,7 @@ class PssFlow {
      public static function getData($group_id, $flag = 0){
         // 取得所表单类型、表单
         $current_group = $current_form = array();
-        //$groups = PssFlow::listAllFormGroup();
+        //$groups = ErpFlow::listAllFormGroup();
         $groups = array(array('id'=>'1', 'name'=>'销售单'), 
                        array('id'=>'2', 'name'=>'采购单'), 
                        array('id'=>'3', 'name'=>'入库单'), 
@@ -247,12 +247,12 @@ class PssFlow {
                     $current_group = $group;
                 }
                 $data[] = array(
-                        'text' => Html5::link($group['name'], array('/pss/approveflow/index&type=1', 'group_id' => $group['id']), array('class' => $group_id == $group['id'] ? 'selected' : '',)),
+                        'text' => Html5::link($group['name'], array('/erp/approveflow/index&type=1', 'group_id' => $group['id']), array('class' => $group_id == $group['id'] ? 'selected' : '',)),
                         'htmlOptions' => array('data-id' => $group['id'], 'class' => $group['id'] == $group_id ? 'active' : ''),
                         'id' => 'group_' . $group['id'],
                         'parent_id' => 0,
                 );
-                $forms = PssFlow::listAllFlowForm($group['id']);
+                $forms = ErpFlow::listAllFlowForm($group['id']);
 //                if(count($forms)){
 //                    //审批流程
 //                    foreach ($forms as $k => $form) {
@@ -263,7 +263,7 @@ class PssFlow {
 //                            $current_form = $form;
 //                        }
 //                        $data[] = array(
-//                                'text' => Html5::link($form['name'], array('/pss/approveflow/index&type=1', 'group_id' => $group['id'], 'form_id' => $form['id']),
+//                                'text' => Html5::link($form['name'], array('/erp/approveflow/index&type=1', 'group_id' => $group['id'], 'form_id' => $form['id']),
 //                                        array('class' => $form_id == $form['id'] ? 'selected' : '',)),
 //                                'htmlOptions' => array('data-id' => $form['id'], 'class' => $form['id'] == $form_id ? 'active' : ''),
 //                                'id' => 'form_' . $form['id'],
@@ -953,7 +953,7 @@ class PssFlow {
                         //审批完成消息提醒
                         self::noticeUser($node_id, $task_id, 5);
                         //审批状态修改
-                        FormFlow::changeApproveStatus($task_id, PssFlow::APPROVAL_PASS);
+                        FormFlow::changeApproveStatus($task_id, ErpFlow::APPROVAL_PASS);
                     } else {
                         //初始化下一节点数据
                         $next_node = FlowNode::getNextNode($task_id, $node_id);
@@ -974,7 +974,7 @@ class PssFlow {
                 //最后一个节点不通过消息提醒
                 self::noticeUser($node_id, $task_id, 4);
                 //审批状态修改
-                FormFlow::changeApproveStatus($task_id, PssFlow::APPROVAL_FAIL);
+                FormFlow::changeApproveStatus($task_id, ErpFlow::APPROVAL_FAIL);
             }
             
             //从IN桌面删除“等待我的事务审批”
@@ -1140,7 +1140,7 @@ class PssFlow {
         if (count($nodes)) {
             foreach ($nodes as $node) {
                 $relates = FlowNodeRelate::getRelateByNodeId($node['id']);
-                $res = PssFlow::getRelateAttributeList($relates);
+                $res = ErpFlow::getRelateAttributeList($relates);
                 if (count($res) && is_array($res)) {
                     $str = implode(',', $res);
                     $approve_str[] = $str;
@@ -1498,7 +1498,7 @@ class PssFlow {
      * @param int $form_id 表单ID
      */
     public static function updateFlowFormRelByFlowId($flow_id, $form_name) {
-        return Yii::app()->db->createCommand()->update('pss_form_flow', array('form_name' => $form_name), 'flow_id = :flow_id', array(':flow_id' => $flow_id));
+        return Yii::app()->db->createCommand()->update('erp_form_flow', array('form_name' => $form_name), 'flow_id = :flow_id', array(':flow_id' => $flow_id));
     }
 
     /**
@@ -1565,7 +1565,7 @@ class PssFlow {
         if (!is_numeric($flow_id)) {
             return self::PARSE_PARAM_ERROR;
         } else {
-            return Yii::app()->db->createCommand()->select('form_name')->from('pss_form_flow')
+            return Yii::app()->db->createCommand()->select('form_name')->from('erp_form_flow')
                             ->where('flow_id = :flow_id AND deleted = 0', array(':flow_id' => $flow_id))->queryScalar();
         }
     }

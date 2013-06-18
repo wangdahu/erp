@@ -10,8 +10,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
         array(
             'header'=>'操作',
             'type' => 'raw',
-            'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/assign/update", array("id"=>$data->id, "type"=>$data->type)), array("class"=>"js-dialog-link update", "data-title"=>"修改采购分配")).
-                CHtml::link("&nbsp;", Yii::app()->createUrl("/pss/assign/delete", array("id"=>$data->id, "type"=>$data->type)), 
+            'value' => 'CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/assign/update", array("id"=>$data->id, "type"=>$data->type)), array("class"=>"js-dialog-link update", "data-title"=>"修改采购分配")).
+                CHtml::link("&nbsp;", Yii::app()->createUrl("/erp/assign/delete", array("id"=>$data->id, "type"=>$data->type)), 
                 array("class"=>"js-confirm-link delete", "data-title"=>"您确定要删除所选分配?",))',
             'headerHtmlOptions' => array('class' => 'span3')
         ),

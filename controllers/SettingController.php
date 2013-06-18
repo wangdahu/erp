@@ -1,6 +1,6 @@
 <?php
 
-class SettingController extends PssController{
+class SettingController extends ErpController{
     
     
     public $defaultAction = 'storehouse';
@@ -8,11 +8,11 @@ class SettingController extends PssController{
     protected $tabViewData = array();
     
     public function init(){
-        if (!PssPrivilege::otherCheck(PssPrivilege::SETTING)){
+        if (!ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){
             throw new CHttpException(403, '无权限查看 <a href="javascript:" onclick="history.go(-1); ">返回上一步</a>');
         }
         parent::init();
-        $this->breadcrumbs['设置'] = array('/pss/setting');
+        $this->breadcrumbs['设置'] = array('/erp/setting');
     }
     
 	public function actionStorehouse(){

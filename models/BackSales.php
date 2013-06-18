@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_back_sales".
+ * This is the model class for table "erp_back_sales".
  *
- * The followings are the available columns in table 'pss_back_sales':
+ * The followings are the available columns in table 'erp_back_sales':
  * @property integer $id
  * @property integer $order_id
  * @property string $no
@@ -50,7 +50,7 @@ class BackSales extends BillForm
 //    public function beforeFind(){
 //        parent::beforeFind();
 //    
-//        $viewRights = PssPrivilege::salesCheck(PssPrivilege::SALES_ORDER_VIEW);
+//        $viewRights = ErpPrivilege::salesCheck(ErpPrivilege::SALES_ORDER_VIEW);
 //        if (!$viewRights){
 //            $criteria = new CDbCriteria();
 //            $criteria->compare('salesman_id', Yii::app()->user->id);
@@ -60,7 +60,7 @@ class BackSales extends BillForm
 //    }
     
     public function defaultScope(){
-        if (!PssPrivilege::salesCheck(PssPrivilege::SALES_ORDER_VIEW)){
+        if (!ErpPrivilege::salesCheck(ErpPrivilege::SALES_ORDER_VIEW)){
             return array(
                 'condition' => 'salesman_id=:salesman_id OR back_id=:back_id',
                 'params' => array(':salesman_id' => Yii::app()->user->id, ':back_id' => Yii::app()->user->id),
@@ -74,7 +74,7 @@ class BackSales extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_back_sales';
+		return 'erp_back_sales';
 	}
     
     public function beforeValidate(){

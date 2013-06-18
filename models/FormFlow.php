@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_form_flow".
+ * This is the model class for table "erp_form_flow".
  *
- * The followings are the available columns in table 'pss_form_flow':
+ * The followings are the available columns in table 'erp_form_flow':
  * @property integer $id
  * @property string $form_name
  * @property integer $flow_id
@@ -26,8 +26,8 @@ class FormFlow extends ActiveRecord
 	}
 	
     public function afterFind(){
-        $this->_flow = PssFlow::getFlowById($this->flow_id);
-        $nodes = PssFlow::getNodeByFlowId($this->flow_id);
+        $this->_flow = ErpFlow::getFlowById($this->flow_id);
+        $nodes = ErpFlow::getNodeByFlowId($this->flow_id);
         foreach ($nodes as $node){
             
             switch ($node['type']){
@@ -49,7 +49,7 @@ class FormFlow extends ActiveRecord
      * @param unknown_type $uid
      */
     public function getIsApply(){
-        $bool = PssFlow::checkStartApproveAuthority($this->flow_id);
+        $bool = ErpFlow::checkStartApproveAuthority($this->flow_id);
         return $bool;
     }
     
@@ -76,7 +76,7 @@ class FormFlow extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_form_flow';
+		return 'erp_form_flow';
 	}
     
     public static function getLeftMenuList(){
@@ -117,13 +117,13 @@ class FormFlow extends ActiveRecord
         }
         
         $approve_link = array(
-            'SalesOrder'      => "/pss/sales/view&id=", 
-            'BuyOrder'        => "/pss/buy/view&id=", 
-            'StockIn'         => "/pss/stockin/view&id=", 
-            'StockOut'        => "/pss/stockout/view&id=", 
-            'StockAllocate'   => "/pss/stockallocate/view&id=", 
-            'BackSales'       => "/pss/backsales/view&id=", 
-            'BackBuy'         => "/pss/backbuy/view&id=",
+            'SalesOrder'      => "/erp/sales/view&id=", 
+            'BuyOrder'        => "/erp/buy/view&id=", 
+            'StockIn'         => "/erp/stockin/view&id=", 
+            'StockOut'        => "/erp/stockout/view&id=", 
+            'StockAllocate'   => "/erp/stockallocate/view&id=", 
+            'BackSales'       => "/erp/backsales/view&id=", 
+            'BackBuy'         => "/erp/backbuy/view&id=",
         );
         
         return $approve_link[$form_name].$id;
@@ -215,7 +215,7 @@ class FormFlow extends ActiveRecord
 	public static function getFlows($form_name){
 	    $res_array = array();
         //审批流程绑定表单查询
-        $result = Yii::app()->db->createCommand()->select("cf.id as flow_id,pff.form_name,pff.flow_id,cf.name")->from('pss_form_flow pff')
+        $result = Yii::app()->db->createCommand()->select("cf.id as flow_id,pff.form_name,pff.flow_id,cf.name")->from('erp_form_flow pff')
               ->leftJoin('core_flow cf', 'cf.id=pff.flow_id')
               ->where('cf.is_history=0 and cf.deleted=0 and pff.form_name="'.$form_name.'"')->queryAll();
               

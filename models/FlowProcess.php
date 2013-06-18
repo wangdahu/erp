@@ -58,7 +58,7 @@ class FlowProcess{
      */
     public static function updateNodeStatus($task_id, $node_id, $status) {
         if (!is_numeric($task_id) || !is_numeric($status) || !is_numeric($node_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         $param = array(':task_id' => $task_id, ':node_id' => $node_id);
         return Yii::app()->db->createCommand()->update('core_flow_process', array('status' => $status), "task_id = :task_id AND node_id = :node_id", $param);

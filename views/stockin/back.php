@@ -2,9 +2,9 @@
 $this->renderPartial('../_stockTop');
 
 $this->widget('zii.widgets.CMenu', array('htmlOptions' => array('class' => 'simpleTab'), 'items' => array(
-        array('label' => '入库单', 'url' => array('/pss/stockin/index')),
-        array('label' => '入库产品', 'url' => array('/pss/stockin/item')),
-        array('label' => '采购退货', 'url' => array('/pss/stockin/back')),
+        array('label' => '入库单', 'url' => array('/erp/stockin/index')),
+        array('label' => '入库产品', 'url' => array('/erp/stockin/item')),
+        array('label' => '采购退货', 'url' => array('/erp/stockin/back')),
 )));
 
 $form = $this->beginWidget('ActiveForm', array(
@@ -60,8 +60,8 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::buyCheck(PssPrivilege::BUY_BACK)){
-    echo CHtml::link('新添退货', array('/pss/backbuy/create'), array('class' => 'button'));
+if (ErpPrivilege::buyCheck(ErpPrivilege::BUY_BACK)){
+    echo CHtml::link('新添退货', array('/erp/backbuy/create'), array('class' => 'button'));
 }
 ?>
 </div>
@@ -72,7 +72,7 @@ $gridView = $this->widget('zii.widgets.grid.CGridView', array(
     'emptyText'=>'无销售单信息',
     'columns'=>array(
         //array('name'=>'id', 'value'=>'$data->id'),
-        array('name'=>'no', 'type'=>'raw', 'value'=>'CHtml::link($data->no, array("/pss/backbuy/view", "id" => $data->id))'),
+        array('name'=>'no', 'type'=>'raw', 'value'=>'CHtml::link($data->no, array("/erp/backbuy/view", "id" => $data->id))'),
         array('name'=>'关联采购单号', 'value'=>'$data->buyOrder->no ? $data->buyOrder->no : "无"'),
         array('name'=>'supplier_name', 'value'=>'$data->supplier_name'),
         array('name'=>'total_price', 'value'=>'$data->total_price'),

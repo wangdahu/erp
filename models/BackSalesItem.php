@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_back_sales_item".
+ * This is the model class for table "erp_back_sales_item".
  *
- * The followings are the available columns in table 'pss_back_sales_item':
+ * The followings are the available columns in table 'erp_back_sales_item':
  * @property integer $id
  * @property integer $back_sales_id
  * @property integer $product_id
@@ -37,7 +37,7 @@ class BackSalesItem extends BillFormItem
 	 */
 	public function tableName()
 	{
-		return 'pss_back_sales_item';
+		return 'erp_back_sales_item';
 	}
 
 	/**

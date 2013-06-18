@@ -41,6 +41,6 @@ $form = $this->beginWidget('ActiveForm', array(
         array('name'=>'paidPrice', 'value'=>'$data->paidPrice', 'headerHtmlOptions'=>array('class'=>'span3')),
         array('header'=>'未付金额', 'value'=>'$data->notPaidPrice', 'headerHtmlOptions'=>array('class'=>'span3')),
         array('header'=>'最近付款时间', 'value'=>'$data->lastPayTime ? date("Y-m-d H:i", $data->lastPayTime) : "--"', 'headerHtmlOptions'=>array('class'=>'span4')),
-        array('header'=>'操作', 'type'=>'raw', 'value'=>'CHtml::link("结算", array("/pss/finance/chargeout", "id"=>"$data->id"), array("class" => "js-dialog-link"))', 'headerHtmlOptions'=>array('class'=>'span1')),
+        array('header'=>'操作', 'type'=>'raw', 'value'=>'CHtml::link("结算", array("/erp/finance/chargeout", "id"=>"$data->id"), array("class" => "js-dialog-link"))', 'headerHtmlOptions'=>array('class'=>'span1')),
     ),
 ));?>

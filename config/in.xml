@@ -2,13 +2,13 @@
 <menus>
 
   <menu>
-    <key>pss</key>
+    <key>erp</key>
     <name>进销存</name>
-    <url>/pss/sales/index</url>
-    <icon_mini>icon/in/pss_mini.png</icon_mini>
-    <icon_active>icon/in/pss_active.png</icon_active>
-    <icon_normal>icon/in/pss_normal.png</icon_normal>
-    <icon_hover>icon/in/pss_hover.png</icon_hover>
+    <url>/erp/sales/index</url>
+    <icon_mini>icon/in/erp_mini.png</icon_mini>
+    <icon_active>icon/in/erp_active.png</icon_active>
+    <icon_normal>icon/in/erp_normal.png</icon_normal>
+    <icon_hover>icon/in/erp_hover.png</icon_hover>
   </menu>
 
 </menus>

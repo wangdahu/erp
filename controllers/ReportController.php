@@ -1,13 +1,13 @@
 <?php
 
-class ReportController extends PssController{
+class ReportController extends ErpController{
     
     public $layout = '//layouts/column1';
     
     public $defaultAction = 'sales';
     
     public function init(){
-        if (!PssPrivilege::otherCheck(PssPrivilege::REPORT_VIEW)){
+        if (!ErpPrivilege::otherCheck(ErpPrivilege::REPORT_VIEW)){
             throw new CHttpException(403, '无权限查看 <a href="javascript:" onclick="history.go(-1); ">返回上一步</a>');
         }
         parent::init();
@@ -47,7 +47,7 @@ class ReportController extends PssController{
         switch ($type){
             case 'user':
                 $criteria->group = 'salesman_id';
-                $model = new PssUser($scenario);
+                $model = new ErpUser($scenario);
                 $model->hasSalesOrder();
                 break;
             case 'department':

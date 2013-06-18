@@ -70,7 +70,7 @@ $form = $this->beginWidget('ActiveForm',
                     <?=$form->dropDownList($model, 'partner_type', $model->partnerTypeOptions, array('class' => 'span2'));?>
                     <?=$form->textField($model, 'partner_name', array('readonly' => true));?>
                     <?=$form->hiddenField($model, 'partner_id');?>
-                    <a id="partner-search" data-id="select-partner" class="js-dialog-link" href="<?=$this->createUrl('/pss/customer/popup')?>">查找</a>
+                    <a id="partner-search" data-id="select-partner" class="js-dialog-link" href="<?=$this->createUrl('/erp/customer/popup')?>">查找</a>
                 </div>
                 <?=$form->error($model, 'partner_id');?>
             </div>
@@ -127,7 +127,7 @@ function populateData(data){
 
 $(function(){
     var panel = $("#billing_item"),
-        urls = ["<?=$this->createUrl('/pss/customer/popup')?>", "<?=$this->createUrl('/pss/supplier/popup')?>"];
+        urls = ["<?=$this->createUrl('/erp/customer/popup')?>", "<?=$this->createUrl('/erp/supplier/popup')?>"];
     $(":radio[name='Billing[type]']").change(function(){
         var row = $($('tbody', panel)[0].rows[0]), selector = this.value == '0' ? ':lt(3)' : ':gt(2)';
         row.find('select').html($('#item_options option').filter(selector).clone());

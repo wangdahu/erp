@@ -42,7 +42,7 @@ $is_view = Yii::app()->controller->action->id == "view";?>
                         if(!$is_update) echo CHtml::link("删除", array('create'))."&nbsp;&nbsp;";
                     }
                     if(!$is_update){
-                        echo CHtml::link("选择已有采购单", array('/pss/buy/popup'), array('class'=>'js-dialog-link'));
+                        echo CHtml::link("选择已有采购单", array('/erp/buy/popup'), array('class'=>'js-dialog-link'));
                     }
                     ?>
                 </div>
@@ -69,10 +69,10 @@ $is_view = Yii::app()->controller->action->id == "view";?>
                     <?php echo $form->hiddenField($model,'supplier_id'); ?>
                 </div>&nbsp;
                 <?php echo CHtml::htmlButton('选择已有供应商', array('class' => 'js-dialog-link button', 'data-id'=>'select-supplier',
-                        'disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/pss/supplier/popup')));?>
+                        'disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/erp/supplier/popup')));?>
                 &nbsp;
                 <?php echo CHtml::htmlButton('添加供应商', array('class' => 'js-dialog-link button', 
-                        'disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/pss/supplier/create')));?>
+                        'disabled' => $model->isBindOrder, 'data-href' => $this->createUrl('/erp/supplier/create')));?>
                 <?php echo $form->error($model,'supplier_name'); ?>&nbsp;&nbsp;
                 
             </div>
@@ -197,7 +197,7 @@ $is_view = Yii::app()->controller->action->id == "view";?>
             <?php echo $form->labelEx($model, 'back_name');?>
             <div class="item">
                 <div class="main">
-                    <?php echo $form->textField($model,'back_name', !PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN) ? array('readonly'=>true) : array('class' => 'js-complete')); ?>
+                    <?php echo $form->textField($model,'back_name', !ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN) ? array('readonly'=>true) : array('class' => 'js-complete')); ?>
                     <?php echo $form->hiddenField($model,'back_id'); ?>
                 </div>
                 <?php echo $form->error($model,'back_id'); ?>

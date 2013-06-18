@@ -3,9 +3,9 @@ $this->renderPartial('../_stockTop');
 ?>
 
 <?$this->widget('zii.widgets.CMenu', array('htmlOptions' => array('class' => 'simpleTab'), 'items' => array(
-        array('label' => '入库单', 'url' => array('/pss/stockin/index')),
-        array('label' => '入库产品', 'url' => array('/pss/stockin/item')),
-        array('label' => '采购退货', 'url' => array('/pss/stockin/back')),
+        array('label' => '入库单', 'url' => array('/erp/stockin/index')),
+        array('label' => '入库产品', 'url' => array('/erp/stockin/item')),
+        array('label' => '采购退货', 'url' => array('/erp/stockin/back')),
 )));
 ?>
 
@@ -58,8 +58,8 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <div class="main-panel">
 <?php
-if (PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
-    echo CHtml::link('新添入库单', array('/pss/stockin/create'), array('class' => 'button'));
+if (ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
+    echo CHtml::link('新添入库单', array('/erp/stockin/create'), array('class' => 'button'));
 }
 ?>
 </div>

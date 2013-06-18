@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_product_brand".
+ * This is the model class for table "erp_product_brand".
  *
- * The followings are the available columns in table 'pss_product_brand':
+ * The followings are the available columns in table 'erp_product_brand':
  * @property integer $id
  * @property string $name
  * @property string $remark
@@ -40,7 +40,7 @@ class ProductBrand extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_product_brand';
+		return 'erp_product_brand';
 	}
 
 	/**

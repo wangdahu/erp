@@ -24,7 +24,7 @@ class FlowTask{
      */
     public static function getTaskInfoById($task_id) {
         if (!is_numeric($task_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->from('core_flow_task')->where('id = :id', array(':id' => $task_id))->queryRow();
     }
@@ -49,7 +49,7 @@ class FlowTask{
             $result = Yii::app()->db->createCommand()
                     ->select("pff.form_name,cft.sms_notice,cf.id as flow_id,cft.user_id,
                              cft.created,cf.name as flow_name,pff.form_name as sms_content,pff.form_name as json_data")
-                    ->from('pss_form_flow pff')
+                    ->from('erp_form_flow pff')
                     ->join('core_flow cf', 'cf.id=pff.flow_id')
                     ->join('core_flow_node cfn', 'cfn.flow_id=cf.id')
                     ->join('core_flow_task cft', 'cft.flow_id=cf.id')
@@ -57,7 +57,7 @@ class FlowTask{
                     ->queryRow();
             return $result;
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -67,7 +67,7 @@ class FlowTask{
      */
     public static function getTaskListByFlowId($flow_id) {
         if (!is_numeric($flow_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         } else {
             return Yii::app()->db->createCommand()->from('core_flow_task')->where('flow_id = :flow_id', array(':flow_id' => $flow_id))->queryAll();
         }
@@ -93,7 +93,7 @@ class FlowTask{
      */
     public static function updateTaskStatus($task_id, $status) {
         if (!is_numeric($task_id) || !is_numeric($status)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->update('core_flow_task', array('status' => $status), "id = :id", array(':id' => $task_id));
     }

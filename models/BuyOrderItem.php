@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_buy_order_item".
+ * This is the model class for table "erp_buy_order_item".
  *
- * The followings are the available columns in table 'pss_buy_order_item':
+ * The followings are the available columns in table 'erp_buy_order_item':
  * @property integer $id
  * @property integer $order_id
  * @property integer $product_id
@@ -36,7 +36,7 @@ class BuyOrderItem extends BillFormItem
 	 */
 	public function tableName()
 	{
-		return 'pss_buy_order_item';
+		return 'erp_buy_order_item';
 	}
 
 	/**

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_customer_linkman".
+ * This is the model class for table "erp_customer_linkman".
  *
- * The followings are the available columns in table 'pss_customer_linkman':
+ * The followings are the available columns in table 'erp_customer_linkman':
  * @property integer $id
  * @property integer $customer_id
  * @property string $name
@@ -39,7 +39,7 @@ class CustomerLinkman extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_customer_linkman';
+		return 'erp_customer_linkman';
 	}
 	
 	/**

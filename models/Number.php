@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_number".
+ * This is the model class for table "erp_number".
  *
- * The followings are the available columns in table 'pss_number':
+ * The followings are the available columns in table 'erp_number':
  * @property integer $id
  * @property string $no
  */
@@ -24,7 +24,7 @@ class Number extends ActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'pss_number';
+		return 'erp_number';
 	}
 
 	/**

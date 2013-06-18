@@ -14,7 +14,7 @@ class FlowNodeRelate {
         if (is_numeric($node_id)) {
             return Yii::app()->db->createCommand()->from('core_flow_node_relate')->where('node_id = :node_id AND deleted = 0', array(':node_id' => $node_id))->queryAll();
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -25,7 +25,7 @@ class FlowNodeRelate {
      */
     public static function delRelateByNodeId($node_id) {
         if (!is_numeric($node_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->update('core_flow_node_relate', array('deleted' => 1), 'node_id = :node_id', array(':node_id' => $node_id));
     }
@@ -47,7 +47,7 @@ class FlowNodeRelate {
      */
     public static function insertRelate($param) {
         if (empty($param) && !is_array($param)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         Yii::app()->db->createCommand()->insert('core_flow_node_relate', $param);
         return Yii::app()->db->lastInsertID;

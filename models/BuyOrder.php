@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_buy_order".
+ * This is the model class for table "erp_buy_order".
  *
- * The followings are the available columns in table 'pss_buy_order':
+ * The followings are the available columns in table 'erp_buy_order':
  * @property integer $id
  * @property string $no
  * @property integer $user_id
@@ -70,7 +70,7 @@ class BuyOrder extends BillForm
 //	public function beforeFind(){
 //	    parent::beforeFind();
 //	
-//	    $viewRights = PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_VIEW);
+//	    $viewRights = ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_VIEW);
 //	    if (!$viewRights){
 //	        $criteria = new CDbCriteria();
 //	        $criteria->compare('buyer_id', Yii::app()->user->id);
@@ -79,7 +79,7 @@ class BuyOrder extends BillForm
 //	}
 	
 	public function defaultScope(){
-        if (!PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_VIEW)){
+        if (!ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_VIEW)){
             return array(
                 'condition' => 'buyer_id=:buyer_id',
                 'params' => array(':buyer_id' => Yii::app()->user->id),
@@ -97,7 +97,7 @@ class BuyOrder extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_buy_order';
+		return 'erp_buy_order';
 	}
 
 	/**
@@ -239,7 +239,7 @@ class BuyOrder extends BillForm
             //通过审批的采购单
             'hasPass' => array(
                 'condition' => 't.approval_status=:approval_status',
-                'params' => array(':approval_status' => PssFlow::APPROVAL_PASS),
+                'params' => array(':approval_status' => ErpFlow::APPROVAL_PASS),
             ),
         );
     }
@@ -248,10 +248,10 @@ class BuyOrder extends BillForm
     
         $rows = $this->getDbConnection()->createCommand()
             ->select("boi.id, boi.product_id, SUM(boi.quantity) AS quantity, IFNULL(SUM(sii.quantity), 0) AS inQuantity")
-            ->from("pss_buy_order_item boi")
-            ->join("pss_buy_order bo", "boi.order_id=bo.id")
-            ->leftJoin("pss_stock_in si", "bo.id=si.buy_order_id")
-            ->leftJoin("pss_stock_item sii", "sii.form_id=si.id AND sii.type=0")
+            ->from("erp_buy_order_item boi")
+            ->join("erp_buy_order bo", "boi.order_id=bo.id")
+            ->leftJoin("erp_stock_in si", "bo.id=si.buy_order_id")
+            ->leftJoin("erp_stock_item sii", "sii.form_id=si.id AND sii.type=0")
             ->having("quantity>inQuantity")
             ->group("boi.id, boi.product_id")->queryAll();
         $ids = array(0);

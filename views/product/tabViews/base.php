@@ -6,7 +6,7 @@
             <div class="main">
            <?php echo $form->dropDownList($model, 'cate_id', array('' => '选择分类') + $model->cateListData, array('class'=>'small')); ?>
            <?php 
-           if (PssPrivilege::otherCheck(PssPrivilege::SETTING)){
+           if (ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){
                echo CHtml::link('添加分类', array('cate', 'popup'=>1), array('class'=>'js-dialog-link'));
            }
            ?>
@@ -25,7 +25,7 @@
             <div class="main">
            <?php echo $form->dropDownList($model, 'unit_id', array('' => '选择单位') + $model->unitListData, array('class'=>'small')); ?>
            <?php
-           if(PssPrivilege::otherCheck(PssPrivilege::SETTING)){ 
+           if(ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){ 
                echo CHtml::link('添加单位', array('unit', 'popup'=>1), array('class'=>'js-dialog-link'));
            }?>
            <span class="hint">产品度量单位，如“台、套、KG、CM”等</span>
@@ -42,7 +42,7 @@
             <div class="main">
            <?php echo $form->dropDownList($model, 'brand_id', array('' => '选择品牌') + $model->brandListData, array('class'=>'small')); ?>
            <?php
-           if(PssPrivilege::otherCheck(PssPrivilege::SETTING)){ 
+           if(ErpPrivilege::otherCheck(ErpPrivilege::SETTING)){ 
                echo CHtml::link('添加品牌', array('brand', 'popup'=>1), array('class'=>'js-dialog-link'));
            }?>
            <span class="hint">产品的品牌名称</span>

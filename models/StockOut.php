@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_stock_out".
+ * This is the model class for table "erp_stock_out".
  *
- * The followings are the available columns in table 'pss_stock_out':
+ * The followings are the available columns in table 'erp_stock_out':
  * @property integer $id
  * @property string $no
  * @property integer $user_id
@@ -33,7 +33,7 @@ class StockOut extends BillForm
 {
     
     public function defaultScope(){
-        if (!PssPrivilege::stockCheck(PssPrivilege::STOCK_VIEW) && PssPrivilege::stockCheck(PssPrivilege::STOCK_ADD)){
+        if (!ErpPrivilege::stockCheck(ErpPrivilege::STOCK_VIEW) && ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADD)){
             return array(
                 'condition' => 'out_id=:out_id',
                 'params' => array(':out_id' => Yii::app()->user->id),
@@ -65,7 +65,7 @@ class StockOut extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_stock_out';
+		return 'erp_stock_out';
 	}
 
 	/**

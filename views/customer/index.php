@@ -1,5 +1,5 @@
 <?php 
-Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css');
+Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/erp.css');
 ?>
     <div class="main-title-big  radius-top">
     	<h3>客户管理</h3>
@@ -14,11 +14,11 @@ Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css')
     <!-- 列表信息start -->
     <div class="main-panel">
     <?php
-    if (PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_CREATE)){
-        echo Html5::link('新添客户', array('/pss/customer/create'), array('class' => 'button highlight'));
+    if (ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_CREATE)){
+        echo Html5::link('新添客户', array('/erp/customer/create'), array('class' => 'button highlight'));
     }
-    if (PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_ADMIN)){
-        echo Html5::link('删除', array('/pss/customer/delete'), array('id' => 'customer_delete', 'class' => 'button'));
+    if (ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_ADMIN)){
+        echo Html5::link('删除', array('/erp/customer/delete'), array('id' => 'customer_delete', 'class' => 'button'));
     }
     ?>
     </div>
@@ -69,7 +69,7 @@ Yii::app()->clientScript->registerCssfile($this->module->assetsUrl . '/pss.css')
                     return false;
                 }
                 $.confirm("您确认要删除所选客户? ", function(){
-                    $.post("<?=$this->createUrl("/pss/customer/delete")?>", ids, function(json){
+                    $.post("<?=$this->createUrl("/erp/customer/delete")?>", ids, function(json){
                         if(json.status == 1){
                             location.reload();
                         }else{

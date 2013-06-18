@@ -15,7 +15,7 @@ class FlowNode{
             $sql = 'SELECT MAX(id) FROM core_flow_node WHERE flow_id = :flow_id AND deleted = 0 AND type = 2';
             return Yii::app()->db->createCommand($sql)->queryScalar(array(':flow_id' => $flow_id));
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -26,11 +26,11 @@ class FlowNode{
      */
     public static function getNextNode($task_id, $current_node) {
         if (!is_numeric($task_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         $flow_id = self::getFlowIdByNode($current_node);
         if (!is_numeric($flow_id)) {
-            return PssFlow::GET_CURRENT_FlOW_ERROR;
+            return ErpFlow::GET_CURRENT_FlOW_ERROR;
         }
         $sql = "SELECT id FROM core_flow_node WHERE flow_id = :flow_id AND id > :id AND deleted = 0 AND type = 0 LIMIT 1";
         return Yii::app()->db->createCommand($sql)->queryScalar(array(':flow_id' => $flow_id, ':id' => $current_node));
@@ -46,7 +46,7 @@ class FlowNode{
             return Yii::app()->db->createCommand()->from('core_flow_node')
                             ->where('flow_id = :flow_id AND deleted = 0 AND type = 0', array(':flow_id' => $flow_id))->queryAll();
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -57,7 +57,7 @@ class FlowNode{
      */
     public static function delNodeById($node_id) {
         if (!is_numeric($node_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->update('core_flow_node', array('deleted' => 1), 'id = :node_id', array(':node_id' => $node_id));
     }
@@ -69,7 +69,7 @@ class FlowNode{
      */
     public static function insertNode($param) {
         if (empty($param) && !is_array($param)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         Yii::app()->db->createCommand()->insert('core_flow_node', $param);
         return Yii::app()->db->lastInsertID;
@@ -96,7 +96,7 @@ class FlowNode{
      */
     public static function getFlowIdByNode($node_id) {
         if (!is_numeric($node_id)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->select('flow_id')->from('core_flow_node')
                         ->where('deleted = 0 AND id = :id', array(':id' => $node_id))->queryScalar();
@@ -112,7 +112,7 @@ class FlowNode{
             $sql = 'SELECT MAX(id) FROM core_flow_node WHERE flow_id = :flow_id AND deleted = 0 AND type = 0';
             return Yii::app()->db->createCommand($sql)->queryScalar(array(':flow_id' => $flow_id));
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -126,7 +126,7 @@ class FlowNode{
             return Yii::app()->db->createCommand()->from('core_flow_node')
                             ->where('flow_id = :flow_id AND deleted = 0', array(':flow_id' => $flow_id))->queryAll();
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     
@@ -139,7 +139,7 @@ class FlowNode{
         if (is_numeric($node_id)) {
             return Yii::app()->db->createCommand('SELECT ignored FROM core_flow_node WHERE id = :node_id AND deleted = 0')->queryScalar(array(':node_id' => $node_id));
         } else {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
     }
     

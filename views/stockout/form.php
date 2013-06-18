@@ -41,7 +41,7 @@
                         if(Yii::app()->controller->action->id == "create") echo CHtml::link("删除", array('create'))."&nbsp;&nbsp;";
                     }
                     if(Yii::app()->controller->action->id == "create"){
-                        echo CHtml::link("选择已有销售单", array('/pss/sales/popup'), array('class'=>'js-dialog-link', 'data-title' => '导入销售单',));
+                        echo CHtml::link("选择已有销售单", array('/erp/sales/popup'), array('class'=>'js-dialog-link', 'data-title' => '导入销售单',));
                     }
                     ?>
                 </div>
@@ -68,12 +68,12 @@
                     <?php echo $form->hiddenField($model,'customer_id'); ?>
                 </div>&nbsp;
                 <?php echo CHtml::htmlButton('选择已有客户', array('class' => 'js-dialog-link button', 'data-id'=>'select-customer',
-                        'disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/customer/popup')));?>
+                        'disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/customer/popup')));?>
                 &nbsp;
                 <?php 
-                if (PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_CREATE)){
+                if (ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_CREATE)){
                     echo CHtml::htmlButton('添加客户', array('class' => 'js-dialog-link button', 
-                        'disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/pss/customer/create')));
+                        'disabled' => $model->isBindOrder || $is_view, 'data-href' => $this->createUrl('/erp/customer/create')));
                 }
                 ?>
                 <?php echo $form->error($model,'customer_name'); ?>&nbsp;&nbsp;
@@ -186,7 +186,7 @@
             <?php echo $form->labelEx($model, 'out_name');?>
             <div class="item">
                 <div class="main">
-                    <?php echo $form->textField($model,'out_name', PssPrivilege::stockCheck(PssPrivilege::STOCK_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
+                    <?php echo $form->textField($model,'out_name', ErpPrivilege::stockCheck(ErpPrivilege::STOCK_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'out_id'); ?>
                 </div>
                 <?php echo $form->error($model,'out_name'); ?>

@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0104)http://phpmyadmin:90/db_datadict.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php -->
+<!-- saved from url=(0104)http://phpmyadmin:90/db_datadict.php?db=erp&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <link rel="icon" href="http://phpmyadmin:90/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="http://phpmyadmin:90/favicon.ico" type="image/x-icon">
-    <title>phpmyadmin:90 / localhost / pss | phpMyAdmin 3.3.9</title>
-    <link rel="stylesheet" type="text/css" href="./pss-database_files/phpmyadmin.css.php">
-    <link rel="stylesheet" type="text/css" href="./pss-database_files/print.css" media="print">
+    <title>phpmyadmin:90 / localhost / erp | phpMyAdmin 3.3.9</title>
+    <link rel="stylesheet" type="text/css" href="./erp-database_files/phpmyadmin.css.php">
+    <link rel="stylesheet" type="text/css" href="./erp-database_files/print.css" media="print">
     <meta name="robots" content="noindex,nofollow">
 <script type="text/javascript">
 //<![CDATA[
@@ -25,13 +25,13 @@ catch(e) {
 }
 //]]>
 </script>
-<script src="./pss-database_files/tooltip.js" type="text/javascript"></script>
+<script src="./erp-database_files/tooltip.js" type="text/javascript"></script>
 <script type="text/javascript">
 // <![CDATA[
 // Updates the title of the frameset if possible (ns4 does not allow this)
 if (typeof(parent.document) != 'undefined' && typeof(parent.document) != 'unknown'
     && typeof(parent.document.title) == 'string') {
-    parent.document.title = 'phpmyadmin:90 / localhost / pss | phpMyAdmin 3.3.9';
+    parent.document.title = 'phpmyadmin:90 / localhost / erp | phpMyAdmin 3.3.9';
 }
 
 var PMA_messages = new Array();
@@ -52,13 +52,13 @@ window.parent.addEvent(window, 'load', PMA_TT_init);
 
 <body>
     <div id="serverinfo">
-<a href="http://phpmyadmin:90/main.php?token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./pss-database_files/s_host.png" width="16" height="16" alt=""> 
+<a href="http://phpmyadmin:90/main.php?token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./erp-database_files/s_host.png" width="16" height="16" alt=""> 
 localhost:3307</a>
-        <span class="separator"><img class="icon" src="./pss-database_files/item_ltr.png" width="5" height="9" alt="-"></span>
-<a href="http://phpmyadmin:90/db_structure.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./pss-database_files/s_db.png" width="16" height="16" alt=""> 
-pss</a>
+        <span class="separator"><img class="icon" src="./erp-database_files/item_ltr.png" width="5" height="9" alt="-"></span>
+<a href="http://phpmyadmin:90/db_structure.php?db=erp&token=4e2ac3430db7f775b5a6f2cad9782c8d" class="item">        <img class="icon" src="./erp-database_files/s_db.png" width="16" height="16" alt=""> 
+erp</a>
 </div><div>
-<h2>pss_back_buy</h2>
+<h2>erp_back_buy</h2>
 表注释: 采购退货单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -89,7 +89,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>是</td>
     <td nowrap="nowrap"><i>NULL</i></td>
-            <td>外键，关联pss_buy_order.id</td>
+            <td>外键，关联erp_buy_order.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -262,7 +262,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_back_buy_detail</h2>
+<h2>erp_back_buy_detail</h2>
 表注释: 采购退货明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -285,7 +285,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_back_buy.id</td>
+            <td>外键，关联erp_back_buy.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -293,7 +293,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -354,7 +354,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_back_sales</h2>
+<h2>erp_back_sales</h2>
 表注释: 销售退货单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -377,7 +377,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>是</td>
     <td nowrap="nowrap"><i>NULL</i></td>
-            <td>外键，关联pss_sales_order.id</td>
+            <td>外键，关联erp_sales_order.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -558,7 +558,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_back_sales_detail</h2>
+<h2>erp_back_sales_detail</h2>
 表注释: 销售退货明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -581,7 +581,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_back_sales.id</td>
+            <td>外键，关联erp_back_sales.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -589,7 +589,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -650,7 +650,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_buy_assignment</h2>
+<h2>erp_buy_assignment</h2>
 表注释: 采购分配表<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -686,7 +686,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_buy_order</h2>
+<h2>erp_buy_order</h2>
 表注释: 采购单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -882,7 +882,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_buy_order_detail</h2>
+<h2>erp_buy_order_detail</h2>
 表注释: 采购单明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -905,7 +905,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_buy_order.id</td>
+            <td>外键，关联erp_buy_order.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -913,7 +913,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -974,7 +974,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_customer</h2>
+<h2>erp_customer</h2>
 表注释: 客户表<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1114,7 +1114,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_customer_linkman</h2>
+<h2>erp_customer_linkman</h2>
 表注释: 客户联系人<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1137,7 +1137,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_customer.id</td>
+            <td>外键，关联erp_customer.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -1230,7 +1230,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_product</h2>
+<h2>erp_product</h2>
 表注释: 产品<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1418,7 +1418,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_product_brand</h2>
+<h2>erp_product_brand</h2>
 表注释: 产品品牌<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1462,7 +1462,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_product_cate</h2>
+<h2>erp_product_cate</h2>
 表注释: 产品分类<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1498,7 +1498,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_product_detail</h2>
+<h2>erp_product_detail</h2>
 表注释: 产品明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1590,7 +1590,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_product_unit</h2>
+<h2>erp_product_unit</h2>
 表注释: 产品单位<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1634,7 +1634,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_sales_order</h2>
+<h2>erp_sales_order</h2>
 表注释: 销售单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1830,7 +1830,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_sales_order_detail</h2>
+<h2>erp_sales_order_detail</h2>
 表注释: 销售单明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -1853,7 +1853,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_sales_order.id</td>
+            <td>外键，关联erp_sales_order.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -1861,7 +1861,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -1922,7 +1922,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_stock_allocate</h2>
+<h2>erp_stock_allocate</h2>
 表注释: 调拨单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2014,7 +2014,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_stock_detail</h2>
+<h2>erp_stock_detail</h2>
 表注释: 入库/出库/调拨 明细<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2037,7 +2037,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，pss_stock_in或pss_stock_out或pss_stock_allocate的主键</td>
+            <td>外键，erp_stock_in或erp_stock_out或erp_stock_allocate的主键</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -2053,7 +2053,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -2061,7 +2061,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_storehouse.id</td>
+            <td>外键，关联erp_storehouse.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -2122,7 +2122,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_stock_in</h2>
+<h2>erp_stock_in</h2>
 表注释: 入库单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2302,7 +2302,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_stock_out</h2>
+<h2>erp_stock_out</h2>
 表注释: 出货单<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2482,7 +2482,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_stock_pile</h2>
+<h2>erp_stock_pile</h2>
 表注释: 库存表<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2505,7 +2505,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_product.id</td>
+            <td>外键，关联erp_product.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -2513,7 +2513,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap">0</td>
-            <td>外键，关联pss_storehouse.id</td>
+            <td>外键，关联erp_storehouse.id</td>
 </tr>
         <tr class="even">
     <td nowrap="nowrap">
@@ -2526,7 +2526,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_storehouse</h2>
+<h2>erp_storehouse</h2>
 表注释: 仓库表<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2610,7 +2610,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_supplier</h2>
+<h2>erp_supplier</h2>
 表注释: 供应商表<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2718,7 +2718,7 @@ pss</a>
         </tbody></table>
 </div>
     <div style="page-break-before: always;">
-<h2>pss_supplier_linkman</h2>
+<h2>erp_supplier_linkman</h2>
 表注释: 供应商联系人<br><br>
 <table width="100%" class="print">
 <tbody><tr><th width="50">字段</th>
@@ -2741,7 +2741,7 @@ pss</a>
     <td nowrap="nowrap" xml:lang="en" dir="ltr">int(11)</td>
     <td>否</td>
     <td nowrap="nowrap"></td>
-            <td>外键，关联pss_supplier.id</td>
+            <td>外键，关联erp_supplier.id</td>
 </tr>
         <tr class="odd">
     <td nowrap="nowrap">
@@ -2850,13 +2850,13 @@ function printPage()
 //<![CDATA[
 // updates current settings
 if (window.parent.setAll) {
-    window.parent.setAll('zh-utf-8', 'utf8_general_ci', '1', 'pss', 'pss_supplier_linkman', '4e2ac3430db7f775b5a6f2cad9782c8d');
+    window.parent.setAll('zh-utf-8', 'utf8_general_ci', '1', 'erp', 'erp_supplier_linkman', '4e2ac3430db7f775b5a6f2cad9782c8d');
 }
     // set current db, table and sql query in the querywindow
 if (window.parent.reload_querywindow) {
     window.parent.reload_querywindow(
-        'pss',
-        'pss_supplier_linkman',
+        'erp',
+        'erp_supplier_linkman',
         '');
 }
     
@@ -2877,8 +2877,8 @@ if (window.parent.frame_content) {
 //]]>
 </script>
 <div id="selflink" class="print_ignore">
-<a href="http://phpmyadmin:90/index.php?goto=db_structure.php&db=pss&server=1&target=db_datadict.php&token=4e2ac3430db7f775b5a6f2cad9782c8d" title="打开新 phpMyAdmin 窗口" target="_blank"><img class="icon" src="./pss-database_files/window-new.png" alt="打开新 phpMyAdmin 窗口"></a>
+<a href="http://phpmyadmin:90/index.php?goto=db_structure.php&db=erp&server=1&target=db_datadict.php&token=4e2ac3430db7f775b5a6f2cad9782c8d" title="打开新 phpMyAdmin 窗口" target="_blank"><img class="icon" src="./erp-database_files/window-new.png" alt="打开新 phpMyAdmin 窗口"></a>
 </div>
 
 
-<div id="window-resizer-tooltip" style="display: block; "><a href="http://phpmyadmin:90/db_datadict.php?db=pss&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png); "></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1456</span> x <span class="tooltipHeight" id="winHeight">876</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">753</span></div></body></html>
+<div id="window-resizer-tooltip" style="display: block; "><a href="http://phpmyadmin:90/db_datadict.php?db=erp&token=4e2ac3430db7f775b5a6f2cad9782c8d&goto=db_structure.php#" title="Edit settings" style="background-image: url(chrome-extension://kkelicaakdanhinjdeammmilcgefonfh/images/icon_19.png); "></a><span class="tooltipTitle">Window size: </span><span class="tooltipWidth" id="winWidth">1456</span> x <span class="tooltipHeight" id="winHeight">876</span><br><span class="tooltipTitle">Viewport size: </span><span class="tooltipWidth" id="vpWidth">1440</span> x <span class="tooltipHeight" id="vpHeight">753</span></div></body></html>

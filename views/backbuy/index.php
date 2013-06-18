@@ -53,8 +53,8 @@ $form = $this->beginWidget('ActiveForm', array(
 
 <!--<div class="main-panel">-->
 <?php
-//if (PssPrivilege::stockCheck(PssPrivilege::BUY_BACK)){
-//    echo CHtml::link('新添退货', array('/pss/backSales/create'), array('class' => 'button'));
+//if (ErpPrivilege::stockCheck(ErpPrivilege::BUY_BACK)){
+//    echo CHtml::link('新添退货', array('/erp/backSales/create'), array('class' => 'button'));
 //}
 ?>
 

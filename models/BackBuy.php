@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "pss_back_buy".
+ * This is the model class for table "erp_back_buy".
  *
- * The followings are the available columns in table 'pss_back_buy':
+ * The followings are the available columns in table 'erp_back_buy':
  * @property integer $id
  * @property string $no
  * @property integer $order_id
@@ -37,7 +37,7 @@ class BackBuy extends BillForm
 //    public function beforeFind(){
 //        parent::beforeFind();
 //    
-//        $viewRights = PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_VIEW);
+//        $viewRights = ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_VIEW);
 //        if (!$viewRights){
 //            $criteria = new CDbCriteria();
 //            $criteria->compare('buyer_id', Yii::app()->user->id);
@@ -47,7 +47,7 @@ class BackBuy extends BillForm
 //    }
     
     public function defaultScope(){
-        if (!PssPrivilege::buyCheck(PssPrivilege::BUY_ORDER_VIEW)){
+        if (!ErpPrivilege::buyCheck(ErpPrivilege::BUY_ORDER_VIEW)){
             return array(
                 'condition' => 'buyer_id=:buyer_id OR back_id=:back_id',
                 'params' => array(':buyer_id' => Yii::app()->user->id, ':back_id' => Yii::app()->user->id),
@@ -121,7 +121,7 @@ class BackBuy extends BillForm
 	 */
 	public function tableName()
 	{
-		return 'pss_back_buy';
+		return 'erp_back_buy';
 	}
 
 	/**

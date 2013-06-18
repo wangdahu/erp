@@ -1,9 +1,9 @@
 <?php
 
-class AssignController extends PssController{
+class AssignController extends ErpController{
 
     public function actionDelete($id, $type){
-        $model = $type == 1 ? PssRole::model()->find($id) : PssUser::model()->find($id);
+        $model = $type == 1 ? ErpRole::model()->find($id) : ErpUser::model()->find($id);
         if ($model != null){
             foreach ($model->getBuyAssignments() as $assigment){
                 $assigment->delete();
@@ -66,7 +66,7 @@ class AssignController extends PssController{
         }
     
         $buyers = array();
-        foreach (PssRole::model()->findAll() as $role){
+        foreach (ErpRole::model()->findAll() as $role){
             if ($role->hasBuyAssignment()){
                 $actor = new stdClass();
                 $actor->id = $role->id;
@@ -81,7 +81,7 @@ class AssignController extends PssController{
             }
         }
     
-        foreach (PssUser::model()->findAll() as $user){
+        foreach (ErpUser::model()->findAll() as $user){
             if ($user->hasBuyAssignment()){
                 $actor = new stdClass();
                 $actor->id = $user->id;
@@ -108,7 +108,7 @@ class AssignController extends PssController{
     }
     
     public function actionUpdate($id, $type){
-        $model = $type == 1 ? PssRole::model()->find($id) : PssUser::model()->find($id);
+        $model = $type == 1 ? ErpRole::model()->find($id) : ErpUser::model()->find($id);
         
         if(isset($_POST['product_id'])){
             BuyAssignment::model()->deleteAll("assign_id=$id and type=$type");

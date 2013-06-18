@@ -1,6 +1,6 @@
 <?php
 
-class StorehouseController extends PssController
+class StorehouseController extends ErpController
 {
     
 

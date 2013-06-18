@@ -45,11 +45,11 @@
                     <?php echo $form->textField($model,'customer_name', array('readonly'=>true)); ?>
                     <?php echo $form->hiddenField($model,'customer_id'); ?>
                 </div>&nbsp;
-                <?php echo CHtml::link('选择已有客户', array('/pss/customer/popup'), array('class' => 'js-dialog-link button', 'data-id'=>'select-customer'));?>
+                <?php echo CHtml::link('选择已有客户', array('/erp/customer/popup'), array('class' => 'js-dialog-link button', 'data-id'=>'select-customer'));?>
                 &nbsp;
                 <?php 
-                if (PssPrivilege::customerCheck(PssPrivilege::CUSTOMER_CREATE)){
-                    echo CHtml::link('添加客户', array('/pss/customer/create'), array('class' => 'js-dialog-link button'));
+                if (ErpPrivilege::customerCheck(ErpPrivilege::CUSTOMER_CREATE)){
+                    echo CHtml::link('添加客户', array('/erp/customer/create'), array('class' => 'js-dialog-link button'));
                 }
                 ?>
                 <?php echo $form->error($model,'customer_name'); ?>&nbsp;&nbsp;
@@ -185,7 +185,7 @@
             <?php echo $form->labelEx($model, 'salesman');?>
             <div class="item">
                 <div class="main">
-                    <?php echo $form->textField($model,'salesman', PssPrivilege::salesCheck(PssPrivilege::SALES_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
+                    <?php echo $form->textField($model,'salesman', ErpPrivilege::salesCheck(ErpPrivilege::SALES_ADMIN) ? array('class' => 'js-complete') : array('readonly' => true)); ?>
                     <?php echo $form->hiddenField($model,'salesman_id'); ?>
                 </div>
                 <?php echo $form->error($model,'salesman'); ?>

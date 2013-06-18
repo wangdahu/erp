@@ -13,7 +13,7 @@ class FlowUserBind{
      */
     public static function bindDeptList($uid) {
         if (!is_numeric($uid)) {
-            return PssFlow::PARSE_PARAM_ERROR;
+            return ErpFlow::PARSE_PARAM_ERROR;
         }
         return Yii::app()->db->createCommand()->select('dept_id')->from('core_flow_user_bind')->where('uid = :uid', array(':uid' => $uid))->queryAll();
     }

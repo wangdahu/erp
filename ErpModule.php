@@ -1,6 +1,6 @@
 <?php
 
-class PssModule extends WebModule
+class ErpModule extends WebModule
 {
     public $defaultController = 'sales';
 	public function init()
@@ -11,8 +11,8 @@ class PssModule extends WebModule
 		// import the module-level models and components
 		parent::init();
 		$this->setImport(array(
-			'pss.models.*',
-			'pss.components.*',
+			'erp.models.*',
+			'erp.components.*',
 		));
 	}
 
